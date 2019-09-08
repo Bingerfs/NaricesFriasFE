@@ -1,1 +1,8 @@
-<p>adoptados works!</p>
+<h2>En Adopcion</h2>
+<div class=perro *ngFor="let adoptado of adoptados">
+    <p class="row">Tamaño: <span class="dato">{{ adoptado.tamagno }} </span> </p>
+    <p class="row">Edad: <span class="dato"> {{ adoptado.edad }} </span> </p>
+    <p class="row">Genero: <span class="dato">{{ adoptado.genero }} </span> </p>
+    <p class="row">Esterilizacion: <span class="dato">{{ adoptado.esterilizacion }} </span> </p>
+    <p class="row">Telefono: <span class="dato">{{ adoptado.telefono }} </span> </p>
+</div>
