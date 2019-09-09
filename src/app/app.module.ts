@@ -10,6 +10,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BuscadosComponent } from './buscados/buscados.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginBarComponent,
     BottomBarComponent,
-    AdoptadosComponent
+    AdoptadosComponent,
+    BuscadosComponent
   ],
   imports: [
     BrowserModule,
