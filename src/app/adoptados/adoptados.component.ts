@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ADOPTADOS} from '../mock-adoptados'
-import { Adoptado } from '../adoptado';
+import { Adoptados } from '../adoptados';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-adoptados',
@@ -9,6 +10,7 @@ import { Adoptado } from '../adoptado';
 })
 export class AdoptadosComponent implements OnInit
 {
+  public rows: Array<Adoptados>
   adoptados = ADOPTADOS;
 
   /*
@@ -18,9 +20,13 @@ export class AdoptadosComponent implements OnInit
   this.selectedAdoptado = adoptado;
   }*/
 
-  constructor() { }
+  constructor(public apiService:ApiService) { }
 
   ngOnInit() {
+    this.apiService.getAdoptados("adoptados").subscribe((data : Adoptados[])=>{
+      console.log(data);
+      this.rows=data;
+    });
   }
 
 }

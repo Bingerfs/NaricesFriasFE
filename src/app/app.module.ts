@@ -8,6 +8,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginBarComponent } from './login-bar/login-bar.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
+import { ApiService } from './api.service'
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -21,10 +23,11 @@ import { AdoptadosComponent } from './adoptados/adoptados.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   exports: [HomeComponent],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
