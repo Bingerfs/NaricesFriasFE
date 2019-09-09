@@ -6,7 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HomeComponent } from './home/home.component';
 import { LoginBarComponent } from './login-bar/login-bar.component';
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
+
 
 @NgModule({
   declarations: [
@@ -14,6 +16,7 @@ import { AdoptadosComponent } from './adoptados/adoptados.component';
     NavigationBarComponent,
     HomeComponent,
     LoginBarComponent,
+    BottomBarComponent,
     AdoptadosComponent
   ],
   imports: [
