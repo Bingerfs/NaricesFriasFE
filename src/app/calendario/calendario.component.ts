@@ -12,7 +12,6 @@ evento1:Calendario= {
   
   titulo: 'evento 1',
   descripcion: 'descripcion evento 1',
-  
   fecha: "11/02/2019"
 };
 
