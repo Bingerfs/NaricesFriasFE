@@ -5,11 +5,13 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HomeComponent } from './home/home.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { SigninComponent } from './signin/signin.component';
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
 
 const routes: Routes = [
   { path: "home", component: HomeComponent},
   { path: "adoptados", component: AdoptadosComponent },
-  { path: "signin", component: SigninComponent }
+  { path: "signin", component: SigninComponent },
+  { path: "crearAdoptado", component: AdoptadosCreateComponent }
 ];
 
 @NgModule({

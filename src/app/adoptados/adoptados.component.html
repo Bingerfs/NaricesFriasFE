@@ -1,5 +1,10 @@
 <div class="container">
     <div class="row">
+            <div class="col align-self-end">
+            <button type="button" class="btn btn-warning" [routerLink]="['/crearAdoptado']">Registrar</button>
+            </div>
+    </div>
+    <div class="row">
         <h2>En Adopcion</h2>
         <div class="col 4" *ngFor="let row of rows">
             <div class="perro">
