@@ -12,7 +12,8 @@ import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule } from '@angular/forms'
-import { AngularTokenModule } from 'angular-token'
+import { AngularTokenModule } from 'angular-token';
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AngularTokenModule } from 'angular-token'
     LoginBarComponent,
     BottomBarComponent,
     AdoptadosComponent,
-    SigninComponent
+    SigninComponent,
+    AdoptadosCreateComponent
   ],
   imports: [
     BrowserModule,
