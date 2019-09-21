@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink, Router } from '@angular/router';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-login-bar',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private tokenService: AngularTokenService) { }
 
   ngOnInit() {
+  }
+
+  salir(){
+    this.tokenService.signOut().subscribe();
   }
 
 }

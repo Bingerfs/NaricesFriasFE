@@ -10,6 +10,9 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SigninComponent } from './signin/signin.component';
+import { FormsModule } from '@angular/forms'
+import { AngularTokenModule } from 'angular-token'
 
 
 @NgModule({
@@ -19,15 +22,24 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginBarComponent,
     BottomBarComponent,
-    AdoptadosComponent
+    AdoptadosComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AngularTokenModule.forRoot({
+      apiBase: 'http://localhost:3000',
+      userTypes: [
+        {name: 'ADMIN', path: 'admin'}
+      ],
+    })
+
   ],
   exports: [HomeComponent],
-  providers: [ApiService],
+  providers: [ApiService, AngularTokenModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

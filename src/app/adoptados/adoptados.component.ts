@@ -12,6 +12,7 @@ export class AdoptadosComponent implements OnInit
 {
   public rows: Array<Adoptados>
   adoptados = ADOPTADOS;
+  
 
   /*
   selectedAdoptado: Adoptado;

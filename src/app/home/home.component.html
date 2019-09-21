@@ -5,20 +5,22 @@
       <div class="row justify-content-center">
         <div class="col-8 my-auto">
           <div>
-          <h1>Quienes somos?</h1>
+          <h1>¿Quienes Somos?</h1>
           <br>
           <div>
           <span>Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</span>
           </div>
+          <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
           <br>
           <h1>Requisitos de adopcion</h1>
           <br>
           <ul>
-            <li>a</li>
-            <li>b</li>
-            <li>c</li>
-            <li>d</li>
+            <li>Fotocopia de carnet</li>
+            <li>Factura de Luz</li>
+            <li>Formulario de adopcion llenado</li>
+            <li>compromiso de revisión</li>
           </ul>
+          <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
         </div>
         </div>
       </div>
