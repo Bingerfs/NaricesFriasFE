@@ -13,10 +13,17 @@
   padding: 0.8rem 1rem;
 }
 /* change the link color and add padding for height */
-.navbar-custom .navbar-nav .nav-link {
+.custom-nav-link{
   color: rgba(255,255,255,.5);
   padding: 1rem 1rem;
   border-left: 1px solid #d4d7d9;
+  border-right: 1px solid #d4d7d9;
+}
+
+
+.first-nav-link{
+  color: rgba(255,255,255,.5);
+  padding: 1rem 1rem;
   border-right: 1px solid #d4d7d9;
 }
 /* change the color of active or hovered links */

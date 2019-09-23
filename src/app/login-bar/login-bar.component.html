@@ -4,7 +4,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <button type="button" class="btn custom-btn">Soy voluntario</button>
+        <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" (click)="salir()">Sign out</button>
+      <button type="button" class="btn custom-btn" *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']">Soy voluntario</button>
     </ul>
     
   </div>

@@ -12,6 +12,10 @@ import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscadosComponent } from './buscados/buscados.component';
 import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
+import { SigninComponent } from './signin/signin.component';
+import { FormsModule } from '@angular/forms'
+import { AngularTokenModule } from 'angular-token';
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
 
 
 @NgModule({
@@ -23,15 +27,25 @@ import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.componen
     BottomBarComponent,
     AdoptadosComponent,
     BuscadosComponent,
-    BuscadoDetailComponent
+    BuscadoDetailComponent,
+    SigninComponent,
+    AdoptadosCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    AngularTokenModule.forRoot({
+      apiBase: 'http://localhost:3000',
+      userTypes: [
+        {name: 'ADMIN', path: 'admin'}
+      ],
+    })
+
   ],
   exports: [HomeComponent],
-  providers: [ApiService],
+  providers: [ApiService, AngularTokenModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

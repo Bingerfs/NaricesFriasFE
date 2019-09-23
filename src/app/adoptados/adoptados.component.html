@@ -1,12 +1,19 @@
 <div class="container">
     <div class="row">
+            <div class="col align-self-end">
+            <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
+            </div>
+    </div>
+    <div class="row">
         <h2>En Adopcion</h2>
-        <div class=perro *ngFor="let row of rows">
-            <p class="rowDog">Tamaño: <span class="dato">{{ row.tamagno }} </span> </p>
-            <p class="rowDog">Edad: <span class="dato"> {{ row.edad }} </span> </p>
-            <p class="rowDog">Genero: <span class="dato">{{ row.genero }} </span> </p>
-            <p class="rowDog">Esterilizacion: <span class="dato">{{ row.esterilizacion }} </span> </p>
-            <p class="rowDog">Telefono: <span class="dato">{{ row.telefono }} </span> </p>
+        <div class="col 4" *ngFor="let row of rows">
+            <div class="perro">
+                <p class="rowDog">Tamaño: <span class="dato">{{ row.tamagno }} </span> </p>
+                <p class="rowDog">Edad: <span class="dato"> {{ row.edad }} </span> </p>
+                <p class="rowDog">Genero: <span class="dato">{{ row.genero }} </span> </p>
+                <p class="rowDog">Esterilizacion: <span class="dato">{{ row.esterilizacion }} </span> </p>
+                <p class="rowDog">Telefono: <span class="dato">{{ row.telefono }} </span> </p>
+            </div>
         </div>
     </div>
 </div>
