@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ADOPTADOS} from '../mock-adoptados'
 import { Adoptados } from '../adoptados';
 import { ApiService } from '../api.service';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-adoptados',
@@ -21,7 +22,7 @@ export class AdoptadosComponent implements OnInit
   this.selectedAdoptado = adoptado;
   }*/
 
-  constructor(public apiService:ApiService) { }
+  constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
 
   ngOnInit() {
     this.apiService.getAdoptados("adoptados").subscribe((data : Adoptados[])=>{

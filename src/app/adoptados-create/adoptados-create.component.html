@@ -40,8 +40,8 @@
                 <div class="input-group mb-3">
                         <select class="custom-select" id="4" name="Esterelizacion" [(ngModel)]="adoptado.esteriliacion">
                           <option selected>Esterelizacion</option>
-                          <option value="true">Si</option>
-                          <option value="false">No</option>
+                          <option [value]="1">Si</option>
+                          <option [value]="0">No</option>
                         </select>
                 </div>
             </div>
