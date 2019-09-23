@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Buscado} from './buscado'
-import {BUSCADOS} from '../mock-buscados'
+import {Buscado} from './buscado';
+//import {BUSCADOS} from '../mock-buscados';
+import {BuscadoService} from '../buscado.service';
+
 @Component({
   selector: 'app-buscados',
   templateUrl: './buscados.component.html',
@@ -8,15 +10,22 @@ import {BUSCADOS} from '../mock-buscados'
 })
 export class BuscadosComponent implements OnInit {
 
-  buscados = BUSCADOS;
+  //buscados = BUSCADOS;
+  buscados: Buscado[];
   selectedBuscado: Buscado;
-  constructor() { }
+  constructor(private buscadoService: BuscadoService) { }
 
   ngOnInit() {
+    this.getBuscados();
   }
 
   onSelect(buscado: Buscado): void{
     this.selectedBuscado = buscado;
   }
+
+  getBuscados(): void {
+    this.buscadoService.getBuscados().subscribe(buscados => this.buscados = buscados)
+  }
+
 
 }
