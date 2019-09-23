@@ -10,11 +10,13 @@ import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.co
 import { AngularTokenService } from 'angular-token';
 
 const routes: Routes = [
+  { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent},
   { path: "adoptados", component: AdoptadosComponent},
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
-  {path: "buscados", component: BuscadosComponent}
+  {path: "buscados", component: BuscadosComponent},
+  { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] }
 ];
 
 @NgModule({
