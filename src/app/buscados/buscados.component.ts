@@ -9,9 +9,14 @@ import {BUSCADOS} from '../mock-buscados'
 export class BuscadosComponent implements OnInit {
 
   buscados = BUSCADOS;
+  selectedBuscado: Buscado;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onSelect(buscado: Buscado): void{
+    this.selectedBuscado = buscado;
   }
 
 }

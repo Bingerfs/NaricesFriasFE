@@ -1,13 +1,10 @@
 &nbsp;
+<app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
 <ul class="buscados">
     <div class="row">
-        <div class="col-md-4 border" *ngFor="let buscado of buscados">
+        <div class="col-md-4 border" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
             <h2>{{buscado.name}}</h2>
-            <p>Tamaño: {{buscado.size}}</p>
-            <p>Edad: {{buscado.age}}</p>
-            <p>Genero: {{buscado.gender}}</p>
-            <p>Contacto: {{buscado.contacto}}</p>
-            <a href="#">
+            <a>
                 <img class="col-md-4 border" class="img-responsive" src="./assets/images/3.jpg" />
             </a>
         </div>

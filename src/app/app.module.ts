@@ -11,6 +11,7 @@ import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscadosComponent } from './buscados/buscados.component';
+import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BuscadosComponent } from './buscados/buscados.component';
     LoginBarComponent,
     BottomBarComponent,
     AdoptadosComponent,
-    BuscadosComponent
+    BuscadosComponent,
+    BuscadoDetailComponent
   ],
   imports: [
     BrowserModule,
