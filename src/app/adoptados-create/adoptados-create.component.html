@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm">
+        <h2>Registro de Adopcion</h2>
+        </div>
+        <div class="col-sm">
+            <span>Logotipo</span>
+        </div>
+    </div>
+    <form (ngSubmit)="onSubmitCreate()">
+    <div class="row">
+            <div class="col-sm-4">
+            <span>Imagen</span>
+            </div>
+            <div class="col-sm-3">
+                <h3>Descripcion</h3>
+                <div class="input-group mb-3">
+                        <select class="custom-select" id="1" name="Tamanio" [(ngModel)]="adoptado.tamagno">
+                          <option selected>Tamanio</option>
+                          <option value="Pequenio">Pequenio</option>
+                          <option value="Mediano">Mediano</option>
+                          <option value="Grande">Grande</option>
+                        </select>
+                </div>
+                <div class="input-group mb-3">
+                        <select class="custom-select" id="2" name="Edad" [(ngModel)]="adoptado.edad">
+                          <option selected>Edad</option>
+                          <option value="Cachorro">Cachorro</option>
+                          <option value="Joven">Joven</option>
+                          <option value="Adulto">Adulto</option>
+                        </select>
+                </div>
+                <div class="input-group mb-3">
+                        <select class="custom-select" id="3" name="Genero" [(ngModel)]="adoptado.genero">
+                          <option selected>Genero</option>
+                          <option value="Hembra">Hembra</option>
+                          <option value="Macho">Macho</option>
+                        </select>
+                </div>
+                <div class="input-group mb-3">
+                        <select class="custom-select" id="4" name="Esterelizacion" [(ngModel)]="adoptado.esteriliacion">
+                          <option selected>Esterelizacion</option>
+                          <option [value]="1">Si</option>
+                          <option [value]="0">No</option>
+                        </select>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <h3>Descripcion</h3>
+                <input type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="adoptado.descripcion">
+                <label for="telefono">Telefono</label>
+                <br>
+                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="adoptado.telefono">
+            </div>
+            <div class="col-sm-1">
+                <span>Espacio</span>
+            </div>
+    </div>
+    <div class="row">
+            <div class="col align-self-end">
+                <input type="submit" class="btn btn-warning" value="Confirmar"/>
+            </div>
+        </div>
+    </form>
+</div>

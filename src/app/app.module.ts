@@ -10,9 +10,13 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BuscadosComponent } from './buscados/buscados.component';
+import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule } from '@angular/forms'
-import { AngularTokenModule } from 'angular-token'
+import { AngularTokenModule } from 'angular-token';
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
+import { AdoptadoDetailComponent } from './adoptado-detail/adoptado-detail.component'
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { AngularTokenModule } from 'angular-token'
     LoginBarComponent,
     BottomBarComponent,
     AdoptadosComponent,
-    SigninComponent
+    BuscadosComponent,
+    BuscadoDetailComponent,
+    SigninComponent,
+    AdoptadosCreateComponent,
+    AdoptadoDetailComponent
   ],
   imports: [
     BrowserModule,
