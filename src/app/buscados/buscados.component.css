@@ -11,3 +11,7 @@ img:hover {
     filter: gray;
     -webkit-filter: opacity(50%);
 }
+
+.top-buffer {
+    margin-top: 30px;
+}

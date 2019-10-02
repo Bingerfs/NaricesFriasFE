@@ -1,35 +1,35 @@
 <div class="container-fluid">
 
-  <div class="row custom-row">
-    <div class="col align-self-center">
-      <div class="row justify-content-center">
-        <div class="col-8 my-auto">
-          <div>
-          <h1>¿Quienes Somos?</h1>
-          <br>
-          <div>
-          <span>Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</span>
-          </div>
-          <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
-          <br>
-          <h1>Requisitos de adopcion</h1>
-          <br>
-          <ul>
-            <li>Fotocopia de carnet</li>
-            <li>Factura de Luz</li>
-            <li>Formulario de adopcion llenado</li>
-            <li>compromiso de revisión</li>
-          </ul>
-          <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+    <div class="row custom-row">
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-8 my-auto">
+                    <div>
+                        <h1>¿Quienes Somos?</h1>
+                        <br>
+                        <div>
+                            <span>Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</span>
+                        </div>
+                        <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+                        <br>
+                        <h1>Requisitos de adopcion</h1>
+                        <br>
+                        <ul>
+                            <li>Fotocopia de carnet</li>
+                            <li>Factura de Luz</li>
+                            <li>Formulario de adopcion llenado</li>
+                            <li>compromiso de revisión</li>
+                        </ul>
+                        <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-sm my-auto align-middle">
+            <div class="box h-100 d-flex justify-content-center flex-column">
+                <img class="img-responsive" src="./assets/images/logo.jpg" />
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-sm my-auto align-middle">
-        <div class="box h-100 d-flex justify-content-center flex-column">
-            <img src="https://i1.wp.com/bestlifeonline.com/wp-content/uploads/2018/06/sherlock-the-corgi.jpg?fit=500%2C375&ssl=1">
-          </div>
-    </div>
-  </div>
 
 </div>

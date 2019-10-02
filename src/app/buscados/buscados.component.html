@@ -1,14 +1,45 @@
-&nbsp;
-<app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
-<ul class="buscados">
+<h1>MASCOTAS EXTRAVIADAS</h1>
+<hr>
+<div class="contanier">
     <div class="row">
-        <div class="col-md-4 border" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
+        <div class="col-md-12">
+            <p>Filtrar por categoria</p>
+        </div>
+    </div>
+</div>
+<form class="form-inline">
+    <label class="my-1 mr-2" for="tam">Tamaño</label>
+    <select class="custom-select my-1 mr-sm-2" id="tam">
+            <option>Seleccionar...</option>
+            <option>Pequeño</option>
+            <option>Mediano</option>
+            <option>Grande</option>
+    </select>
+
+    <label class="my-1 mr-2" for="tam">Genero</label>
+    <select class="custom-select my-1 mr-sm-2" id="tam">
+                <option>Seleccionar...</option>
+                <option>Hembra</option>
+                <option>Macho</option>
+    </select>
+    <label class="my-1 mr-2" for="tam">Edad</label>
+    <select class="custom-select my-1 mr-sm-2" id="tam">
+                <option>Seleccionar...</option>
+                <option>Cachorro</option>
+                <option>Joven</option>
+                <option>Adulto</option>
+    </select>
+</form>
+
+<app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
+<ul class="buscados" class="top-buffer">
+    <div class="row ">
+        <div class="col-md-4 border form-group" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
             <h2>{{buscado.name}}</h2>
             <a>
-                <img class="col-md-4 border" class="img-responsive" src="./assets/images/{{buscado.id}}.jpg" />
+                <img class="col-md-4 " class="img-responsive" src="./assets/images/{{buscado.id}}.jpg" />
             </a>
         </div>
     </div>
 
 </ul>
-&nbsp;
