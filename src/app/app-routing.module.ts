@@ -5,6 +5,7 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HomeComponent } from './home/home.component';
 import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { BuscadosComponent } from './buscados/buscados.component';
+import { ExtraviadosComponent } from './extraviados/extraviados.component';
 import { SigninComponent } from './signin/signin.component';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
 import { AngularTokenService } from 'angular-token';
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: "adoptados", component: AdoptadosComponent},
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
-  {path: "buscados", component: BuscadosComponent}
+  {path: "buscados", component: BuscadosComponent},
+  {path: "extraviados", component: ExtraviadosComponent}
 ];
 
 @NgModule({

@@ -15,7 +15,9 @@ import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.componen
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
-import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
+import { ExtraviadosComponent } from './extraviados/extraviados.component';
+import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail.component'
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.co
     BuscadosComponent,
     BuscadoDetailComponent,
     SigninComponent,
-    AdoptadosCreateComponent
+    AdoptadosCreateComponent,
+    ExtraviadosComponent,
+    ExtraviadoDetailComponent
   ],
   imports: [
     BrowserModule,
