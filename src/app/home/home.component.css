@@ -1,3 +1,7 @@
-.custom-row{
+.custom-row {
     height: 100vh;
+}
+
+img {
+    max-width: 500px;
 }
