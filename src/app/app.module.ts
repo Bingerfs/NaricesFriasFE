@@ -17,7 +17,8 @@ import { FormsModule } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
 import { ExtraviadosComponent } from './extraviados/extraviados.component';
-import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail.component'
+import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail.component';
+import { ContactoComponent } from './contacto/contacto.component'
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail
     SigninComponent,
     AdoptadosCreateComponent,
     ExtraviadosComponent,
-    ExtraviadoDetailComponent
+    ExtraviadoDetailComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,
