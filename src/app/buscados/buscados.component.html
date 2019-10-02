@@ -1,8 +1,12 @@
-&nbsp;
-<app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
-<ul class="buscados">
+
+<div class="container">
     <div class="row">
-        <div class="col-md-4 border" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
+            <h3>Mascotas extraviadas</h3>
+            <app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
+    </div>
+<ul class="buscados">
+    <div class="row" *ngFor="let buscads of  matrix">
+        <div class="col-md-3 border" *ngFor="let buscado of buscads" (click)="onSelect(buscado)">
             <h2>{{buscado.name}}</h2>
             <a>
                 <img class="col-md-4 border" class="img-responsive" src="./assets/images/{{buscado.id}}.jpg" />
@@ -11,4 +15,4 @@
     </div>
 
 </ul>
-&nbsp;
+</div>
