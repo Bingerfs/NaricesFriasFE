@@ -19,4 +19,19 @@ export class ApiService {
     var endpoint = this.API_URL + path;
     return this.http.post(endpoint, body);
   }
+
+  public deleteAdoptado(path: string){
+    var endpoint = this.API_URL + path;
+    return this.http.delete(endpoint);
+  }
+
+  public getAdoptado(path: string){
+    var endpoint = this.API_URL + path;
+    return this.http.get(endpoint);
+  }
+
+  public updateAdoptado(path:string, body:any){
+    var endpoint = this.API_URL + path;
+    return this.http.put(endpoint, body);
+  }
 }

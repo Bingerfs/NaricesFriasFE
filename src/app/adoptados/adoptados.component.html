@@ -1,6 +1,7 @@
 <div class="container">
     <div class="row" class="topBuffer">
         <div class="col align-self-end">
+
             <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
         </div>
     </div>
@@ -15,5 +16,7 @@
                 <p class="rowDog">Telefono: <span class="dato">{{ row.telefono }} </span> </p>
             </div>
         </div>
-    </div>
+
+    </ul>
+    &nbsp;
 </div>

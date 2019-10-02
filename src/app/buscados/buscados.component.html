@@ -1,3 +1,4 @@
+
 <h2>Mascotas Extraviadas</h2>
 
 <hr>
@@ -36,6 +37,7 @@
 <ul class="buscados" class="top-buffer">
     <div class="row ">
         <div class="col-md-4 border form-group" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
+
             <h2>{{buscado.name}}</h2>
             <a>
                 <img class="col-md-4 " class="img-responsive" src="./assets/images/{{buscado.id}}.jpg" />
@@ -44,3 +46,4 @@
     </div>
 
 </ul>
+

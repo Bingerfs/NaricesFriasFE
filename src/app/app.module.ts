@@ -18,7 +18,8 @@ import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
 import { ExtraviadosComponent } from './extraviados/extraviados.component';
 import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail.component';
-import { ContactoComponent } from './contacto/contacto.component'
+import { ContactoComponent } from './contacto/contacto.component';
+import { AdoptadoDetailComponent } from './adoptado-detail/adoptado-detail.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ContactoComponent } from './contacto/contacto.component'
     AdoptadosCreateComponent,
     ExtraviadosComponent,
     ExtraviadoDetailComponent,
-    ContactoComponent
+    ContactoComponent,
+    AdoptadoDetailComponent
   ],
   imports: [
     BrowserModule,

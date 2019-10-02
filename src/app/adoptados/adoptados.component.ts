@@ -12,7 +12,7 @@ import { AngularTokenService } from 'angular-token';
 export class AdoptadosComponent implements OnInit
 {
   public rows: Array<Adoptados>
-  adoptados = ADOPTADOS;
+  selectedAdoptado: Adoptados;
   
 
   /*
@@ -29,6 +29,10 @@ export class AdoptadosComponent implements OnInit
       console.log(data);
       this.rows=data;
     });
+  }
+
+  onSelect(adoptado: Adoptados): void{
+    this.selectedAdoptado = adoptado;
   }
 
 }
