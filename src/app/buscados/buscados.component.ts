@@ -25,7 +25,7 @@ export class BuscadosComponent implements OnInit {
   }
 
   getBuscados(): void {
-    this.buscadoService.getBuscados().subscribe(buscados => this.buscados = buscados)
+    this.buscadoService.getBuscados().subscribe(buscados => this.buscados = buscados);
   }
 
 

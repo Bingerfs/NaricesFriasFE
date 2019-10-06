@@ -12,4 +12,8 @@ export class BuscadoService {
   getBuscados(): Observable<Buscado[]>{
     return of(BUSCADOS);
   }
+  getBuscado(id: number): Observable<Buscado>
+  {
+    return of(BUSCADOS.find(b => b.id == id));
+  }
 }

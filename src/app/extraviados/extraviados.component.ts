@@ -15,15 +15,15 @@ export class ExtraviadosComponent implements OnInit {
   constructor(private extraviadoService: ExtraviadoService) { }
 
   ngOnInit() {
-    this.getExtraviado();
+    this.getExtraviados();
   }
 
   onSelect(extraviado: Extraviado): void{
     this.selectedExtraviado = extraviado;
   }
 
-  getExtraviado(): void {
-    this.extraviadoService.getExtraviado().subscribe(extraviados => this.extraviados = extraviados)
+  getExtraviados(): void {
+    this.extraviadoService.getExtraviados().subscribe(extraviados => this.extraviados = extraviados)
   }
 
 

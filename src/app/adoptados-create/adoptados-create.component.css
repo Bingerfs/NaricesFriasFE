@@ -6,3 +6,8 @@ img.logo {
 .columnas {
     margin-left: 10px;
 }
+
+div.toRight {
+    float: right;
+    margin-right: 5em;
+}

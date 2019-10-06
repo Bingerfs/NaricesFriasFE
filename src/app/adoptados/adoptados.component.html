@@ -1,46 +1,55 @@
 <div class="container">
-        <h3>Mascotas en adopcion</h3>
-        <hr>
-        <div class="row">
-                <div class="col align-self-end">
-                <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
-                </div>
+    <div class="row">
+        <div class="col-md-6 align-self-center">
+            <h3>Mascotas en adopcion</h3>
         </div>
-        &nbsp;
-        <form class="form-inline">
+        <div class="col-md-6 align-self-end">
+            <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
+        </div>
+        <hr>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-auto">
+            <p class="thick">Filtrar por:</p>
+        </div>
+        <div class="col-md-auto">
+            <form class="form-inline">
                 <label class="my-1 mr-2" for="tam">Tamaño</label>
                 <select class="custom-select my-1 mr-sm-2" id="tam">
-                        <option>Seleccionar...</option>
-                        <option>Pequeño</option>
-                        <option>Mediano</option>
-                        <option>Grande</option>
-                </select>
-            
+                                    <option>Seleccionar...</option>
+                                    <option>Pequeño</option>
+                                    <option>Mediano</option>
+                                    <option>Grande</option>
+                            </select>
+
                 <label class="my-1 mr-2" for="tam">Genero</label>
                 <select class="custom-select my-1 mr-sm-2" id="tam">
-                            <option>Seleccionar...</option>
-                            <option>Hembra</option>
-                            <option>Macho</option>
-                </select>
+                                        <option>Seleccionar...</option>
+                                        <option>Hembra</option>
+                                        <option>Macho</option>
+                            </select>
                 <label class="my-1 mr-2" for="tam">Edad</label>
                 <select class="custom-select my-1 mr-sm-2" id="tam">
-                            <option>Seleccionar...</option>
-                            <option>Cachorro</option>
-                            <option>Joven</option>
-                            <option>Adulto</option>
-                </select>
+                                        <option>Seleccionar...</option>
+                                        <option>Cachorro</option>
+                                        <option>Joven</option>
+                                        <option>Adulto</option>
+                            </select>
             </form>
-        <app-adoptado-detail [adoptado]="selectedAdoptado"></app-adoptado-detail>
-        <ul class="adoptados">
-            <div class="row">
-                <div class="col-md-4 border" *ngFor="let row of rows" (click)="onSelect(row)">
-                    <h2>{{row.tamagno}}</h2>
-                    <a>
-                        <img class="col-md-4 border" class="img-responsive" src="./assets/images/3.jpg" />
-                    </a>
-                </div>
-            </div>
-    
-        </ul>
-        &nbsp;
+        </div>
     </div>
+    <app-adoptado-detail [adoptado]="selectedAdoptado"></app-adoptado-detail>
+    <ul class="adoptados">
+        <div class="row">
+            <div class="col-md-4 border" *ngFor="let row of rows" (click)="onSelect(row)">
+                <h2>{{row.tamagno}}</h2>
+                <a>
+                    <img class="col-md-4 border" class="img-responsive" src="./assets/images/3.jpg" />
+                </a>
+            </div>
+        </div>
+
+    </ul>
+    &nbsp;
+</div>
