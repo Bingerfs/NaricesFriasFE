@@ -10,6 +10,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { SigninComponent } from './signin/signin.component';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
 import { AngularTokenService } from 'angular-token';
+import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -17,9 +18,11 @@ const routes: Routes = [
   { path: "adoptados", component: AdoptadosComponent},
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
+  { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
-  {path: "contacto", component: ContactoComponent}
+  {path: "contacto", component: ContactoComponent},
+  {path: "registrar", component: CrearVoluntarioComponent, canActivate: [AngularTokenService]}
 ];
 
 @NgModule({
