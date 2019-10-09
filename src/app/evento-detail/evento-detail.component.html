@@ -1,0 +1,34 @@
+<div *ngIf="evento">
+
+    <h2 style="text-align:center;">{{evento.titulo | uppercase}}</h2>
+    <hr style="height:0pt; visibility:hidden;" />
+    <div>
+      <b>Lugar: </b>
+      <br>
+      {{evento.lugar}}
+      <br>
+      <br>
+    </div>
+      
+    <div>
+      <b>Hora: </b>
+      <br>
+      {{evento.hora}}
+      <br>
+      <br>
+    </div>
+
+    <div>
+        <b>Detalles: </b>
+        <br>
+        {{evento.descripcion}}
+        <br>
+        <br>
+      </div>
+
+    <!-- <label>Name:
+        <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+    </div> -->
+    
+</div>
