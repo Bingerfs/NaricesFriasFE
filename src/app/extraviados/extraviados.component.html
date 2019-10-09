@@ -1,4 +1,4 @@
-<div class="contanier">
+<div class="container" style="margin-top:30px">
 
     <div class="row">
         <div class="col-md-6">
@@ -7,7 +7,6 @@
         <div class="col-md-6 align-self-end">
             <button type="button" class="btn btn-warning" [routerLink]="['/crearAdoptado']">Registrar</button>
         </div>
-
     </div>
     <hr>
     <div class="row">
@@ -40,16 +39,20 @@
             </form>
         </div>
     </div>
+    <app-extraviado-detail [extraviado]="selectedExtraviado"></app-extraviado-detail>
+    <div class="row">
 
-    <!-- <app-extraviado-detail [extraviado]="selectedExtraviado"></app-extraviado-detail> -->
-    <ul class="buscados" class="top-buffer">
-        <div class="row ">
-            <div class="col-md-4 border form-group" *ngFor="let extraviado of extraviados" (click)="onSelect(extraviado)">
-                <h2>{{extraviado.name}}</h2>
-                <a routerLink="/extraviados/{{extraviado.id}}">
-                    <img class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{extraviado.id}}.jpg" />
-                </a>
+        <ul class="buscados" class="top-buffer">
+            <div class="row ">
+                <div class="col-md-4 border form-group" *ngFor="let extraviado of extraviados" (click)="onSelect(extraviado)">
+                    <h2>{{extraviado.name}}</h2>
+                    <a>
+                        <!-- <a routerLink="/extraviados/{{extraviado.id}}"> -->
+                        <img class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{extraviado.id}}.jpg" />
+                    </a>
+                </div>
             </div>
-        </div>
 
-    </ul>
+        </ul>
+    </div>
+</div>

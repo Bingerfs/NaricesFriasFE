@@ -45,7 +45,7 @@
             <div class="col-md-4 border" *ngFor="let row of rows" (click)="onSelect(row)">
                 <h2>{{row.tamagno}}</h2>
                 <a>
-                    <img class="col-md-4 border" class="img-responsive" src="./assets/images/3.jpg" />
+                    <img class="col-md-4 border" class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{row.id}}.jpg" />
                 </a>
             </div>
         </div>

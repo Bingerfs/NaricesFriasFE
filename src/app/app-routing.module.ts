@@ -12,18 +12,25 @@ import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.co
 import { AngularTokenService } from 'angular-token';
 import {ExtraviadoDetailComponent} from './extraviado-detail/extraviado-detail.component';
 import {BuscadoDetailComponent} from './buscado-detail/buscado-detail.component';
+import {AdoptadoDetailComponent} from './adoptado-detail/adoptado-detail.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent},
+
   { path: "adoptados", component: AdoptadosComponent},
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
+  { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
+
   {path: "extraviados/:id", component: ExtraviadoDetailComponent},
-  {path:"buscados/:id", component: BuscadoDetailComponent}
+  {path:"buscados/:id", component: BuscadoDetailComponent},
+  {path:"adoptados/:id", component: AdoptadoDetailComponent},
+
+
 ];
 
 @NgModule({

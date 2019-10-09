@@ -1,15 +1,12 @@
-<div class="contanier-fluid">
+<div class="container" style="margin-top:30px">
 
     <div class="row">
         <div class="col-md-6">
-            <h2>
-                Mascotas Extraviadas</h2>
-
+            <h2>Mascotas Extraviadas</h2>
         </div>
         <div class="col-md-6 align-self-end">
             <button type="button" class="btn btn-warning" [routerLink]="['/crearAdoptado']">Registrar</button>
         </div>
-
     </div>
     <hr>
     <div class="row">
@@ -42,19 +39,20 @@
             </form>
         </div>
     </div>
-</div>
+    <app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail>
+    <div class="row">
+        <ul class="buscados" class="top-buffer">
+            <div class="row ">
+                <div class="col-md-4 border form-group" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
 
+                    <h2>{{buscado.name}}</h2>
+                    <a>
 
-<!-- <app-buscado-detail [buscado]="selectedBuscado"></app-buscado-detail> -->
-<ul class="buscados" class="top-buffer">
-    <div class="row ">
-        <div class="col-md-4 border form-group" *ngFor="let buscado of buscados" (click)="onSelect(buscado)">
+                        <img class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{buscado.id}}.jpg" />
+                    </a>
+                </div>
+            </div>
 
-            <h2>{{buscado.name}}</h2>
-            <a routerLink="/buscados/{{buscado.id}}">
-                <img class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{buscado.id}}.jpg" />
-            </a>
-        </div>
+        </ul>
     </div>
-
-</ul>
+</div>

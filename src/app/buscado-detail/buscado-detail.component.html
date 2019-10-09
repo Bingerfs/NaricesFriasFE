@@ -1,16 +1,28 @@
-<div *ngIf="buscado">
+<div *ngIf="buscado" class="container" style="margin-top:30px">
+    <div class="row">
+        <div class="col-md-6">
+            <h2> Mascota Extraviada</h2>
+        </div>
+    </div>
     <div class="row ">
         <div class="col-md-6 align-content-end">
+            <img class="img-responsive" class="rounded" src="./assets/images/{{buscado.id}}.jpg" />
+        </div>
+        <div class="col-md-6 align-content-end border">
             <h2>{{buscado.name}}</h2>
             <p>Tamaño: {{buscado.size}}</p>
             <p>Edad: {{buscado.age}}</p>
             <p>Genero: {{buscado.gender}}</p>
             <p>Contacto: {{buscado.contacto}}</p>
+            <button type="button" class="btn btn-primary" (click)="edit(buscado.id)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="delete(buscado.id)">Borrar</button>
         </div>
-        <div class="col-md-6 align-content-end">
-            <img class="img-responsive" src="./assets/images/{{buscado.id}}.jpg" />
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6 align-self-center">
+            <button type="button" class="btn btn-warning" (click)="goBack()">volver</button>
         </div>
+
     </div>
 </div>
-
-<button type="button" class="btn btn-warning" (click)="goBack()">Volver</button>

@@ -1,13 +1,26 @@
-<div *ngIf="extraviado">
+<div *ngIf="extraviado" class="container" style="margin-top:30px">
     <div class="row">
-        <div class="col-md-6 ">
+        <div class="col-md-12">
+            <h2> Busco a mi familia</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 align-content-center">
+            <img class="img-responsive" class="rounded" src="./assets/images/{{extraviado.id}}.jpg" />
+        </div>
+        <div class="col-md-6 align-content-center border">
             <h2>{{extraviado.name}}</h2>
             <p>Tamaño: {{extraviado.size}}</p>
             <p>Edad: {{extraviado.age}}</p>
             <p>Genero: {{extraviado.gender}}</p>
             <p>Contacto: {{extraviado.contacto}}</p>
+            <button type="button" class="btn btn-primary" (click)="edit(extraviado.id)">Editar</button>
+            <button type="button" class="btn btn-danger" (click)="delete(extraviado.id)">Borrar</button>
         </div>
-        <img class="col-md-6" class="img-responsive" src="./assets/images/{{extraviado.id}}.jpg" />
+    </div>
+    <div class="row">
+        <div class="col-md-12 align-self-center">
+            <button type="button" class="btn btn-warning" (click)="goBack()">volver</button>
+        </div>
     </div>
 </div>
-<button type="button" class="btn btn-warning" (click)="goBack()">volver</button>
