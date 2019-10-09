@@ -1,0 +1,12 @@
+<div *ngIf="extraviado">
+    <div class="row">
+        <div class="col-md-6 ">
+            <h2>{{extraviado.name}}</h2>
+            <p>Tamaño: {{extraviado.size}}</p>
+            <p>Edad: {{extraviado.age}}</p>
+            <p>Genero: {{extraviado.gender}}</p>
+            <p>Contacto: {{extraviado.contacto}}</p>
+        </div>
+        <img class="col-md-6" class="img-responsive" src="./assets/images/{{extraviado.id}}.jpg" />
+    </div>
+</div>
