@@ -16,6 +16,8 @@ import { SigninComponent } from './signin/signin.component';
 import { FormsModule } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
+import { EventosComponent } from './eventos/eventos.component';
+import { EventoDetailComponent } from './evento-detail/evento-detail.component'
 import { ExtraviadosComponent } from './extraviados/extraviados.component';
 import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -35,6 +37,8 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
     BuscadoDetailComponent,
     SigninComponent,
     AdoptadosCreateComponent,
+    EventosComponent,
+    EventoDetailComponent,
     ExtraviadosComponent,
     ExtraviadoDetailComponent,
     ContactoComponent,

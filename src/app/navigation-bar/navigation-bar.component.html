@@ -1,21 +1,20 @@
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom p-0 sticky-top">
-  <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': navbarOpen }" >
-    <ul class="navbar-nav d-flex w-100">
-      <li class="nav-item flex-fill text-center">
-        <a class="nav-link first-nav-link" [routerLink]="['/home']">Home</a>
-      </li>
-      <li class="nav-item flex-fill text-center">
-        <a class="nav-link" [routerLink]="['/adoptados']">Adoptame</a>
-      </li>
-      <li class="nav-item dropdown flex-fill text-center">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Extravio
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': navbarOpen }">
+        <ul class="navbar-nav d-flex w-100">
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link first-nav-link" [routerLink]="['/home']">Home</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/adoptados']">Adoptame</a>
+            </li>
+            <li class="nav-item dropdown flex-fill text-center">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Extravíos
         </a>
+<<<<<<< HEAD
         <div class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" [routerLink]="['/extraviados']">Busco a mi familia</a>
           <a class="dropdown-item" [routerLink]="['/buscados']">Busco a mi mascota</a>
@@ -34,3 +33,19 @@
   </div>
 </nav>
 
+=======
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" [routerLink]="['/extraviados']">Busco a mi familia</a>
+                    <a class="dropdown-item" [routerLink]="['/buscados']">Busco a mi mascota</a>
+                </div>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" href="#">Eventos</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+>>>>>>> f2bc4a64932a0c7eaa8853a2213f6586acc9f59d

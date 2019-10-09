@@ -6,10 +6,16 @@ import {EXTRAVIADOS} from './mock-extraviados';
 @Injectable({
   providedIn: 'root'
 })
-export class ExtraviadoService {
+export class ExtraviadoService 
+{
 
   constructor() { }
-  getExtraviado(): Observable<Extraviado[]>{
+  getExtraviados(): Observable<Extraviado[]>
+  {
     return of(EXTRAVIADOS);
+  }
+  getExtraviado(id: number): Observable<Extraviado>
+  {
+    return of(EXTRAVIADOS.find(ex => ex.id == id));
   }
 }
