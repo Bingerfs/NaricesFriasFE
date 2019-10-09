@@ -16,7 +16,12 @@ export class BuscadoDetailComponent implements OnInit {
 
     @Input() buscado: Buscado;
 
-    constructor(private apiService:ApiService,private route: ActivatedRoute, private buscadoService: BuscadoService, private location: Location, private bus:BuscadosComponent,private router:Router) 
+    constructor(private apiService:ApiService,
+      private route: ActivatedRoute, 
+      private buscadoService: BuscadoService, 
+      private location: Location, 
+      private bus:BuscadosComponent,
+      private router:Router) 
     { 
 
     }
