@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm align-center">
+      <ul class="heroes">
+        <h2 style="text-align:center;">Octubre</h2>
+        <hr style="height:0pt; visibility:hidden;" />
+        <li *ngFor="let evento of eventos"
+        [class.selected]="evento === selectedEvento"
+        (click)="onSelect(evento) ">
+            <span class="badge">{{evento.fecha}}</span> {{evento.titulo}}
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm heroes">
+        <!-- <h2 style="text-align:center;">Detalle</h2> -->
+        <app-evento-detail [evento]="selectedEvento"></app-evento-detail>
+    </div>
+</div>
+</div>
+
+<!-- <div class="container">
+
+  <div class="row">
+      <div class="col-md-4 border">
+          <h2>{{evento.titulo}}</h2>
+          <p>Descripcion: {{evento.descripcion}}</p>
+          <p>Fecha: {{evento.fecha}}</p>
+      </div>
+     
+  </div>
+</div>
+ -->

@@ -13,7 +13,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SigninComponent } from './signin/signin.component';
 import { FormsModule } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
-import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component'
+import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
+import { EventosComponent } from './eventos/eventos.component';
+import { EventoDetailComponent } from './evento-detail/evento-detail.component'
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.co
     BottomBarComponent,
     AdoptadosComponent,
     SigninComponent,
-    AdoptadosCreateComponent
+    AdoptadosCreateComponent,
+    EventosComponent,
+    EventoDetailComponent
   ],
   imports: [
     BrowserModule,
