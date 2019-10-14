@@ -2,8 +2,9 @@ export class Adoptado
 {
     id: number;
     tamagno: string;
-    edad: number;
+    edad: string;
     genero: string;
-    esterilizacion: string;
+    esterilizacion: boolean;
     telefono: number;
+    description: Text;
 }

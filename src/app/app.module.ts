@@ -23,6 +23,8 @@ import { ExtraviadoDetailComponent } from './extraviado-detail/extraviado-detail
 import { ContactoComponent } from './contacto/contacto.component';
 import { AdoptadoDetailComponent } from './adoptado-detail/adoptado-detail.component';
 import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.component';
+import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
+import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-create.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
     ExtraviadoDetailComponent,
     ContactoComponent,
     AdoptadoDetailComponent,
-    CrearVoluntarioComponent
+    CrearVoluntarioComponent,
+    BuscadosCreateComponent,
+    ExtraviadosCreateComponent
   ],
   imports: [
     BrowserModule,

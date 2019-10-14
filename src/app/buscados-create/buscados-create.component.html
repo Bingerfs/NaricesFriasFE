@@ -1,7 +1,7 @@
 <div class="container-fluid" style="margin-top:30px">
     <div class="row">
         <div class="col-sm align-self-center">
-            <h2>Registro de Adopcion</h2>
+            <h2>Registro De Mascotas Buscadas</h2>
             <hr>
         </div>
         <div class="col-sm">
@@ -13,8 +13,8 @@
             <div class="col-sm-4 border">
                 <form>
                     <div class="form-group">
-                        <div *ngIf="adoptado.id; else photo">
-                            <img src="./assets/images/{{adoptado.id}}.jpg" class="profile" alt="">
+                        <div *ngIf="buscado.id; else photo">
+                            <img src="./assets/images/{{buscado.id}}.jpg" class="profile" alt="">
                         </div>
                         <ng-template #photo>
                             <img src="./assets/images/DogProfile.png" class="profile" alt="">
@@ -29,8 +29,12 @@
             <div class="col-sm-3">
                 <h3>Caracteristicas</h3>
                 <div class="form-group mb-3">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de la mascota" [(ngModel)]="buscado.name">
+                </div>
+                <div class="form-group mb-3">
                     <label for="1">Tamaño</label>
-                    <select class="custom-select" id="1" name="Tamanio" [(ngModel)]="adoptado.tamagno">
+                    <select class="custom-select" id="1" name="Tamanio" [(ngModel)]="buscado.size">
                           <option selected>Tamaño</option>
                           <option value="Pequeño">Pequeño</option>
                           <option value="Mediano">Mediano</option>
@@ -39,7 +43,7 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="2">Edad</label>
-                    <select class="custom-select" id="2" name="Edad" [(ngModel)]="adoptado.edad">
+                    <select class="custom-select" id="2" name="Edad" [(ngModel)]="buscado.age">
                           <option selected>Edad</option>
                           <option value="Cachorro">Cachorro</option>
                           <option value="Joven">Joven</option>
@@ -48,28 +52,21 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="3">Género</label>
-                    <select class="custom-select" id="3" name="Genero" [(ngModel)]="adoptado.genero">
+                    <select class="custom-select" id="3" name="Genero" [(ngModel)]="buscado.gender">
                           <option selected>Genero</option>
                           <option value="Hembra">Hembra</option>
                           <option value="Macho">Macho</option>
                         </select>
                 </div>
-                <div class="form-group mb-3">
-                    <label for="4">Esterilizacion</label>
-                    <select class="custom-select" id="4" name="Esterelizacion" [(ngModel)]="adoptado.esterilizacion">
-                          <option selected>Esterelizacion</option>
-                          <option [value]="true">Si</option>
-                          <option [value]="false">No</option>
-                        </select>
-                </div>
+
             </div>
             <div class="col-sm-4 ">
                 <h3>Descripcion</h3>
-                <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="adoptado.description"></textarea>
+                <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="buscado.description"></textarea>
                 <h3>Contacto</h3>
                 <label for="telefono">Telefono</label>
                 <br>
-                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="adoptado.telefono">
+                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="buscado.contact">
             </div>
             <div class="col-sm-1">
 

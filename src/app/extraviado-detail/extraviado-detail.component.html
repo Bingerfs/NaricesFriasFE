@@ -9,11 +9,11 @@
             <img class="img-responsive" class="rounded" src="./assets/images/{{extraviado.id}}.jpg" />
         </div>
         <div class="col-md-6 align-content-center border">
-            <h2>{{extraviado.name}}</h2>
             <p>Tamaño: {{extraviado.size}}</p>
             <p>Edad: {{extraviado.age}}</p>
-            <p>Genero: {{extraviado.gender}}</p>
-            <p>Contacto: {{extraviado.contacto}}</p>
+            <p>Género: {{extraviado.gender}}</p>
+            <p>Contacto: {{extraviado.contact}}</p>
+            <p>Descripción: {{extraviado.description}}</p>
             <button type="button" class="btn btn-primary" (click)="edit(extraviado.id)">Editar</button>
             <button type="button" class="btn btn-danger" (click)="delete(extraviado.id)">Borrar</button>
         </div>

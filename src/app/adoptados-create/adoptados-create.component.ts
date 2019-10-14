@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Adoptados } from '../adoptados';
 import { ApiService } from '../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-adoptados-create',
@@ -12,7 +13,7 @@ export class AdoptadosCreateComponent implements OnInit
 {
   public adoptado: Adoptados = new Adoptados();
 
-  constructor(public apiService: ApiService, private acRoute:ActivatedRoute, public router:Router)
+  constructor(public apiService: ApiService, private acRoute:ActivatedRoute, public router:Router, private location: Location)
   {
 
   }
@@ -36,17 +37,22 @@ export class AdoptadosCreateComponent implements OnInit
   onSubmitCreate()
   {
     if(this.adoptado.id){
-      this.apiService.updateAdoptado("adoptados/"+this.adoptado.id,this.adoptado).subscribe((r)=>{
-        this.router.navigateByUrl('/adoptados')
-      })
+        this.apiService.updateAdoptado("adoptados/"+this.adoptado.id,this.adoptado).subscribe((r)=>{
+          this.router.navigateByUrl('/adoptados')
+        })
       }
     else{
-      console.log("Agregar perro:" + this.adoptado.edad + this.adoptado.esteriliacion + this.adoptado.genero + this.adoptado.tamagno + this.adoptado.telefono );
-    this.apiService.createAdoptados("adoptados", this.adoptado).subscribe(
-      (r)=>{
-        console.log(r);
-      }
-    );
+        console.log("Agregar perro:" + this.adoptado.edad + this.adoptado.esteriliacion + this.adoptado.genero + this.adoptado.tamagno + this.adoptado.telefono );
+      this.apiService.createAdoptados("adoptados", this.adoptado).subscribe(
+        (r)=>{
+          console.log(r);
+        }
+      );
+     }
   }
-}
+
+  goBack(): void
+  {
+    this.location.back();
+  }
 }

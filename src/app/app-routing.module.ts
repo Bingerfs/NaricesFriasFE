@@ -15,6 +15,8 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
 import {ExtraviadoDetailComponent} from './extraviado-detail/extraviado-detail.component';
 import {BuscadoDetailComponent} from './buscado-detail/buscado-detail.component';
 import {AdoptadoDetailComponent} from './adoptado-detail/adoptado-detail.component';
+import {BuscadosCreateComponent} from './buscados-create/buscados-create.component';
+import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-create.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -31,7 +33,11 @@ const routes: Routes = [
   {path: "extraviados/:id", component: ExtraviadoDetailComponent},
   {path:"buscados/:id", component: BuscadoDetailComponent},
   {path:"adoptados/:id", component: AdoptadoDetailComponent},
-   { path: "calendario", component: EventosComponent }
+  { path: "calendario", component: EventosComponent },
+  {path: "crearBuscado",component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearBuscado/:id", component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearExtraviado",component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearExtraviado/:id", component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]}
 
 
 ];

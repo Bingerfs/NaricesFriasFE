@@ -2,6 +2,11 @@ export class Extraviado{
     id: number;
     size: string;
     age: string;
-    esterelizacion: boolean;
-    contacto: number;
+    gender: string;
+    description: Text;
+    esterilizacion: boolean;
+    contact: string;
 }
+
+
+

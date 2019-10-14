@@ -7,9 +7,10 @@
         <div class="col-md-6 border">
             <p>Tamaño: {{adoptado.tamagno}}</p>
             <p>Edad: {{adoptado.edad}}</p>
-            <p>Genero: {{adoptado.genero}}</p>
+            <p>Género: {{adoptado.genero}}</p>
             <p>Contacto: {{adoptado.telefono}}</p>
-            <p>Esterilizacion: {{adoptado.esteriliacion}}</p>
+            <p>Esterilización: {{adoptado.esterilizacion ? 'Si' : 'No'}}</p>
+            <p>Descripción: {{adoptado.description}}</p>
             <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn()" (click)="edit(adoptado.id)">Editar</button>
 
             <button type="button" class="btn btn-danger" *ngIf="tokenService.userSignedIn()" (click)="delete(adoptado.id)">Borrar</button>
