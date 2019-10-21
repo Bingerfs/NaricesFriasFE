@@ -12,6 +12,9 @@ import {Location} from '@angular/common';
 export class AdoptadosCreateComponent implements OnInit
 {
   public adoptado: Adoptados = new Adoptados();
+  public imgURL: string = './assets/images/DogProfile.png';
+
+  fileToUpload : File =null;
 
   constructor(public apiService: ApiService, private acRoute:ActivatedRoute, public router:Router, private location: Location)
   {
@@ -43,13 +46,49 @@ export class AdoptadosCreateComponent implements OnInit
       }
     else{
         console.log("Agregar perro:" + this.adoptado.edad + this.adoptado.esteriliacion + this.adoptado.genero + this.adoptado.tamagno + this.adoptado.telefono );
-      this.apiService.createAdoptados("adoptados", this.adoptado).subscribe(
+      
+        this.apiService.createAdoptados("adoptados", this.adoptado).subscribe(
         (r)=>{
           console.log(r);
         }
       );
      }
   }
+
+  handleFileInput(file: FileList)
+  {
+    this.fileToUpload = file.item(0);
+
+    var reader = new FileReader();
+    reader.onload = (event:any)=>{
+      this.imgURL = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
+  }
+
+  OnSubmit(Image)
+  {
+    this.apiService.postFile("adoptados",this.fileToUpload,this.adoptado.edad)
+    .subscribe(data =>{
+      console.log('Done');
+      Image.value = null;
+    });
+  }
+
+  /*preview(files) 
+  {
+    if (files.length === 0)
+      return;
+ 
+    var mimeType = files[0].type;
+ 
+    var reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]); 
+    reader.onload = (_event) => { 
+      this.imgURL = reader.result; 
+    }
+  }*/
 
   goBack(): void
   {

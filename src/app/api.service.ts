@@ -18,6 +18,7 @@ export class ApiService {
   {
     var endpoint = this.API_URL + path;
     return this.http.post(endpoint, body);
+    
   }
 
   public deleteAdoptado(path: string){
@@ -33,5 +34,15 @@ export class ApiService {
   public updateAdoptado(path:string, body:any){
     var endpoint = this.API_URL + path;
     return this.http.put(endpoint, body);
+  }
+  public postFile(path: string, fileToUpload: File, body: any)
+  {
+    var endpoint = this.API_URL + path;
+    var formData: FormData = new FormData();
+    formData.append('picture',fileToUpload,fileToUpload.name);
+    formData.append('edad',body);
+    console.log('Works so far');
+    console.log(formData.getAll("picture"));
+    return this.http.post<any>(endpoint,formData)
   }
 }

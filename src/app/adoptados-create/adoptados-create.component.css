@@ -1,6 +1,10 @@
 img.logo {
-    max-width: 100px;
-    margin-left: 700px;
+    max-width: 80px;
+    margin-left: 650px;
+}
+
+img.perfil {
+    max-width: 500px;
 }
 
 .columnas {
@@ -8,10 +12,23 @@ img.logo {
 }
 
 div.toRight {
-    float: right;
-    margin-right: 5em;
+    margin: 10px;
+}
+
+button {
+    margin: 10px;
 }
 
 img.profile {
-    max-width: 400px;
+    max-width: 350px;
+    padding: 10px;
+}
+
+.limit {
+    max-width: 450px;
+    max-height: 300px;
+}
+
+textarea {
+    height: 220px;
 }

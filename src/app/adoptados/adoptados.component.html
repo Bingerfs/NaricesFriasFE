@@ -1,7 +1,7 @@
 <div class="container" style="margin-top:30px">
     <div class="row">
         <div class="col-md-6 align-self-center">
-            <h3>Mascotas en adopcion</h3>
+            <h3 id="top">Mascotas en adopcion</h3>
         </div>
         <div class="col-md-6 align-self-end">
             <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
@@ -39,11 +39,14 @@
             </form>
         </div>
     </div>
-    <app-adoptado-detail [adoptado]="selectedAdoptado"></app-adoptado-detail>
+    <div class="row" style="margin: 20px;">
+        <app-adoptado-detail [adoptado]="selectedAdoptado"></app-adoptado-detail>
+    </div>
     <ul class="adoptados">
         <div class="row">
             <div class="col-md-4 border" *ngFor="let row of rows" (click)="onSelect(row)">
                 <h2>{{row.tamagno}}</h2>
+                <!-- <a data-target="#top"> -->
                 <a>
                     <img class="col-md-4 border" class="img-responsive img-thumbnail mx-auto d-block" src="./assets/images/{{row.id}}.jpg" />
                 </a>

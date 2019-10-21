@@ -25,6 +25,7 @@ import { AdoptadoDetailComponent } from './adoptado-detail/adoptado-detail.compo
 import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.component';
 import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
 import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-create.component';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-cre
     AdoptadoDetailComponent,
     CrearVoluntarioComponent,
     BuscadosCreateComponent,
-    ExtraviadosCreateComponent
+    ExtraviadosCreateComponent,
+    UploadImagesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,8 @@
 <div *ngIf="adoptado" class="container" style="margin-top:30px">
 
-    <div class="row">
+    <div class="row ">
         <div class="col-md-6">
-            <img class="col-md-6 border" class="img-responsive" src="./assets/images/{{adoptado.id}}.jpg" />
+            <img class="col-md-6 border img-fluid" src="./assets/images/{{adoptado.id}}.jpg" />
         </div>
         <div class="col-md-6 border">
             <p>Tamaño: {{adoptado.tamagno}}</p>
@@ -14,6 +14,8 @@
             <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn()" (click)="edit(adoptado.id)">Editar</button>
 
             <button type="button" class="btn btn-danger" *ngIf="tokenService.userSignedIn()" (click)="delete(adoptado.id)">Borrar</button>
+            <br>
+            <br>
         </div>
 
 

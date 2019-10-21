@@ -12,6 +12,8 @@ import {Location} from '@angular/common';
 export class ExtraviadosCreateComponent implements OnInit {
 
   public extraviado: Extraviado = new Extraviado();
+  public imgURL: string = './assets/images/DogProfile.png';
+  fileToUpload : File =null;
   public selectedFile = null;
 
   constructor(
@@ -58,6 +60,17 @@ export class ExtraviadosCreateComponent implements OnInit {
         }
       );
      }
+  }
+
+  handleFileInput(file: FileList)
+  {
+    this.fileToUpload = file.item(0);
+
+    var reader = new FileReader();
+    reader.onload = (event:any)=>{
+      this.imgURL = event.target.result;
+    }
+    reader.readAsDataURL(this.fileToUpload);
   }
 
   goBack(): void

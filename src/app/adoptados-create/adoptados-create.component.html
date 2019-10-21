@@ -1,28 +1,29 @@
-<div class="container-fluid" style="margin-top:30px">
+<div class="container" style="margin-top:30px">
     <div class="row">
-        <div class="col-sm align-self-center">
-            <h2>Registro de Adopcion</h2>
+        <div class="col-md-4 ">
+            <h2>Registro de Adopción</h2>
             <hr>
         </div>
-        <div class="col-sm">
+        <div class="cols-lg-8">
             <img class="logo" src="./assets/images/logo.jpg" />
         </div>
+
     </div>
-    <form (ngSubmit)="onSubmitCreate()">
+    <form class="border" (ngSubmit)="onSubmitCreate()">
         <div class="row">
-            <div class="col-sm-4 border">
+            <div class="col-sm-4 border" style="margin: 10px; left: 10px;">
                 <form>
                     <div class="form-group">
                         <div *ngIf="adoptado.id; else photo">
-                            <img src="./assets/images/{{adoptado.id}}.jpg" class="profile" alt="">
+                            <div class="row" class="limit">
+                                <img src="./assets/images/{{adoptado.id}}.jpg" class="profile" alt="">
+                            </div>
                         </div>
                         <ng-template #photo>
-                            <img src="./assets/images/DogProfile.png" class="profile" alt="">
+                            <img [src]="imgURL" class="profile" alt="">
                         </ng-template>
-
-
                         <label for="Imagen">Añadir imagen</label>
-                        <input type="file" class="form-control-file" id="Imagen">
+                        <input #Image type="file" class="form-control-file" accept="image/*" id="Imagen" (change)="handleFileInput($event.target.files)">
                     </div>
                 </form>
             </div>
@@ -49,25 +50,25 @@
                 <div class="form-group mb-3">
                     <label for="3">Género</label>
                     <select class="custom-select" id="3" name="Genero" [(ngModel)]="adoptado.genero">
-                          <option selected>Genero</option>
+                          <option selected>Género</option>
                           <option value="Hembra">Hembra</option>
                           <option value="Macho">Macho</option>
                         </select>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="4">Esterilizacion</label>
+                    <label for="4">Esterilización</label>
                     <select class="custom-select" id="4" name="Esterelizacion" [(ngModel)]="adoptado.esterilizacion">
-                          <option selected>Esterelizacion</option>
+                          <option selected>Esterelización</option>
                           <option [value]="true">Si</option>
                           <option [value]="false">No</option>
                         </select>
                 </div>
             </div>
             <div class="col-sm-4 ">
-                <h3>Descripcion</h3>
+                <h3>Descripción</h3>
                 <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="adoptado.description"></textarea>
                 <h3>Contacto</h3>
-                <label for="telefono">Telefono</label>
+                <label for="telefono">Teléfono</label>
                 <br>
                 <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="adoptado.telefono">
             </div>
