@@ -42,7 +42,8 @@ const routes: Routes = [
   {path: "crearBuscado/:id", component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearExtraviado",component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearExtraviado/:id", component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
-  {path: "cargarImagen",component: UploadImagesComponent}
+  {path: "cargarImagen",component: UploadImagesComponent},
+  {path: "adoptados/:id",component: AdoptadoDetailComponent}
 
 
 ];

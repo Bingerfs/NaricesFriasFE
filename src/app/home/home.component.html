@@ -1,35 +1,73 @@
-<div class="container-fluid">
+<div class="container">
 
-    <div class="row custom-row">
-        <div class="col align-self-center">
-            <div class="row justify-content-center">
-                <div class="col-8 my-auto">
-                    <div>
-                        <h1>¿Quienes Somos?</h1>
-                        <br>
+    <div class="row">
+        <div class="col-lg-6 align-self-center">
+            <img class="img-fluid" src="./assets/images/logo.jpg" />
+        </div>
+        <div class="col-lg-6 my-auto align-middle">
+            <div class="box h-100 d-flex justify-content-center flex-column">
+                <img class="img-fluid" src="./assets/images/portada.jpg" />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="sub-title">
+                <h2 class="text-center">¿Quienes somos?</h2>
+                <p class="text-justify">Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</p>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="sub-title">
+                <h2 class="text-center">Nuestra Mision</h2>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ad alias dolorum illum animi, nobis harum optio tenetur corrupti, laudantium pariatur. Natus eum debitis placeat impedit ducimus quibusdam cumque temporibus.</p>
+            </div>
+        </div>
+        <div id="requerimientos" class="col-lg-6 col-md-6 col-sm-12">
+            <h2>Requisitos de adopcion</h2>
+            <ul>
+                <li>Fotocopia de carnet</li>
+                <li>Factura de Luz</li>
+                <li>Formulario de adopcion llenado</li>
+                <li>compromiso de revisión</li>
+            </ul>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <img class="img-fluid" src="./assets/images/foto.jpg" />
+        </div>
+    </div>
+</div>
+
+<!-- <div class="container-fluid">
+
+        <div class="row custom-row">
+            <div class="col align-self-center">
+                <div class="row justify-content-center">
+                    <div class="col-8 my-auto">
                         <div>
-                            <span>Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</span>
+                            <h1>¿Quienes Somos?</h1>
+                            <br>
+                            <div>
+                                <span>Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</span>
+                            </div>
+                            <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+                            <br>
+                            <h1>Requisitos de adopcion</h1>
+                            <br>
+                            <ul>
+                                <li>Fotocopia de carnet</li>
+                                <li>Factura de Luz</li>
+                                <li>Formulario de adopcion llenado</li>
+                                <li>compromiso de revisión</li>
+                            </ul>
+                            <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
                         </div>
-                        <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
-                        <br>
-                        <h1>Requisitos de adopcion</h1>
-                        <br>
-                        <ul>
-                            <li>Fotocopia de carnet</li>
-                            <li>Factura de Luz</li>
-                            <li>Formulario de adopcion llenado</li>
-                            <li>compromiso de revisión</li>
-                        </ul>
-                        <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-sm my-auto align-middle">
-            <div class="box h-100 d-flex justify-content-center flex-column">
-                <img class="img-responsive" src="./assets/images/logo.jpg" />
+            <div class="col-sm my-auto align-middle">
+                <div class="box h-100 d-flex justify-content-center flex-column">
+                    <img class="img-responsive" src="./assets/images/logo.jpg" />
+                </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div> -->

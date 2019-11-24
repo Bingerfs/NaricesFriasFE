@@ -1,6 +1,16 @@
+.container {
+    margin-top: 10px;
+}
+
+#adoptados-title {
+    position: relative;
+    margin-bottom: 50px;
+}
+
 img.logo {
+    position: absolute;
     max-width: 80px;
-    margin-left: 650px;
+    right: 0;
 }
 
 img.perfil {
@@ -11,24 +21,41 @@ img.perfil {
     margin-left: 10px;
 }
 
-div.toRight {
-    margin: 10px;
-}
-
 button {
-    margin: 10px;
+    margin: 1px;
 }
 
 img.profile {
-    max-width: 350px;
     padding: 10px;
+    max-width: 100%;
 }
 
 .limit {
-    max-width: 450px;
-    max-height: 300px;
+    max-width: 300px;
 }
 
 textarea {
     height: 220px;
+}
+
+.form-group {
+    max-width: 80%;
+    margin: auto;
+}
+
+form h3 {
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 569px) {
+    #adoptados-title img {
+        max-width: 60px;
+    }
+    #adoptados-title h3 {
+        font-size: 7vw;
+    }
 }

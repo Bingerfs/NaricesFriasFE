@@ -1,80 +1,78 @@
-<div class="container-fluid" style="margin-top:30px">
-    <div class="row">
-        <div class="col-sm align-self-center">
-            <h2>Registro De Mascotas Encontradas por la Institución</h2>
-            <hr>
-        </div>
-        <div class="col-sm">
+<div class="container">
+    <div id="adoptados-title">
+        <h3>
+            Registro De Mascotas Encontradas por la Institución
             <img class="logo" src="./assets/images/logo.jpg" />
-        </div>
+        </h3>
+
+        <hr>
     </div>
-    <form (ngSubmit)="onSubmitCreate()">
-        <div class="row">
-            <div class="col-sm-4 border">
-                <form>
-                    <div class="form-group">
-                        <div *ngIf="extraviado.id; else photo">
-                            <img src="./assets/images/{{extraviado.id}}.jpg" class="profile" alt="">
-                        </div>
-                        <ng-template #photo>
-                            <img [src]="imgURL" class="profile" alt="">
-                        </ng-template>
+    <!--End of adotados tittle-->
+    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
+        <div class="col-md-6 col-lg-4 border">
+            <div *ngIf="extraviado.id; else photo">
 
-                        <label for="Imagen">Añadir imagen</label>
-                        <input type="file" class="form-control-file" id="Imagen" (change)="onFileSelected($event)">
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm-3">
-                <h3>Caracteristicas</h3>
-                <div class="form-group mb-3">
-                    <label for="1">Tamaño</label>
-                    <select class="custom-select" id="1" name="Tamanio" [(ngModel)]="extraviado.size">
-                          <option selected>Tamaño</option>
-                          <option value="Pequeño">Pequeño</option>
-                          <option value="Mediano">Mediano</option>
-                          <option value="Grande">Grande</option>
-                        </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="2">Edad</label>
-                    <select class="custom-select" id="2" name="Edad" [(ngModel)]="extraviado.age">
-                          <option selected>Edad</option>
-                          <option value="Cachorro">Cachorro</option>
-                          <option value="Joven">Joven</option>
-                          <option value="Adulto">Adulto</option>
-                        </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="3">Género</label>
-                    <select class="custom-select" id="3" name="Genero" [(ngModel)]="extraviado.gender">
-                          <option selected>Genero</option>
-                          <option value="Hembra">Hembra</option>
-                          <option value="Macho">Macho</option>
-                        </select>
-                </div>
+                <img src="./assets/images/{{extraviado.id}}.jpg" class="profile" alt="profile-picture">
 
             </div>
-            <div class="col-sm-4 ">
-                <h3>Descripcion</h3>
-                <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="extraviado.description"></textarea>
-                <h3>Contacto</h3>
-                <label for="telefono">Telefono</label>
-                <br>
-                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="extraviado.contact">
-            </div>
-            <div class="col-sm-1">
-
+            <ng-template #photo>
+                <img [src]="imgURL" class="profile" alt="">
+            </ng-template>
+            <div class="form-group">
+                <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
             </div>
         </div>
-        <div class="row" class="toRight">
-            <div class="col align-self-center">
-                <input type="submit" class="btn btn-warning" value="Confirmar" />
-                <button type="button" class="btn btn-secondary" (click)="goBack()">Cancelar</button>
+        <div class="col-md-6 col-lg-4">
+            <h3>Caracteristicas</h3>
+            <div class="form-group">
+                <label for="1">Tamaño</label>
+                <select class="custom-select" id="1" name="Tamanio" formControlName="size">
+                              <option selected>Tamaño</option>
+                              <option value="Pequeño">Pequeño</option>
+                              <option value="Mediano">Mediano</option>
+                              <option value="Grande">Grande</option>
+                        </select>
             </div>
+            <div class="form-group">
+                <label for="2">Edad</label>
+                <select class="custom-select" id="2" name="Edad" formControlName="age">
+                              <option selected>Edad</option>
+                              <option value="Cachorro">Cachorro</option>
+                              <option value="Joven">Joven</option>
+                              <option value="Adulto">Adulto</option>
+                            </select>
+            </div>
+            <div class="form-group">
+                <label for="3">Género</label>
+                <select class="custom-select" id="3" name="Genero" formControlName="gender">
+                              <option selected>Género</option>
+                              <option value="Hembra">Hembra</option>
+                              <option value="Macho">Macho</option>
+                            </select>
+            </div>
+            <div class="form-group">
+                <label for="4">Esterilización</label>
+                <select class="custom-select" id="4" name="Esterelizacion" formControlName="esterilizacion">
+                              <option selected>Esterilización</option>
+                              <option [value]="true">Si</option>
+                              <option [value]="false">No</option>
+                            </select>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3>Descripción</h3>
+            <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
+            <h3>Contacto</h3>
+            <label for="telefono">Teléfono</label>
+            <br>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" formControlName="contact">
         </div>
     </form>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+        <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
+    </div>
 </div>
 <br>
 <br>
