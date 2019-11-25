@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Extraviado} from './extraviado';
-//import {BUSCADOS} from '../mock-buscados';
-import {ExtraviadoService} from '../extraviado.service';
 import { ApiService } from '../api.service';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-extraviados',
@@ -11,13 +10,16 @@ import { ApiService } from '../api.service';
 })
 export class ExtraviadosComponent implements OnInit {
 
-  extraviados: Extraviado[];
+  
+  public extraviados: Array<Extraviado>
   selectedExtraviado: Extraviado;
-  constructor(public apiService:ApiService, private extraviadoService: ExtraviadoService) { }
+  Edad: string;
+
+  constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
 
   ngOnInit() {
-    //this.getExtraviados();
-    this.apiService.getAdoptados("extraviados").subscribe((data : Extraviado[])=>{
+    this.Edad = "Cachorro";
+    this.apiService.get("extraviados").subscribe((data : Extraviado[])=>{
       console.log(data);
       this.extraviados=data;
     });
@@ -26,10 +28,8 @@ export class ExtraviadosComponent implements OnInit {
   onSelect(extraviado: Extraviado): void{
     this.selectedExtraviado = extraviado;
   }
-
-  /*getExtraviados(): void {
-    this.extraviadoService.getExtraviados().subscribe(extraviados => this.extraviados = extraviados)
-  }*/
-
+  comprobar(): boolean{
+    return true;
+  }
 
 }

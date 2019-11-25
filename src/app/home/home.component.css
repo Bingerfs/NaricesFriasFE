@@ -1,7 +1,20 @@
-.custom-row {
+/* .custom-row {
     height: 100vh;
+} */
+
+.container {
+    margin-top: 50px;
 }
 
 img {
     max-width: 500px;
+}
+
+.sub-title p {
+    padding: 70px;
+    padding-top: 0px;
+}
+
+#requerimientos {
+    padding: 70px;
 }

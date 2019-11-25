@@ -1,11 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {Buscado} from '../buscados/buscado';
 import {Location} from '@angular/common';
-import {BuscadoService} from '../buscado.service';
 import {ActivatedRoute} from '@angular/router';
 import { ApiService } from '../api.service';
 import { BuscadosComponent } from '../buscados/buscados.component';
 import { RouterModule, Router } from '@angular/router';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-buscado-detail',
@@ -14,43 +14,45 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class BuscadoDetailComponent implements OnInit {
 
-    @Input() buscado: Buscado;
+  public buscado: Buscado;
+  constructor(
+    private route: ActivatedRoute,
+    private tokenService:AngularTokenService, 
+    private apiService:ApiService, 
+    private router:Router, 
+    private location: Location
+    /*private adopt:AdoptadosComponent*/) { }
 
-    constructor(private apiService:ApiService,private route: ActivatedRoute, private buscadoService: BuscadoService, private location: Location, private bus:BuscadosComponent,private router:Router) 
-    { 
+  ngOnInit() {
+    this.getHero();
+  }
 
-    }
+  getHero(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    var path = "buscados/" + id
+    this.apiService.get(path)
+    .subscribe((buscado: Buscado) => this.buscado = buscado);
+  }
 
-    ngOnInit(): void 
-    {
-      this.getBuscado();
-    }
+  delete(id:any){
+    var path = 'buscados/' + id;
+    this.apiService.delete(path).subscribe(
+      (r)=>{
+        console.log(r);
 
-    getBuscado(): void 
-    {
-      const id = +this.route.snapshot.paramMap.get('id');
-      this.buscadoService.getBuscado(id).subscribe(b =>this.buscado = b);
-    }
-    delete(id:any){
-      var path = 'buscados/' + id;
-      this.apiService.deleteAdoptado(path).subscribe(
-        (r)=>{
-          console.log(r);
-          this.bus.selectedBuscado=null;
-          this.bus.ngOnInit();
-          this.router.navigateByUrl('/buscados');
-        }
-      );
-      
-    }
-  
-    edit(id:any){
-      this.router.navigate(['/crearBuscado', id]);
-    }
+        this.router.navigateByUrl('/buscados');
+      }
+    );
+    
+  }
 
-    goBack(): void
-    {
-      this.location.back();
-    }
+  edit(id:any){
+    this.router.navigate(['/crearBuscado', id]);
+  }
+
+  goBack()
+  {
+    this.location.back();
+  }
 
 }

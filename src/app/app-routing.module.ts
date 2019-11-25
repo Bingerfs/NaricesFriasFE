@@ -3,7 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes} from '@angular/router'
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HomeComponent } from './home/home.component';
+
 import { AdoptadosComponent } from './adoptados/adoptados.component';
+
+
 import { BuscadosComponent } from './buscados/buscados.component';
 import { ExtraviadosComponent } from './extraviados/extraviados.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -17,6 +20,10 @@ import {ExtraviadoDetailComponent} from './extraviado-detail/extraviado-detail.c
 import {BuscadoDetailComponent} from './buscado-detail/buscado-detail.component';
 import {AdoptadoDetailComponent} from './adoptado-detail/adoptado-detail.component';
 import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
+import {BuscadosCreateComponent} from './buscados-create/buscados-create.component';
+import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-create.component';
+import {UploadImagesComponent} from './upload-images/upload-images.component';
+
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -41,7 +48,13 @@ const routes: Routes = [
    data: { 
      expectedRole: 'ADMIN'
    } },
-
+  { path: "calendario", component: EventosComponent },
+  {path: "crearBuscado",component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearBuscado/:id", component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearExtraviado",component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearExtraviado/:id", component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "cargarImagen",component: UploadImagesComponent},
+  {path: "adoptados/:id",component: AdoptadoDetailComponent}
 
 
 ];

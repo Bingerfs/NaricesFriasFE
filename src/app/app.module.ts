@@ -13,7 +13,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BuscadosComponent } from './buscados/buscados.component';
 import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
 import { SigninComponent } from './signin/signin.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
 import { EventosComponent } from './eventos/eventos.component';
@@ -24,6 +24,9 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { AdoptadoDetailComponent } from './adoptado-detail/adoptado-detail.component';
 import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.component';
 import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
+import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
+import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-create.component';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
 
 
 @NgModule({
@@ -45,13 +48,17 @@ import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-
     ContactoComponent,
     AdoptadoDetailComponent,
     CrearVoluntarioComponent,
-    ListaVoluntariosComponent
+    ListaVoluntariosComponent,
+    BuscadosCreateComponent,
+    ExtraviadosCreateComponent,
+    UploadImagesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularTokenModule.forRoot({
       apiBase: 'http://localhost:3000',
       userTypes: [

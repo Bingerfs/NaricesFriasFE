@@ -1,38 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { ADOPTADOS} from '../mock-adoptados'
-import { Adoptados } from '../adoptados';
-import { ApiService } from '../api.service';
 import { AngularTokenService } from 'angular-token';
+
+import { Adoptado } from '../adoptado';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-adoptados',
   templateUrl: './adoptados.component.html',
   styleUrls: ['./adoptados.component.css']
 })
+
 export class AdoptadosComponent implements OnInit
 {
-  public rows: Array<Adoptados>
-  selectedAdoptado: Adoptados;
-  
-
-  /*
-  selectedAdoptado: Adoptado;
-  onSelect(adoptado: Adoptado): void
-  {
-  this.selectedAdoptado = adoptado;
-  }*/
-
+  public adoptados: Array<Adoptado>
+  public selectedAdoptado: Adoptado;
+  public imgURL: string = './assets/images/DogProfile.png';
   constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
 
   ngOnInit() {
-    this.apiService.getAdoptados("adoptados").subscribe((data : Adoptados[])=>{
+    this.apiService.get("adoptados").subscribe((data : Adoptado[])=>{
+      console.log("Datos:");
       console.log(data);
-      this.rows=data;
+      this.adoptados=data;
+      console.log(this.adoptados);
     });
+    
   }
 
-  onSelect(adoptado: Adoptados): void{
+  onSelect(adoptado: Adoptado): void{
     this.selectedAdoptado = adoptado;
   }
-
 }

@@ -1,26 +1,43 @@
-<div *ngIf="extraviado" class="container" style="margin-top:30px">
-    <div class="row">
-        <div class="col-md-12">
-            <h2> Busco a mi familia</h2>
+<body>
+    <div *ngIf="extraviado" class="container">
+        <div id="adoptados-title">
+            <h3>
+                Busco a mi Familia
+                <button id="register-button" type="button" class="btn btn-warning" (click)="goBack()"> <img class="icon" src="../../assets/images/back.png" alt="delete icon"> Volver</button>
+            </h3>
+            <hr>
         </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <img class="img-fluid center" src="./assets/images/{{extraviado.id}}.jpg" />
+                <div *ngIf="tokenService.userSignedIn()">
+                    <button type="button" class="btn btn-light" (click)="edit(extraviado.id)">
+                                <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+                            </button>
+                    <button type="button" class="btn btn-light" (click)="delete(extraviado.id)">
+                                <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+                            </button>
+                </div>
+
+                <p class="style">{{extraviado.description}}</p>
+            </div>
+            <div class="col-md-6">
+                <h6>CARACTERISTICAS</h6>
+                <hr>
+                <ul>
+                    <li> <span class="feature">TAMAÑO:</span> {{extraviado.size}}</li>
+                    <li><span class="feature">EDAD:</span> {{extraviado.age}}</li>
+                    <li><span class="feature">GENERO:</span> {{extraviado.gender}}</li>
+                </ul>
+
+                <h6>CONTACTO</h6>
+                <hr>
+                <p>Si lo a visto o conoce su paradero por favor contactarse al número: {{extraviado.contact}}</p>
+            </div>
+        </div>
+
+        <br>
+        <br>
     </div>
-    <div class="row">
-        <div class="col-md-6 align-content-center">
-            <img class="img-responsive" class="rounded" src="./assets/images/{{extraviado.id}}.jpg" />
-        </div>
-        <div class="col-md-6 align-content-center border">
-            <h2>{{extraviado.name}}</h2>
-            <p>Tamaño: {{extraviado.size}}</p>
-            <p>Edad: {{extraviado.age}}</p>
-            <p>Genero: {{extraviado.gender}}</p>
-            <p>Contacto: {{extraviado.contacto}}</p>
-            <button type="button" class="btn btn-primary" (click)="edit(extraviado.id)">Editar</button>
-            <button type="button" class="btn btn-danger" (click)="delete(extraviado.id)">Borrar</button>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 align-self-center">
-            <button type="button" class="btn btn-warning" (click)="goBack()">volver</button>
-        </div>
-    </div>
-</div>
+</body>
