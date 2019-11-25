@@ -1,57 +1,55 @@
 <div class="container-fluid">
 
     <div class="row custom-row">
-      <div class="col-sm my-auto align-middle">
-          <div class="box h-100 d-flex justify-content-center ">
+        <div class="col-sm my-auto align-middle">
+            <div class="box h-100 d-flex justify-content-center ">
                 <img class="img-responsive" src="./assets/images/logo.jpg" />
             </div>
-      </div>
-      <div class="col align-self-center">
-          <div class="row justify-content-center">
-            <div class="col-8 my-auto">
-                <form (ngSubmit)="onSubmitSignIn()">
-                    <div class="form-group">
-                        <div class="col-xs-8">
-                            <label for="login">Email:</label>
-                            <br/>
-                  
-                            <input type="text"  class="form-control" name="login" id="login" required
-                                [(ngModel)]="signInUser.login" name="login">
-                            <br/>
-                            <label for="password">Password:</label>
-                            <br/>
-                  
-                            <input type="password"  class="form-control" name="password" id="password" required
-                                [(ngModel)]="signInUser.password" name="password">
-                            <br/>
+        </div>
+        <div class="col align-self-center">
+            <div class="row justify-content-center">
+                <div class="col-8 my-auto">
+                    <form (ngSubmit)="onSubmitSignIn()">
+                        <div class="form-group">
+                            <div class="col-xs-8">
+                                <label for="login">Email:</label>
+                                <br/>
 
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="userType1" name="userType" value="ADMIN" [(ngModel)]="signInUser.userType">
-                                <label class="custom-control-label" for="userType1">Admin</label>
+                                <input type="text" class="form-control" name="login" id="login" required [(ngModel)]="signInUser.login" name="login">
+                                <br/>
+                                <label for="password">Password:</label>
+                                <br/>
+
+                                <input type="password" class="form-control" name="password" id="password" required [(ngModel)]="signInUser.password" name="password">
+                                <br/>
+
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="userType1" name="userType" value="ADMIN" [(ngModel)]="signInUser.userType">
+                                    <label class="custom-control-label" for="userType1">Admin</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" class="custom-control-input" id="userType2" name="userType" value="VOL" [(ngModel)]="signInUser.userType" checked>
+                                    <label class="custom-control-label" for="userType2">Voluntario</label>
+                                </div>
+
+
+
+
+
+
+
                             </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="userType2" name="userType" value="" [(ngModel)]="signInUser.userType" checked>
-                                <label class="custom-control-label" for="userType2">Voluntario</label>
+                            <div>
+                                <br>
+
+                                <input type="submit" class="btn btn-primary" value="Ingresar" />
                             </div>
-                        
-                            
-                                
-                            
-                  
-                
-                  
+
                         </div>
-                        <div>
-                        <br>
-                          
-                        <input type="submit" class="btn btn-primary" value="Ingresar" />
-                        </div>
-                
-                    </div>
-                  </form>
+                    </form>
+                </div>
             </div>
-          </div>
         </div>
     </div>
-  
-  </div>
+
+</div>

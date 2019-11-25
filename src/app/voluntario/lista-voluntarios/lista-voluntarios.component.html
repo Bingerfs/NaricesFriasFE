@@ -1,19 +1,22 @@
 <div class="container" *ngFor="let voluntario of voluntarios">
     <div class="row">
-      <div class="col-md-6 img">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded">
-      </div>
-      <div class="col-md-6 details">
-        <blockquote>
-          <h5>{{voluntario.name}}</h5>
-          <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
-        </blockquote>
-        <p>
-          {{voluntario.email}} <br>
-          {{voluntario.telefono}} <br>
-        </p>
-      </div>
-      <button>Editar</button>
-      <button (click)="delete(voluntario.id)">Borrar</button>
+        <div class="col-lg-6">
+            <img class="img-fluid" src="../../assets/images/perfil.jpg" alt="">
+        </div>
+        <div class="col-lg-6 details">
+            <blockquote>
+                <h5>{{voluntario.name}}</h5>
+                <!-- <small><cite title="Source Title">79725866  <i class="icon-map-marker"></i></cite></small> -->
+            </blockquote>
+            <p>
+                {{voluntario.email}} <br> {{voluntario.telefono}} <br>
+            </p>
+        </div>
+        <button type="button" class="btn btn-light">
+          <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+      </button>
+        <button type="button" class="btn btn-light" (click)="delete(voluntario.id)">
+          <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+      </button>
     </div>
-  </div>
+</div>

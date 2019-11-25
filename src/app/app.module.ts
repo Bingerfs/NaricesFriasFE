@@ -62,7 +62,8 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
     AngularTokenModule.forRoot({
       apiBase: 'http://localhost:3000',
       userTypes: [
-        {name: 'ADMIN', path: 'admin'}
+        {name: 'ADMIN', path: 'admin'},
+        {name: 'VOL', path: ''}
       ],
     })
 

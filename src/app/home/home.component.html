@@ -12,13 +12,19 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="sub-title">
                 <h2 class="text-center">¿Quienes somos?</h2>
-                <p class="text-justify">Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.</p>
+                <p class="text-justify">Narices Frias es una organizacion sin fines de lucro Comprometidos con la promoción y concientización sobre el respeto y trato digno a los animales, en cumplimiento con las disposiciones legales vigentes.
+                    <br><button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+                </p>
+
             </div>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="sub-title">
                 <h2 class="text-center">Nuestra Mision</h2>
-                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ad alias dolorum illum animi, nobis harum optio tenetur corrupti, laudantium pariatur. Natus eum debitis placeat impedit ducimus quibusdam cumque temporibus.</p>
+                <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ad alias dolorum illum animi, nobis harum optio tenetur corrupti, laudantium pariatur. Natus eum debitis placeat impedit ducimus quibusdam cumque temporibus.
+                    <br><button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
+                </p>
+
             </div>
         </div>
         <div id="requerimientos" class="col-lg-6 col-md-6 col-sm-12">
@@ -29,6 +35,7 @@
                 <li>Formulario de adopcion llenado</li>
                 <li>compromiso de revisión</li>
             </ul>
+            <button type="button" class="btn btn-primary" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'">Editar</button>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12">
             <img class="img-fluid" src="./assets/images/foto.jpg" />

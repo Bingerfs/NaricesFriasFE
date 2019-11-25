@@ -35,19 +35,21 @@ const routes: Routes = [
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
-  {path: "registrar", component: CrearVoluntarioComponent, canActivate: [RoleGuardService], 
-  data: { 
-    expectedRole: 'ADMIN'
-  } },
+  // {path: "registrar", component: CrearVoluntarioComponent},
+   {path: "registrar", component: CrearVoluntarioComponent, canActivate: [RoleGuardService], 
+   data: { 
+     expectedRole: 'ADMIN'
+   } },
   { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   {path: "extraviados/:id", component: ExtraviadoDetailComponent},
   {path:"buscados/:id", component: BuscadoDetailComponent},
   {path:"adoptados/:id", component: AdoptadoDetailComponent},
    { path: "calendario", component: EventosComponent },
-   {path: "voluntarios", component: ListaVoluntariosComponent, canActivate: [RoleGuardService], 
-   data: { 
-     expectedRole: 'ADMIN'
-   } },
+  //  {path: "voluntarios", component: ListaVoluntariosComponent},
+    {path: "voluntarios", component: ListaVoluntariosComponent, canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'ADMIN'
+    } },
   { path: "calendario", component: EventosComponent },
   {path: "crearBuscado",component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearBuscado/:id", component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
