@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularTokenService } from 'angular-token';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-crear-voluntario',
@@ -17,33 +18,55 @@ export class CrearVoluntarioComponent implements OnInit {
     password: '',
     passwordConfirmation: '',
     name: '',
-    telefono: ''
+    telefono: '',
+    id: ''
   };
 
-  constructor(public tokenService: AngularTokenService, private router: Router) { }
+  editUser ={
+    id:''
+  };
+
+  constructor(public tokenService: AngularTokenService, private router: Router, public acRoute: ActivatedRoute, public apiService: ApiService) { }
 
   ngOnInit() {
+    this.acRoute.params.subscribe((data : any)=>{
+      console.log(data.id);
+      if(data && data.id){
+          this.apiService.getVoluntario("voluntarios/"+data.id).subscribe((data : any)=>{
+          this.signUpUser = data;
+          });
+      }
+      })
   }
 
   onSubmitSign(){
-    this.tokenService.registerAccount(this.signUpUser).subscribe(
-
-      (res) => {
-
-        if (res.status != 500){
-          this.router.navigateByUrl('/home');
-          console.log(res);
-          
-          alert("Registrado");
-        }
-
-      },
-
-      (err) => {
-        this.errors=err.error.errors.full_messages;
-        console.log(err);
+    if(this.editUser.id){
+      this.apiService.updateVoluntario("voluntarios/"+this.editUser.id,this.editUser).subscribe((r)=>{
+        this.router.navigateByUrl('/voluntarios')
+      })
       }
-  )
+    else{
+      this.tokenService.registerAccount(this.signUpUser).subscribe(
+
+        (res) => {
+  
+          if (res.status != 500){
+            this.router.navigateByUrl('/home');
+            console.log(res);
+            
+            alert("Registrado");
+          }
+  
+        },
+  
+        (err) => {
+          this.errors=err.error.errors.full_messages;
+          console.log(err);
+        }
+    )
+  }
+}
+    
   }
 
-}
+

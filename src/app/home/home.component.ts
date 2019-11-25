@@ -11,7 +11,12 @@ export class HomeComponent implements OnInit {
   constructor(public tokenService: AngularTokenService) { }
 
   ngOnInit() {
-    
+    this.tokenService.validateToken().subscribe(
+      res =>      console.log(res),
+      error =>    console.log(error)
+    );
+    console.log(this.tokenService.currentUserData);
+    console.log(this.tokenService.currentUserType);
   }
 
 }
