@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: "buscados", component: BuscadosComponent},
   { path: "extraviados", component: ExtraviadosComponent},
   { path: "contacto", component: ContactoComponent},
-  { path: "calendario", component: EventosComponent }
+  { path: "eventos", component: EventosComponent }
 ];
 
 @NgModule({
