@@ -70,6 +70,7 @@ export class AdoptadosCreateComponent implements OnInit
     this.form.patchValue({picture: file});
     this.form.get('picture').updateValueAndValidity()
     console.log(event);
+    
     this.fileToUpload = file;
     reader.onload = (event:any)=>{ this.imgURL = event.target.result;}
     reader.readAsDataURL(this.fileToUpload);
