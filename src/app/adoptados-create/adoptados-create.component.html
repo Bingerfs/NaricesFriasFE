@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm align-self-center">
             <h2>Registro de Adopcion</h2>
         </div>
         <div class="col-sm">
@@ -10,15 +10,14 @@
     <form (ngSubmit)="onSubmitCreate()">
         <div class="row">
             <div class="col-sm-4 border">
-                <span>Imagen</span>
                 <form>
                     <div class="form-group">
-                        <label for="Imagen">Subir imagen</label>
+                        <!-- <label for="Imagen">Subir imagen</label> -->
                         <input type="file" class="form-control-file" id="Imagen">
                     </div>
                 </form>
             </div>
-            <div class="col-sm-3 border">
+            <div class="col-sm-3">
                 <h3>Descripcion</h3>
                 <div class="form-group mb-3">
                     <label for="1">Tamaño</label>
@@ -55,7 +54,7 @@
                         </select>
                 </div>
             </div>
-            <div class="col-sm-4 border">
+            <div class="col-sm-4 ">
                 <h3>Descripcion</h3>
                 <textarea type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="adoptado.descripcion"></textarea>
                 <label for="telefono">Telefono</label>
@@ -66,8 +65,8 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="col align-self-end">
+        <div class="row" class="toRight">
+            <div class="col align-self-center">
                 <input type="submit" class="btn btn-warning" value="Confirmar" />
             </div>
         </div>
