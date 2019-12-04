@@ -14,6 +14,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AdoptadosComponent implements OnInit
 {
   public adoptados: Array<Adoptado>
+  public adoptadosFiltrados: Array<Adoptado>
   public selectedAdoptado: Adoptado;
   public imgURL: string = './assets/images/DogProfile.png';
   constructor(public apiService:ApiService, private tokenService: AngularTokenService,  private router:Router) { }
@@ -23,6 +24,7 @@ export class AdoptadosComponent implements OnInit
       console.log("Datos:");
       console.log(data);
       this.adoptados=data;
+      this.adoptadosFiltrados=data;
       console.log(this.adoptados);
     });
     
@@ -32,30 +34,46 @@ export class AdoptadosComponent implements OnInit
     this.selectedAdoptado = adoptado;
   }
 
+  filtrarTodo(value:any){
+    
+  }
+
+
   filtrarTam(value:any){
-    // console.log("tam:");
-    // console.log(value);
+   
+    if(value!="null")
+    {
+        this.adoptados = this.adoptadosFiltrados.filter(h => h.tamagno == value);
+    }
+    else
+    {
+      this.adoptados = this.adoptadosFiltrados;
+    }
     
 
-    this.adoptados = this.adoptados.filter(h => h.tamagno == value);
-    console.log(this.adoptados);
-    this.router.navigateByUrl('/adoptados');
-    // this.apiService.get("adoptados").subscribe((data : Adoptado[])=>{
-    // this.adoptados=data;
-    // });
    
   }
 
   filtrarGen(value:any){
-    this.adoptados = this.adoptados.filter(h => h.genero == value);
-    
-    console.log(this.adoptados);
+    if(value!="null")
+    {
+        this.adoptados = this.adoptadosFiltrados.filter(h => h.genero == value);
+    }
+    else
+    {
+      this.adoptados = this.adoptadosFiltrados;
+    }
   }
 
   filtrarEdad(value:any){
-    this.adoptados = this.adoptados.filter(h => h.edad == value);
-    
-    console.log(this.adoptados);
+    if(value!="null")
+    {
+        this.adoptados = this.adoptadosFiltrados.filter(h => h.edad == value);
+    }
+    else
+    {
+      this.adoptados = this.adoptadosFiltrados;
+    }
   }
 
 
