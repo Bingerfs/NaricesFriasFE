@@ -25,7 +25,8 @@ import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-creat
 import {UploadImagesComponent} from './upload-images/upload-images.component';
 import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
 import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
-
+import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
+import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
 
 
 const routes: Routes = [
@@ -61,9 +62,11 @@ const routes: Routes = [
   {path: "cargarImagen",component: UploadImagesComponent},
   {path: "adoptados/:id",component: AdoptadoDetailComponent},
   {path: "apadrinamientos",component: ApadrinamientoComponent},
+  {path: "agradecimientos",component: AgradecimientosComponent},
   {path: "crearApadrinamiento",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
-  {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]}
-
+  {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearAgradecimiento",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearAgradecimiento/:id",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]}
 
 ];
 

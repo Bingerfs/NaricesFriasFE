@@ -31,6 +31,8 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
 import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
 import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
 import {NgbdModalBasic} from './Pop-up/modal-basic';
+import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
+import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import {NgbdModalBasic} from './Pop-up/modal-basic';
     UploadImagesComponent,
     ApadrinamientoComponent,
     NgbdModalBasic,
-    ApadrinamientoCreateComponent
+    ApadrinamientoCreateComponent,
+    AgradecimientosComponent,
+    AgradecimientosCreateComponent
   ],
   imports: [
     BrowserModule,

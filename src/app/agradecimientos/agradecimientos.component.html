@@ -1,22 +1,22 @@
 <div class="container">
-    <div id="apadrinamiento-title">
+    <div id="agradecimiento-title">
         <h3>
-            Apadrinamientos
-            <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearApadrinamiento']">Registrar</button>
+            Agradecimientos
+            <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAgradecimiento']">Registrar</button>
         </h3>
         <hr>
-        <p> Te presentamos a nuestros perritos especiales! Cada uno de ellos tiene una historia diferente que contar. Si deseas ayudar a alguno de ellos no dudes en contactarnos!</p>
+        <p> Esta seccion esta dedicada a todas aquellas personas que de corazon ayudan a la institucion.</p>
     </div>
     <!--End of apadrinamiento tittle-->
 
     <div class="row">
-        <div class=" col-sm-12 col-md-12 col-lg-12 " *ngFor="let apadrinamiento of apadrinamientos" (click)="onSelect(apadrinamiento)">
+        <div class=" col-sm-12 col-md-12 col-lg-12 " *ngFor="let agradecimiento of agradecimientos" (click)="onSelect(agradecimiento)">
             <div class="row img-thumbnail">
                 <div id="image" class="col-lg-6 mx-auto ">
                     <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
-                    <img class="border" class="img-fluid center " src="http://localhost:3000/apadrinados/{{apadrinamiento.id}}/download" />
+                    <img class="border" class="img-fluid center " src="http://localhost:3000/agradecimientos/{{agradecimiento.id}}/download" />
                     <div *ngIf="tokenService.userSignedIn()">
-                        <button type="button" class="btn btn-light" (click)="edit(apadrinamiento.id)">
+                        <button type="button" class="btn btn-light" (click)="edit(agradecimiento.id)">
                             <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
                         </button>
                         <button type="button" class="btn btn-light" (click)="open(content)">
@@ -25,8 +25,8 @@
                     </div>
                 </div>
                 <div id="historia" class="col-lg-6">
-                    <h4 class="text-center descripcion">{{apadrinamiento.name}}</h4>
-                    <p class="style">{{apadrinamiento.description}}</p>
+                    <h4 class="text-center descripcion">{{agradecimiento.name}}</h4>
+                    <p class="style">{{agradecimiento.description}}</p>
                 </div>
             </div>
 
@@ -51,7 +51,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
-            <button type="button" class="btn btn-danger" (click)="modal.close(apadrinamiento.id)">Eliminar</button>
+            <button type="button" class="btn btn-danger" (click)="modal.close(agradecimiento.id)">Eliminar</button>
         </div>
     </ng-template>
 </div>
