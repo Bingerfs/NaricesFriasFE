@@ -6,6 +6,9 @@ import {Location} from '@angular/common';
 
 import { Adoptado } from '../adoptado';
 import { ApiService } from '../api.service';
+import {NgbdModalBasic} from '../Pop-up/modal-basic';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-adoptado-detail',
@@ -16,13 +19,15 @@ import { ApiService } from '../api.service';
 export class AdoptadoDetailComponent implements OnInit {
 
   public adoptado: Adoptado;
-  
+  closeResult: string;
+
   constructor(
     private route: ActivatedRoute,
     private tokenService:AngularTokenService, 
     private apiService:ApiService, 
     private router:Router, 
-    private location: Location) { }
+    private location: Location,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     this.get();
@@ -34,6 +39,24 @@ export class AdoptadoDetailComponent implements OnInit {
     this.apiService.get(path)
     .subscribe((adoptado: Adoptado) => this.adoptado = adoptado);
   }
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      this.delete(result);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
 
   delete(id:any){
     var path = 'adoptados/' + id;
@@ -45,6 +68,7 @@ export class AdoptadoDetailComponent implements OnInit {
     );
     
   }
+  
 
   edit(id:any){
     this.router.navigate(['/crearAdoptado', id]);

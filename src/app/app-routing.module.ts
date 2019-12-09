@@ -23,6 +23,9 @@ import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-
 import {BuscadosCreateComponent} from './buscados-create/buscados-create.component';
 import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-create.component';
 import {UploadImagesComponent} from './upload-images/upload-images.component';
+import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
+import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
+
 
 
 const routes: Routes = [
@@ -56,7 +59,10 @@ const routes: Routes = [
   {path: "crearExtraviado",component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearExtraviado/:id", component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "cargarImagen",component: UploadImagesComponent},
-  {path: "adoptados/:id",component: AdoptadoDetailComponent}
+  {path: "adoptados/:id",component: AdoptadoDetailComponent},
+  {path: "apadrinamientos",component: ApadrinamientoComponent},
+  {path: "crearApadrinamiento",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]}
 
 
 ];

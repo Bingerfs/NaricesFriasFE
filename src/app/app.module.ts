@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -27,7 +28,9 @@ import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-
 import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
 import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-create.component';
 import { UploadImagesComponent } from './upload-images/upload-images.component';
-
+import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
+import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
+import {NgbdModalBasic} from './Pop-up/modal-basic';
 
 @NgModule({
   declarations: [
@@ -51,13 +54,17 @@ import { UploadImagesComponent } from './upload-images/upload-images.component';
     ListaVoluntariosComponent,
     BuscadosCreateComponent,
     ExtraviadosCreateComponent,
-    UploadImagesComponent
+    UploadImagesComponent,
+    ApadrinamientoComponent,
+    NgbdModalBasic,
+    ApadrinamientoCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     AngularTokenModule.forRoot({
       apiBase: 'http://localhost:3000',

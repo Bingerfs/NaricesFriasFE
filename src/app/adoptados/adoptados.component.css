@@ -19,6 +19,12 @@
     margin-right: 1em;
 }
 
+img.logo {
+    position: absolute;
+    max-width: 80px;
+    right: 0;
+}
+
 
 /*END OF TITLE*/
 

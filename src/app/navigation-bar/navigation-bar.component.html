@@ -25,20 +25,20 @@
             <li class="nav-item flex-fill text-center">
                 <a class="nav-link" [routerLink]="['/adoptados']">Adoptame</a>
             </li>
-            <li class="nav-item dropdown flex-fill text-center">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Extravíos
-        </a>
-                <div class="dropdown-menu w-100" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/extraviados']">Busco a mi familia</a>
-                    <a class="dropdown-item" [routerLink]="['/buscados']">Busco a mi mascota</a>
-                </div>
+
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/apadrinamientos']">Apadrinamiento</a>
             </li>
+
+
             <li class="nav-item flex-fill text-center">
                 <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
             </li>
             <li class="nav-item flex-fill text-center">
                 <a class="nav-link" [routerLink]="['/calendario']">Eventos</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/agradecimientos']">Agradecimientos</a>
             </li>
 
             <li class=" nav-item flex-fill text-center " *ngIf="tokenService.userSignedIn() && tokenService.currentUserType=='ADMIN' ">

@@ -13,7 +13,9 @@ import { ApiService } from '../api.service';
 export class AdoptadosComponent implements OnInit
 {
   public adoptados: Array<Adoptado>;
-  public filtrados: Array<Adoptado>;
+  public tam: string ="none";
+  public genero: string ="none";
+  public edad: string ="none";
   public adoptadosBackup: Array<Adoptado>;
   public selectedAdoptado: Adoptado;
   public imgURL: string = './assets/images/DogProfile.png';
@@ -24,38 +26,62 @@ export class AdoptadosComponent implements OnInit
       console.log("Datos:");
       console.log(data);
       this.adoptados=data;
-      this.filtrados=data;
       this.adoptadosBackup = data;
       console.log(this.adoptados);
     });
     
   }
-  filterTam(value:string)
+  filter(id :number,value:string)
   {
-    if(value!='none')
+    if(id == 1)
     {
-      this.adoptados = this.filtrados.filter(f => f.tamagno ==value);
+      this.tam = value;
     }
-    else{
-      this.adoptados = this.filtrados;
+    if(id==2){
+      this.genero = value; 
+       }
+    if(id==3)
+    {
+        this.edad = value;
     }
-  }
-  filterGen(value:string)
-  {
-    if(value!='none'){
-      this.adoptados = this.filtrados.filter(f => f.genero ==value);
+    if(this.edad =="none" && this.genero == "none" && this.tam == "none")
+    {
+      this.adoptados = this.adoptadosBackup;
     }
-    else{
-      this.adoptados = this.filtrados;
+
+    //caso un filtro
+    if(this.edad !="none" && this.genero == "none" && this.tam == "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.edad ==this.edad)
     }
-  }
-  filterAge(value:string)
-  {
-    if(value!='none'){
-      this.adoptados = this.filtrados.filter(f => f.edad ==value);
+    if(this.edad =="none" && this.genero != "none" && this.tam == "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.genero ==this.genero)
     }
-    else{
-      this.adoptados = this.filtrados;
+    if(this.edad =="none" && this.genero == "none" && this.tam != "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.tamagno ==this.tam)
+    }
+    
+
+    //caso de dos filtros
+    if(this.edad !="none" && this.genero != "none" && this.tam == "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.edad ==this.edad && a.genero == this.genero);
+    }
+    if(this.edad !="none" && this.genero == "none" && this.tam != "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.edad ==this.edad && a.tamagno == this.tam);
+    }
+    if(this.edad =="none" && this.genero != "none" && this.tam != "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.genero ==this.genero && a.tamagno == this.tam);
+    }
+
+    //caso tres filtros
+    if(this.edad !="none" && this.genero != "none" && this.tam != "none")
+    {
+      this.adoptados = this.adoptadosBackup.filter(a => a.edad ==this.edad && a.genero == this.genero && a.tamagno == this.tam);
     }
   }
   
