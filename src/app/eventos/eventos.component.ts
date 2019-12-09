@@ -4,7 +4,7 @@ import { Evento, Mes } from '../evento';
 
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
-
+import { AngularTokenService } from 'angular-token';
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
@@ -25,10 +25,10 @@ export class EventosComponent implements OnInit
   public eventos: Array<Evento>;
   public eventosOriginales: Array<Evento>;
   public eventosMostrar: Evento[] = [];
-  public mesElegido: Mes = Mes.Noviembre;
+  public mesElegido: Mes = Mes.Diciembre;
   public mesMostrar: string = Mes[this.mesElegido];
   
-  constructor(public apiService: ApiService , public router: Router) {
+  constructor(public apiService: ApiService , public router: Router,private tokenService: AngularTokenService) {
     // this.calendario = {};
     // this.calendario.meses = [];
   }

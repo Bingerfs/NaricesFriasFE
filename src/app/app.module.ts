@@ -15,7 +15,6 @@ import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { BuscadosComponent } from './buscados/buscados.component';
 import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
 import { SigninComponent } from './signin/signin.component';
-import { FormsModule, ReactiveFormsModule  } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
 import { EventosComponent } from './eventos/eventos.component';
