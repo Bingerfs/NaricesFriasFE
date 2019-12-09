@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+
 
 @Component({
   selector: 'app-contacto',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactoComponent implements OnInit {
 
-  constructor() { }
+  email={
+    correo:'',
+    asunto:'',
+    nombre:'',
+    telefono:''
+  }
+  constructor(public apiService: ApiService) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(){
+    console.log(this.email);
+    this.apiService.enviar("contactForm", this.email).subscribe(
+      (r)=>{
+        console.log(r);
+      });
+    console.log("ALgo?");
   }
 
 }

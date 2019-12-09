@@ -20,24 +20,24 @@
                 </div>
             </a>
         </div>
-        <form class="col-sm-6">
+        <form (ngSubmit)="onSubmit()" class="col-sm-6">
 
             <h2>Contáctanos</h2>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nombre</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name">
+                <input [(ngModel)]="email.nombre" type="email" class="form-control" id="nombre" name="nombre" placeholder="name">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <label for="correo">Email address</label>
+                <input [(ngModel)]="email.correo" type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Celular</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="70700000">
+                <input [(ngModel)]="email.telefono" type="email" class="form-control" id="telefono" name="telefono" placeholder="70700000">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Mensaje</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escriba aqui..."></textarea>
+                <label for="asunto">Mensaje</label>
+                <textarea [(ngModel)]="email.asunto" class="form-control" id="asunto" name="asunto" rows="3" placeholder="Escriba aqui..."></textarea>
             </div>
             <div class="col ">
                 <input type="submit" class="btn btn-warning" value="Enviar" />

@@ -10,6 +10,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
 
   API_URL : string = "http://localhost:3000/"
+  API_EMAIL_SENDER: string = "http://localhost:7002/"
 
   constructor(public http: HttpClient) { }
 
@@ -104,5 +105,11 @@ export class ApiService {
   public deleteVoluntario(path:string){
     var endpoint = this.API_URL + path;
     return this.http.delete(endpoint);
+  }
+
+  public enviar(path:string, body:any){
+    var endpoint = this.API_EMAIL_SENDER + path;
+    console.log("jkjlj",endpoint);
+    return this.http.post(endpoint, body);
   }
 }

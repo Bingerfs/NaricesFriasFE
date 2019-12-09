@@ -44,6 +44,8 @@ const routes: Routes = [
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
+  //{path: "registrar", component: CrearVoluntarioComponent},
+  {path: "registrar/:id", component: CrearVoluntarioComponent},
   // {path: "registrar", component: CrearVoluntarioComponent},
    {path: "registrar", component: CrearVoluntarioComponent, canActivate: [RoleGuardService], 
    data: { 
