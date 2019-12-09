@@ -20,6 +20,18 @@
         <div id="etiqueta">Detalles: </div>
         {{evento.descripcion}}
     </div>
+
+    <div>
+        <img class="img-fluid center" src="http://localhost:3000/calendarios/{{evento.id}}/download" />
+        <!-- <div *ngIf="tokenService.userSignedIn()">
+            <button type="button" class="btn btn-light" (click)="edit(adoptado.id)">
+                <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+            </button>
+            <button type="button" class="btn btn-light" (click)="delete(adoptado.id)">
+                <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+            </button>
+        </div> -->
+    </div>
     
 </div>
 
