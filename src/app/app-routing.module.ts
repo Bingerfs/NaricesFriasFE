@@ -19,6 +19,8 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
 import {ExtraviadoDetailComponent} from './extraviado-detail/extraviado-detail.component';
 import {BuscadoDetailComponent} from './buscado-detail/buscado-detail.component';
 import {AdoptadoDetailComponent} from './adoptado-detail/adoptado-detail.component';
+import { EventoCreateComponent } from './evento-create/evento-create.component';
+import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
 import {BuscadosCreateComponent} from './buscados-create/buscados-create.component';
 import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-create.component';
@@ -28,7 +30,6 @@ import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinam
 import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
 import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
 
-
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
   { path: "home", component: HomeComponent},
@@ -36,6 +37,10 @@ const routes: Routes = [
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
+  { path: "eventos", component: EventosComponent },
+  { path: "eventos/:id", component: EventoDetailComponent },
+  { path: "crearEvento", component: EventoCreateComponent },
+  { path: "crearEvento/:id", component: EventoCreateComponent },
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
@@ -67,6 +72,7 @@ const routes: Routes = [
   {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearAgradecimiento",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearAgradecimiento/:id",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]}
+
 
 ];
 

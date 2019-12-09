@@ -1,32 +1,60 @@
+<!-- <p>Date = {{ fecha | date }}</p>
+<p>Anio = {{year}}</p>
+<p>Dia = {{day}}</p>
+<p>Mes = {{mes}}</p> -->
+
 <div class="container-fluid">
+
   <div class="row">
-    <div class="col-sm align-center">
+
+    <!-- <div class="col-sm align-center"> -->
+    <div class="col-md-12 col-lg-6">
       <ul class="heroes">
-        <h2 style="text-align:center;">Octubre</h2>
-        <hr style="height:0pt; visibility:hidden;" />
-        <li *ngFor="let evento of eventos"
-        [class.selected]="evento === selectedEvento"
-        (click)="onSelect(evento) ">
-            <span class="badge">{{evento.fecha}}</span> {{evento.titulo}}
+
+        <button type="button" class="btn btn-warning" value="Confirmar" routerLink="/crearEvento/">Registrar</button>
+        <select class="custom-select" id="4" name="mesSelect" [(ngModel)]="mesElegido" (change)="filtrarEventos($event.target.value)">
+            <option selected> -------------Seleccione el mes------------- </option>
+            <option [value]="0">Enero</option>
+            <option [value]="1">Febrero</option>
+            <option [value]="2">Marzo</option>
+            <option [value]="3">Abril</option>
+            <option [value]="4">Mayo</option>
+            <option [value]="5">Junio</option>
+            <option [value]="6">Julio</option>
+            <option [value]="7">Agosto</option>
+            <option [value]="8">Septiembre</option>
+            <option [value]="9">Octubre</option>
+            <option [value]="10">Noviembre</option>
+            <option [value]="11">Diciembre</option>
+        </select>
+        
+        <h2>{{mesMostrar}}</h2>
+
+        <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" (click)="onSelect(evento)">
+          <!-- <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" > -->
+              <!-- <span class="badge">{{evento.fecha}}</span> {{evento.titulo}} -->
+              <span class="badge">{{evento.fecha | date: 'dd'}}</span>
+              <span clas="titulo"> {{evento.titulo}} </span>
+  
+              <button type="button" class="btn btn-light"  (click)="update(evento['id'])">
+                  <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+              </button>
+              <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
+                  <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+              </button>
         </li>
+    
+
       </ul>
     </div>
-    <div class="col-sm heroes">
-        <!-- <h2 style="text-align:center;">Detalle</h2> -->
+
+
+    <div class="col-md-12 col-lg-6">
         <app-evento-detail [evento]="selectedEvento"></app-evento-detail>
     </div>
-</div>
-</div>
 
-<!-- <div class="container">
+    
 
-  <div class="row">
-      <div class="col-md-4 border">
-          <h2>{{evento.titulo}}</h2>
-          <p>Descripcion: {{evento.descripcion}}</p>
-          <p>Fecha: {{evento.fecha}}</p>
-      </div>
-     
   </div>
+
 </div>
- -->

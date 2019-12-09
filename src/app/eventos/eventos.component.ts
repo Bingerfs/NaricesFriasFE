@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EVENTOS } from '../mock-eventos'
-import { Evento } from '../evento';
+import { Evento, Mes } from '../evento';
+
+import { Router } from '@angular/router';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-eventos',
@@ -9,14 +12,91 @@ import { Evento } from '../evento';
 })
 export class EventosComponent implements OnInit
 {
-  eventos = EVENTOS;
+  // fecha = new Date("2019-12-17");
+  fecha = new Date();
+  year = this.fecha.getFullYear();
+  day = this.fecha.getDate();
+  mes = this.fecha.getMonth();
+  eventoPrueba: Evento = {id:10, titulo: 'Jornada de Adopción', descripcion: 'Dale un nuevo hogar a los pequeñines que lo perdieron', fecha: new Date("27/10/2019"), hora:"2000-01-01T09:00:00.000Z", lugar:"Refugio Gamaliel"};
+  // eventoAux = new Date("2019-10-27");
+  // calendario: any;
+
   selectedEvento: Evento;
-  onSelect(evento: Evento): void
-  {
+  public eventos: Array<Evento>;
+  public eventosOriginales: Array<Evento>;
+  public eventosMostrar: Evento[] = [];
+  public mesElegido: Mes = Mes.Noviembre;
+  public mesMostrar: string = Mes[this.mesElegido];
+  
+  constructor(public apiService: ApiService , public router: Router) {
+    // this.calendario = {};
+    // this.calendario.meses = [];
+  }
+
+  onSelect(evento: Evento): void {
     this.selectedEvento = evento;
   }
-  constructor() { }
-  ngOnInit()
-  {
+
+  ngOnInit() {
+    this.apiService.getEventos("calendarios").subscribe((data: Evento[]) => {
+      console.log(data);
+      this.eventos = data;
+      this.sortByDueDate();
+      this.eventosOriginales= this.eventos;
+      console.log(this.mesElegido);
+      console.log(Mes[0]);
+      this.filtrarEventos(this.mesElegido);
+    });
   }
+
+  public delete(id:string){
+    console.log("delete : " + id);
+    var path = 'calendarios/' + id;
+    this.apiService.deleteEvento(path).subscribe( (r)=>{
+    this.eventos = this.eventos.filter( (p,i)=>{
+        if(Number(id) === p.id ) 
+        {
+          return false;
+        }
+        return true;} ,this.eventos )
+    } );
+  }
+
+  public update(id:string){
+      console.log("update : " + id );
+      // this.router.navigateByUrl('/eventos/add/' + id);
+      this.router.navigateByUrl('/crearEvento/' + id);
+  }
+
+  filtrarEventos(value: number) : void{
+    // this.eventos = this.eventosOriginales.filter(e => e.fecha.getMonth() == this.mesElegido);
+    this.eventos = this.eventosOriginales.filter(e => e.fecha.getMonth() == value);
+    this.mesMostrar = Mes[value];
+  }
+
+  private getTime(date?: Date) {
+    return date != null ? date.getTime() : 0;
+  }
+
+  public sortByDueDate(): void {
+    this.eventos.sort((a: Evento, b: Evento) => {
+        return a.fecha.getTime() - b.fecha.getTime();
+    });
+}
+  
+  /*private evetosAcalendario()
+  {
+    for (let index = 0; index < EVENTOS.length; index++) {
+      let evento = EVENTOS[index]
+      let fecha = new Date(evento.fecha);
+      if (this.calendario.meses[fecha.getMonth()]) {
+        this.calendario.meses[fecha.getMonth()].contendido.push(evento);
+      } else {
+        this.calendario.meses[fecha.getMonth()] = {};
+        this.calendario.meses[fecha.getMonth()].mes = fecha.getMonth();
+        this.calendario.meses[fecha.getMonth()].contendido = [];
+        this.calendario.meses[fecha.getMonth()].contendido.push(evento);
+      }
+    }
+  }*/
 }
