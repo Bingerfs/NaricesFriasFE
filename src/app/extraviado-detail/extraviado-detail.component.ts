@@ -1,11 +1,11 @@
 import { Component, OnInit, Input} from '@angular/core';
 import {Extraviado} from '../extraviados/extraviado';
 import {Location} from '@angular/common';
-import {ExtraviadoService} from '../extraviado.service';
 import {ActivatedRoute} from '@angular/router';
 import { ApiService } from '../api.service';
 import { ExtraviadosComponent } from '../extraviados/extraviados.component';
 import { RouterModule, Router } from '@angular/router';
+import { AngularTokenService } from 'angular-token';
 
 
 @Component({
@@ -15,34 +15,32 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class ExtraviadoDetailComponent implements OnInit {
 
-  @Input() extraviado: Extraviado;
+  public extraviado: Extraviado;
   constructor(
     private route: ActivatedRoute,
-    private extraviadoService: ExtraviadoService,
-    private location: Location,
-    private apiService:ApiService,
-    private bus:ExtraviadosComponent,
-    private router:Router
-  ) { }
+    private tokenService:AngularTokenService, 
+    private apiService:ApiService, 
+    private router:Router, 
+    private location: Location
+    /*private adopt:AdoptadosComponent*/) { }
 
-  ngOnInit(): void
-  {
-    this.getExtraviado();
+  ngOnInit() {
+    this.getHero();
   }
 
-  getExtraviado(): void 
-  {
-
+  getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.extraviadoService.getExtraviado(id).subscribe(extraviado =>this.extraviado = extraviado);
+    var path = "buscados/" + id
+    this.apiService.get(path)
+    .subscribe((extraviado: Extraviado) => this.extraviado = extraviado);
   }
+
   delete(id:any){
     var path = 'extraviados/' + id;
-    this.apiService.deleteAdoptado(path).subscribe(
+    this.apiService.delete(path).subscribe(
       (r)=>{
         console.log(r);
-        this.bus.selectedExtraviado=null;
-        this.bus.ngOnInit();
+
         this.router.navigateByUrl('/extraviados');
       }
     );
@@ -52,9 +50,10 @@ export class ExtraviadoDetailComponent implements OnInit {
   edit(id:any){
     this.router.navigate(['/crearExtraviado', id]);
   }
-  goBack(): void
+
+  goBack()
   {
     this.location.back();
-    console.log("hola");
   }
+
 }

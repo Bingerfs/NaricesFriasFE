@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BuscadoService } from './buscado.service';
+import { RoleGuardService } from './role-guard.service';
 
-describe('BuscadoService', () => {
+describe('RoleGuardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BuscadoService = TestBed.get(BuscadoService);
+    const service: RoleGuardService = TestBed.get(RoleGuardService);
     expect(service).toBeTruthy();
   });
 });

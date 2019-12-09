@@ -1,30 +1,79 @@
+.container {
+    margin-top: 30px;
+}
+
+
+/*TITLE*/
+
+#adoptados-title {
+    position: relative;
+}
+
+#adoptados-tittle h3 {
+    text-transform: uppercase;
+}
+
+#adoptados-tittle button {
+    position: absolute;
+    right: 0;
+    margin-right: 1em;
+}
+
+
+/*END OF TITLE*/
+
+
+/* FILTERS*/
+
+#Filter {
+    margin-bottom: 30px;
+}
+
+#Filter p {
+    font-weight: bold;
+    vertical-align: middle;
+    padding-left: 10px;
+    margin: 10px;
+}
+
+#select {
+    color: green;
+}
+
+button.navbar-toggler {
+    border: 1px solid rgba(102, 102, 102, 0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(102, 102, 102, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/*END OF FILTERS*/
+
 img {
-    /*box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 75);*/
-    margin-bottom: 20px;
     max-height: 180px;
     max-width: 100%;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     display: block;
 }
 
 img:hover {
     filter: gray;
     -webkit-filter: opacity(50%);
+    cursor: pointer;
 }
 
-.top-buffer {
-    margin-top: 30px;
+#image {
+    display: table;
+    margin-bottom: 20px;
 }
 
-h2 {
-    margin-top: 10px;
-}
-
-div button {
-    float: right;
-    margin-right: 1em;
-}
-
-p.thick {
-    font-weight: bold;
+#image div {
+    background: rgba(233, 233, 233, 0.3);
+    padding: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
 }

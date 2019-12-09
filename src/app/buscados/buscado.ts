@@ -3,6 +3,8 @@ export class Buscado{
     name: string;
     size: string;
     age: string;
-    esterelizacion: boolean;
-    contacto: number;
+    gender: string;
+    esterilizacion: boolean;
+    contact: string;
+    description: Text;
 }

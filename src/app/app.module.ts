@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+//import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +15,7 @@ import { AdoptadosComponent } from './adoptados/adoptados.component';
 import { BuscadosComponent } from './buscados/buscados.component';
 import { BuscadoDetailComponent } from './buscado-detail/buscado-detail.component';
 import { SigninComponent } from './signin/signin.component';
+import { FormsModule, ReactiveFormsModule  } from '@angular/forms'
 import { AngularTokenModule } from 'angular-token';
 import { AdoptadosCreateComponent } from './adoptados-create/adoptados-create.component';
 import { EventosComponent } from './eventos/eventos.component';
@@ -30,6 +33,16 @@ import { EventoCreateComponent } from './evento-create/evento-create.component';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 registerLocaleData(localeEs, 'es');
+
+import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
+import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
+import { ExtraviadosCreateComponent } from './extraviados-create/extraviados-create.component';
+import { UploadImagesComponent } from './upload-images/upload-images.component';
+import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
+import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
+import {NgbdModalBasic} from './Pop-up/modal-basic';
+import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
+import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
 
 @NgModule({
   declarations: [
@@ -50,18 +63,29 @@ registerLocaleData(localeEs, 'es');
     ContactoComponent,
     AdoptadoDetailComponent,
     CrearVoluntarioComponent,
-    EventoCreateComponent
+    EventoCreateComponent,
+    ListaVoluntariosComponent,
+    BuscadosCreateComponent,
+    ExtraviadosCreateComponent,
+    UploadImagesComponent,
+    ApadrinamientoComponent,
+    NgbdModalBasic,
+    ApadrinamientoCreateComponent,
+    AgradecimientosComponent,
+    AgradecimientosCreateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    NgbModule,
     ReactiveFormsModule,
     AngularTokenModule.forRoot({
       apiBase: 'http://localhost:3000',
       userTypes: [
-        {name: 'ADMIN', path: 'admin'}
+        {name: 'ADMIN', path: 'admin'},
+        {name: 'VOL', path: ''}
       ],
     })
   ],

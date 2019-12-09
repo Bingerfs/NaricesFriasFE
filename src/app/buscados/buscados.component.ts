@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Buscado} from './buscado';
-//import {BUSCADOS} from '../mock-buscados';
-import {BuscadoService} from '../buscado.service';
 import { ApiService } from '../api.service';
+import { AngularTokenService } from 'angular-token';
 
 @Component({
   selector: 'app-buscados',
@@ -11,27 +10,25 @@ import { ApiService } from '../api.service';
 })
 export class BuscadosComponent implements OnInit {
 
-  //buscados = BUSCADOS;
-  buscados: Buscado[];
+  public buscados: Array<Buscado>
   selectedBuscado: Buscado;
- 
-  constructor(public apiService:ApiService, private buscadoService: BuscadoService) { }
+  Edad: string;
+
+  constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
 
   ngOnInit() {
-    //this.getBuscados();
-    this.apiService.getAdoptados("buscados").subscribe((data : Buscado[])=>{
+    this.Edad = "Cachorro";
+    this.apiService.get("buscados").subscribe((data : Buscado[])=>{
       console.log(data);
       this.buscados=data;
     });
   }
 
-  onSelect(buscado: Buscado): void{
-    this.selectedBuscado = buscado;
+  onSelect(adoptado: Buscado): void{
+    this.selectedBuscado = adoptado;
   }
-
-  /*getBuscados(): void {
-    this.buscadoService.getBuscados().subscribe(buscados => this.buscados = buscados);
-  }*/
-
+  comprobar(): boolean{
+    return true;
+  }
 
 }

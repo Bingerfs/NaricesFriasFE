@@ -1,75 +1,78 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm align-self-center">
-            <h2>Registro de Adopcion</h2>
-        </div>
-        <div class="col-sm">
+<div class="container">
+    <div id="adoptados-title">
+        <h3>
+            Registro de Adopción
             <img class="logo" src="./assets/images/logo.jpg" />
-        </div>
+        </h3>
+
+        <hr>
     </div>
-    <form (ngSubmit)="onSubmitCreate()">
-        <div class="row">
-            <div class="col-sm-4 border">
-                <form>
-                    <div class="form-group">
-                        <!-- <label for="Imagen">Subir imagen</label> -->
-                        <input type="file" class="form-control-file" id="Imagen">
-                    </div>
-                </form>
+    <!--End of adotados tittle-->
+    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+
+        <div class="col-md-6 col-lg-4 border">
+            <!-- <div *ngIf="adoptado.id; else photo">
+                <img src="http://localhost:3000/adoptados/{{adoptado.id}}/download" class="profile" alt="profile-picture">
             </div>
-            <div class="col-sm-3">
-                <h3>Descripcion</h3>
-                <div class="form-group mb-3">
-                    <label for="1">Tamaño</label>
-                    <select class="custom-select" id="1" name="Tamanio" [(ngModel)]="adoptado.tamagno">
+            <ng-template #photo>
+                <img [src]="imgURL" class="profile" alt="">
+            </ng-template> -->
+            <img [src]="getImgURL()" class="profile" alt="">
+            <div class="form-group">
+                <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <h3>Caracteristicas</h3>
+            <div class="form-group">
+                <label for="1">Tamaño</label>
+                <select class="custom-select" id="1" name="Tamanio" formControlName="tamagno">
                           <option selected>Tamaño</option>
-                          <option value="Pequenio">Pequenio</option>
+                          <option value="Pequeño">Pequeño</option>
                           <option value="Mediano">Mediano</option>
                           <option value="Grande">Grande</option>
-                        </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="2">Edad</label>
-                    <select class="custom-select" id="2" name="Edad" [(ngModel)]="adoptado.edad">
+                    </select>
+            </div>
+            <div class="form-group">
+                <label for="2">Edad</label>
+                <select class="custom-select" id="2" name="Edad" formControlName="edad">
                           <option selected>Edad</option>
                           <option value="Cachorro">Cachorro</option>
                           <option value="Joven">Joven</option>
                           <option value="Adulto">Adulto</option>
                         </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="3">Género</label>
-                    <select class="custom-select" id="3" name="Genero" [(ngModel)]="adoptado.genero">
-                          <option selected>Genero</option>
+            </div>
+            <div class="form-group">
+                <label for="3">Género</label>
+                <select class="custom-select" id="3" name="Genero" formControlName="genero">
+                          <option selected>Género</option>
                           <option value="Hembra">Hembra</option>
                           <option value="Macho">Macho</option>
                         </select>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="4">Esterilizacion</label>
-                    <select class="custom-select" id="4" name="Esterelizacion" [(ngModel)]="adoptado.esteriliacion">
-                          <option selected>Esterelizacion</option>
-                          <option [value]="1">Si</option>
-                          <option [value]="0">No</option>
+            </div>
+            <div class="form-group">
+                <label for="4">Esterilización</label>
+                <select class="custom-select" id="4" name="Esterelizacion" formControlName="esterilizacion">
+                          <option selected>Esterilización</option>
+                          <option [value]="true">Si</option>
+                          <option [value]="false">No</option>
                         </select>
-                </div>
-            </div>
-            <div class="col-sm-4 ">
-                <h3>Descripcion</h3>
-                <textarea type="text" class="form-control" name="descripcion" id="descripcion" placeholder="Escriba aqui" height="20px" [(ngModel)]="adoptado.descripcion"></textarea>
-                <label for="telefono">Telefono</label>
-                <br>
-                <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" [(ngModel)]="adoptado.telefono">
-            </div>
-            <div class="col-sm-1">
-
             </div>
         </div>
-        <div class="row" class="toRight">
-            <div class="col align-self-center">
-                <input type="submit" class="btn btn-warning" value="Confirmar" />
-            </div>
+        <div class="col-md-12 col-lg-4">
+            <h3>Historia</h3>
+            <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
+            <h3>Contacto</h3>
+            <label for="telefono">Teléfono</label>
+            <br>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" formControlName="telefono">
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+            <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
         </div>
     </form>
+
 </div>
+<br>
 <br>

@@ -13,28 +13,46 @@ export class ApiService {
 
   constructor(public http: HttpClient) { }
 
-  public getAdoptados (path: string)
+
+ // public getAdoptados (path: string)
+
+  public get(path: string)
   {
     var endpoint = this.API_URL + path;
     return this.http.get(endpoint);
   }
-  public createAdoptados(path: string, body: any)
+  public create(path: string, body: any)
   {
     var endpoint = this.API_URL + path;
-    return this.http.post(endpoint, body);
+    return this.http.post<any>(endpoint, body);
+    
   }
-  public deleteAdoptado(path: string){
+
+  public delete(path: string){
     var endpoint = this.API_URL + path;
     return this.http.delete(endpoint);
   }
-  public getAdoptado(path: string){
-    var endpoint = this.API_URL + path;
-    return this.http.get(endpoint);
-  }
-  public updateAdoptado(path:string, body:any){
+
+  public update(path:string, body:any){
     var endpoint = this.API_URL + path;
     return this.http.put(endpoint, body);
   }
+
+  public getVoluntarios(path:string){
+    var endpoint = this.API_URL + path;
+    return this.http.get(endpoint);
+  }
+
+  public getVoluntario(path:string){
+    var endpoint = this.API_URL + path;
+    return this.http.get(endpoint);
+  }
+
+  public updateVoluntario(path:string, body:any){
+    var endpoint = this.API_URL + path;
+    return this.http.put(endpoint, body);
+  }
+
 
   // public getEventos(path: string)
   // {
@@ -83,4 +101,8 @@ export class ApiService {
     );
   }
 
+  public deleteVoluntario(path:string){
+    var endpoint = this.API_URL + path;
+    return this.http.delete(endpoint);
+  }
 }
