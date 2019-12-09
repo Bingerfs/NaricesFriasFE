@@ -29,23 +29,23 @@ export class CrearVoluntarioComponent implements OnInit {
   constructor(public tokenService: AngularTokenService, private router: Router, public acRoute: ActivatedRoute, public apiService: ApiService) { }
 
   ngOnInit() {
-    this.acRoute.params.subscribe((data : any)=>{
+    /*this.acRoute.params.subscribe((data : any)=>{
       console.log(data.id);
-      if(data && data.id){
+      if(data && data.id!=undefined){
           this.apiService.getVoluntario("voluntarios/"+data.id).subscribe((data : any)=>{
           this.signUpUser = data;
           });
       }
-      })
+      })*/
   }
 
   onSubmitSign(){
-    if(this.editUser.id){
-      this.apiService.updateVoluntario("voluntarios/"+this.editUser.id,this.editUser).subscribe((r)=>{
+    /*if(this.signUpUser.login != ''){
+      this.apiService.updateVoluntario("voluntarios/"+this.signUpUser.id, this.signUpUser).subscribe((r)=>{
         this.router.navigateByUrl('/voluntarios')
       })
       }
-    else{
+    else{*/
       this.tokenService.registerAccount(this.signUpUser).subscribe(
 
         (res) => {
@@ -64,7 +64,7 @@ export class CrearVoluntarioComponent implements OnInit {
           console.log(err);
         }
     )
-  }
+  //}
 }
     
   }

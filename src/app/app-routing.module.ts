@@ -35,10 +35,8 @@ const routes: Routes = [
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
-  {path: "registrar", component: CrearVoluntarioComponent, canActivate: [RoleGuardService], 
-  data: { 
-    expectedRole: 'ADMIN'
-  } },
+  {path: "registrar", component: CrearVoluntarioComponent},
+  {path: "registrar/:id", component: CrearVoluntarioComponent},
   { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   {path: "extraviados/:id", component: ExtraviadoDetailComponent},
   {path:"buscados/:id", component: BuscadoDetailComponent},

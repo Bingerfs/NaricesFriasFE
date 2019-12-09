@@ -13,7 +13,7 @@ export class ListaVoluntariosComponent implements OnInit {
   constructor(public tokenService: AngularTokenService, public apiService: ApiService) { }
 
   ngOnInit() {
-    this.apiService.getAdoptados("voluntarios").subscribe((data : Object[])=>{
+    this.apiService.getVoluntarios("voluntarios").subscribe((data : Object[])=>{
       console.log(data);
       this.voluntarios=data;
     });
