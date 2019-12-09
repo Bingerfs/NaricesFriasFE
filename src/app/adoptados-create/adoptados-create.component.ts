@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Location} from '@angular/common';
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, SelectMultipleControlValueAccessor } from "@angular/forms";
 
 import { Adoptado } from '../adoptado';
 import { ApiService } from '../api.service';
@@ -53,7 +53,9 @@ export class AdoptadosCreateComponent implements OnInit
                 this.form.get("description").setValue(data.description);
                 this.form.get("id").setValue(data.id);
                 this.adoptado = data;
+                this.imgURL = `http://localhost:3000/adoptados/${data.id}/download`;
             });
+            
         }
         else
         {
@@ -78,7 +80,11 @@ export class AdoptadosCreateComponent implements OnInit
 
   submitForm() {
     var formData: any = new FormData();
-    formData.append("picture", this.form.get('picture').value);
+    if(this.form.get('picture').value !=null)
+    {
+       formData.append("picture", this.form.get('picture').value);
+    }
+    //formData.append("picture", this.form.get('picture').value);
     formData.append("edad", this.form.get('edad').value);
     formData.append("tamagno", this.form.get('tamagno').value);
     formData.append("esterilizacion", this.form.get('esterilizacion').value);
@@ -105,7 +111,13 @@ export class AdoptadosCreateComponent implements OnInit
   {
    this.location.back();
   }
-
+  getImgURL()
+  {
+  //   if(this.timeStamp) {
+  //     return this.imgURL + '?' + this.timeStamp;
+  //  }
+    return this.imgURL;
+  }
     // handleFileInput(file: FileList)
   // {
   //   this.fileToUpload = file.item(0);

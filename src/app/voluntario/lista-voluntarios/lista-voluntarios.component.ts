@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularTokenService } from 'angular-token';
+import { RouterModule, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { ApiService } from 'src/app/api.service';
 export class ListaVoluntariosComponent implements OnInit {
 
   voluntarios: Object[];
-  constructor(public tokenService: AngularTokenService, public apiService: ApiService) { }
+  constructor(public tokenService: AngularTokenService, public apiService: ApiService, private router:Router) { }
 
   ngOnInit() {
-    this.apiService.getVoluntarios("voluntarios").subscribe((data : Object[])=>{
+    //this.apiService.getVoluntarios("voluntarios").subscribe((data : Object[])=>{
+    this.apiService.get("voluntarios").subscribe((data : Object[])=>{
       console.log(data);
       this.voluntarios=data;
     });
@@ -24,7 +26,8 @@ export class ListaVoluntariosComponent implements OnInit {
     this.apiService.deleteVoluntario(path).subscribe(
       (r)=>{
         console.log(r);
-        
+        this.router.navigateByUrl('/voluntarios');
+        this.ngOnInit();
       }
     );
   }

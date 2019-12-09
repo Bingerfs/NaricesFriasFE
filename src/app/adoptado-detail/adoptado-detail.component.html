@@ -10,18 +10,21 @@
 
         <div class="row">
             <div class="col-md-6">
-                <img class="img-fluid center" src="./assets/images/{{adoptado.id}}.jpg" />
+                <img class="img-fluid center" src="http://localhost:3000/adoptados/{{adoptado.id}}/download" />
                 <div *ngIf="tokenService.userSignedIn()">
                     <button type="button" class="btn btn-light" (click)="edit(adoptado.id)">
                         <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
                     </button>
-                    <button type="button" class="btn btn-light" (click)="delete(adoptado.id)">
+                    <button type="button" class="btn btn-light" (click)="open(content)">
                         <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
                     </button>
                 </div>
-                <p class="style">{{adoptado.description}}</p>
+
             </div>
             <div class="col-md-6">
+                <h6>HISTORIA</h6>
+                <hr>
+                <p class="style">{{adoptado.description}}</p>
                 <h6>CARACTERISTICAS</h6>
                 <hr>
                 <ul>
@@ -36,8 +39,27 @@
                 <p>Si desea adoptarlo puede contactar al número: {{adoptado.telefono}}</p>
             </div>
         </div>
-
         <br>
         <br>
     </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+        </div>
+        <div class="modal-body">
+            <p><strong>¿Esta seguro que desea eliminar el perfil de la mascota?</strong></p>
+            <p>Toda la informacion asociada con este perfil sera borrada permanentemente.
+                <span>(Esta operacion no puede ser revertida)</span>
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+            <button type="button" class="btn btn-danger" (click)="modal.close(adoptado.id)">Eliminar</button>
+        </div>
+    </ng-template>
+
 </body>

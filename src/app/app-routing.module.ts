@@ -19,11 +19,16 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
 import {ExtraviadoDetailComponent} from './extraviado-detail/extraviado-detail.component';
 import {BuscadoDetailComponent} from './buscado-detail/buscado-detail.component';
 import {AdoptadoDetailComponent} from './adoptado-detail/adoptado-detail.component';
+import { EventoCreateComponent } from './evento-create/evento-create.component';
+import { EventoDetailComponent } from './evento-detail/evento-detail.component';
 import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
 import {BuscadosCreateComponent} from './buscados-create/buscados-create.component';
 import {ExtraviadosCreateComponent} from './extraviados-create/extraviados-create.component';
 import {UploadImagesComponent} from './upload-images/upload-images.component';
-
+import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.component';
+import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
+import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
+import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -32,27 +37,43 @@ const routes: Routes = [
   { path: "signin", component: SigninComponent},
   { path: "crearAdoptado", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
+  { path: "eventos", component: EventosComponent },
+  { path: "eventos/:id", component: EventoDetailComponent },
+  { path: "crearEvento", component: EventoCreateComponent },
+  { path: "crearEvento/:id", component: EventoCreateComponent },
   {path: "buscados", component: BuscadosComponent},
   {path: "extraviados", component: ExtraviadosComponent},
   {path: "contacto", component: ContactoComponent},
-  {path: "registrar", component: CrearVoluntarioComponent},
+  //{path: "registrar", component: CrearVoluntarioComponent},
   {path: "registrar/:id", component: CrearVoluntarioComponent},
+  // {path: "registrar", component: CrearVoluntarioComponent},
+   {path: "registrar", component: CrearVoluntarioComponent, canActivate: [RoleGuardService], 
+   data: { 
+     expectedRole: 'ADMIN'
+   } },
   { path: "crearAdoptado/:id", component: AdoptadosCreateComponent, canActivate: [AngularTokenService] },
   {path: "extraviados/:id", component: ExtraviadoDetailComponent},
   {path:"buscados/:id", component: BuscadoDetailComponent},
   {path:"adoptados/:id", component: AdoptadoDetailComponent},
    { path: "calendario", component: EventosComponent },
-   {path: "voluntarios", component: ListaVoluntariosComponent, canActivate: [RoleGuardService], 
-   data: { 
-     expectedRole: 'ADMIN'
-   } },
+  //  {path: "voluntarios", component: ListaVoluntariosComponent},
+    {path: "voluntarios", component: ListaVoluntariosComponent, canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'ADMIN'
+    } },
   { path: "calendario", component: EventosComponent },
   {path: "crearBuscado",component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearBuscado/:id", component: BuscadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearExtraviado",component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearExtraviado/:id", component: ExtraviadosCreateComponent, canActivate: [AngularTokenService]},
   {path: "cargarImagen",component: UploadImagesComponent},
-  {path: "adoptados/:id",component: AdoptadoDetailComponent}
+  {path: "adoptados/:id",component: AdoptadoDetailComponent},
+  {path: "apadrinamientos",component: ApadrinamientoComponent},
+  {path: "agradecimientos",component: AgradecimientosComponent},
+  {path: "crearApadrinamiento",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearAgradecimiento",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "crearAgradecimiento/:id",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]}
 
 
 ];

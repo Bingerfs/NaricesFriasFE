@@ -11,14 +11,13 @@
     <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
         <div class="col-md-6 col-lg-4 border">
-            <div *ngIf="adoptado.id; else photo">
-
-                <img src="./assets/images/{{adoptado.id}}.jpg" class="profile" alt="profile-picture">
-
+            <!-- <div *ngIf="adoptado.id; else photo">
+                <img src="http://localhost:3000/adoptados/{{adoptado.id}}/download" class="profile" alt="profile-picture">
             </div>
             <ng-template #photo>
                 <img [src]="imgURL" class="profile" alt="">
-            </ng-template>
+            </ng-template> -->
+            <img [src]="getImgURL()" class="profile" alt="">
             <div class="form-group">
                 <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
             </div>
@@ -61,7 +60,7 @@
             </div>
         </div>
         <div class="col-md-12 col-lg-4">
-            <h3>Descripción</h3>
+            <h3>Historia</h3>
             <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
             <h3>Contacto</h3>
             <label for="telefono">Teléfono</label>

@@ -1,17 +1,24 @@
 <div class="container-fluid" style="margin-top:30px">
 
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-lg-6">
             <div class="box h-80 d-flex justify-content-center flex-column">
                 <img class="img-responsive mx-auto d-block" src="./assets/images/logo.jpg" />
+
             </div>
-            <p class="text-warning">Direccion:</p>
+            <h5 class="text-warning">Direccion:</h5>
             <p>Avenida Beiging esq. Dorbigni, acera sud-este - Cochabamba</p>
-            <p class="text-warning">Horarios de voluntariado:</p>
+            <h5 class="text-warning">Horarios de voluntariado:</h5>
             <p>Lunes a Viernes de 14:00 pm a 18:00 pm</p>
-            <p class="text-warning">Horarios de Atencion Veterinaria:</p>
+            <h5 class="text-warning">Horarios de Atencion Veterinaria:</h5>
             <p>Lunes a Viernes de 14:00 pm a 18:00 pm</p>
             <p>Dr. Richard - 76945968</p>
+            <a id="map" href="https://goo.gl/maps/LiCy6CgF8jdE9oqCA" target="_blank">
+                <div id="map-tile">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951.8743236900264!2d-66.18267367082447!3d-17.38790641943382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e3747be5cb8e89%3A0xaa53fccec21f451c!2sRefugio%20Gamaliel-%20Perritos%20Tiquipaya!5e0!3m2!1ses-419!2sbo!4v1574703949425!5m2!1ses-419!2sbo"
+                        width="650" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </a>
         </div>
         <form (ngSubmit)="onSubmit()" class="col-sm-6">
 
@@ -32,7 +39,7 @@
                 <label for="asunto">Mensaje</label>
                 <textarea [(ngModel)]="email.asunto" class="form-control" id="asunto" name="asunto" rows="3" placeholder="Escriba aqui..."></textarea>
             </div>
-            <div class="col align-self-end">
+            <div class="col ">
                 <input type="submit" class="btn btn-warning" value="Enviar" />
             </div>
         </form>

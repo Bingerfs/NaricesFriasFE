@@ -3,9 +3,11 @@
         <h3>
             Mascotas en adopcion
             <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
+
         </h3>
         <hr>
     </div>
+
     <!--End of adoptados tittle-->
 
     <div id="Filter" class="row">
@@ -14,8 +16,8 @@
         <form class="form-inline">
             <div class="form-group">
                 <label class="my-1 mr-2" for="tam">Tamaño</label>
-                <select class="form-control my-1 mr-sm-2" id="tam">
-                                <option selected>Seleccionar...</option>
+                <select class="form-control my-1 mr-sm-2" id="tam" (change)="filter(1,$event.target.value)">
+                                <option value="none" selected>Seleccionar...</option>
                                 <option value="Pequeño">Pequeño</option>
                                 <option value="Mediano">Mediano</option>
                                 <option value="Grande">Grande</option>
@@ -23,16 +25,16 @@
             </div>
             <div class="form-group">
                 <label class="my-1 mr-2" for="tam">Genero</label>
-                <select class="form-control my-1 mr-sm-2" id="tam">
-                                <option selected>Seleccionar...</option>
+                <select class="form-control my-1 mr-sm-2" id="tam" (change)="filter(2,$event.target.value)">
+                                <option value="none" selected>Seleccionar...</option>
                                 <option value="Hembra">Hembra</option>
                                 <option value="Macho">Macho</option>
                             </select>
             </div>
             <div class="form-group">
                 <label class="my-1 mr-2" for="tam">Edad</label>
-                <select class="form-control my-1 mr-sm-2" id="tam">
-                                <option selected>Seleccionar...</option>
+                <select class="form-control my-1 mr-sm-2" id="tam" (change)="filter(3,$event.target.value)">
+                                <option value="none" selected>Seleccionar...</option>
                                 <option value="Cachorro">Cachorro</option>
                                 <option value="Joven">Joven</option>
                                 <option value="Adulto">Adulto</option>
@@ -46,7 +48,7 @@
             <div id="image" class="mx-auto img-thumbnail">
                 <a routerLink="/adoptados/{{adoptado.id}}">
                     <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
-                    <img class="border" class="img-fluid mx-auto d-block" src="./assets/images/{{adoptado.id}}.jpg" />
+                    <img class="border" class="img-fluid mx-auto d-block" src="http://localhost:3000/adoptados/{{adoptado.id}}/download" />
                 </a>
                 <div>
                     <h5 class="text-uppercase font-weight-bold ">{{adoptado.tamagno}}</h5>

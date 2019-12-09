@@ -1,12 +1,14 @@
 /* HeroesComponent's private CSS styles */
+
 .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 3em 4em 0em 4em;
     width: 100%;
     /*width: 20em;*/
-  }
-  .heroes li {
+}
+
+.heroes li {
     cursor: pointer;
     position: relative;
     left: 0;
@@ -15,31 +17,180 @@
     padding: .3em 0;
     height: 3em;
     border-radius: 4px;
-  }
-  .heroes li:hover {
+}
+
+.heroes li:hover {
     color: #607D8B;
     background-color: #DDD;
     left: .1em;
-  }
-  .heroes li.selected {
+}
+
+.heroes li.selected {
     background-color: #CFD8DC;
     color: white;
-  }
-  .heroes li.selected:hover {
+}
+
+.heroes li.selected:hover {
     background-color: #BBD8DC;
     color: white;
-  }
-  .heroes .badge {
+}
+
+.heroes .badge {
     display: inline-block;
-    font-size: small;
+    font-size: large;
     color: white;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color:#405061;
+    background-color: #405061;
     line-height: 1em;
     position: relative;
     left: -1px;
     top: -4px;
-    height: 3.5em;
+    height: 2.7em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-  }
+}
+
+button {
+    /* background-color: #eee; */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    cursor: hand;
+    font-family: Arial;
+}
+
+button:hover {
+    background-color: #cfd8dc;
+}
+
+button.delete {
+    /* position: relative; */
+    left: 194px;
+    top: -32px;
+    background-color: gray !important;
+    color: white;
+}
+
+button.edit {
+    position: relative;
+    left: 194px;
+    top: -32px;
+    background-color: gray !important;
+    color: white;
+}
+
+h2 {
+    text-align: left;
+    margin-left: 5px;
+    padding-bottom: 10px;
+}
+
+.icon {
+    width: 15px;
+    vertical-align: middle;
+    padding: 1px;
+}
+
+h2 {
+    padding-top: 10px;
+}
+
+
+/* .heroes li.titulo {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 3em;
+  border-radius: 4px;
+}
+.heroes.titulo:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.heroes.titulo.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.heroes.titulo.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+} */
+
+
+/* Ariel */
+
+.container-fluid {
+    margin-top: 20px;
+}
+
+#adoptados-title {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+img.logo {
+    position: absolute;
+    max-width: 80px;
+    right: 0;
+}
+
+img.perfil {
+    max-width: 500px;
+}
+
+.columnas {
+    margin-left: 10px;
+}
+
+button {
+    margin: 1px;
+}
+
+img.profile {
+    padding: 10px;
+    max-width: 100%;
+}
+
+.limit {
+    max-width: 300px;
+}
+
+textarea {
+    height: 220px;
+}
+
+.form-group {
+    max-width: 80%;
+    margin: auto;
+}
+
+form h3 {
+    margin-top: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 569px) {
+    #adoptados-title img {
+        max-width: 60px;
+    }
+    #adoptados-title h3 {
+        font-size: 7vw;
+    }
+}
+
+#sel {
+    max-width: 50%;
+}
+
+.heroes button {
+    float: right;
+    margin-right: 5px;
+}

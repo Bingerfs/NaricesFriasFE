@@ -2,9 +2,9 @@
     padding: 20px;
     background-color: #f44336;
     color: white;
-  }
-  
-  .closebtn {
+}
+
+.closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -13,8 +13,19 @@
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
-  }
-  
-  .closebtn:hover {
+}
+
+.closebtn:hover {
     color: black;
-  }
+}
+
+#adoptados-title {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+img.logo {
+    position: absolute;
+    max-width: 80px;
+    right: 0;
+}
