@@ -1,34 +1,28 @@
-<div *ngIf="evento">
+<div *ngIf="evento" class="container">
 
-    <h2 style="text-align:center;">{{evento.titulo | uppercase}}</h2>
-    <hr style="height:0pt; visibility:hidden;" />
-    <div>
-      <b>Lugar: </b>
-      <br>
-      {{evento.lugar}}
-      <br>
-      <br>
+    <div id="adoptados-title">
+        <h2 style="text-align:center;">{{evento.titulo | uppercase}}</h2>
+        <hr>
+    </div>
+
+    <div class="datos">
+      <img class="icon" src="../../assets/images/place.png" alt="edit icon">
+      <!-- <b>Lugar: </b> -->
+      <span> {{evento.lugar}} </span>
+
+      <img class="icon" src="../../assets/images/time.png" alt="edit icon">
+      <!-- {{evento.fecha | date:'fullDate':'UTC':'es' }} a las {{evento.hora | date:'shortTime':'UTC'}} -->
+      <!-- {{evento.fecha | date:'EEEE, MMMM d, y':'UTC':'es' | titlecase}} a las {{evento.hora | date:'shortTime':'UTC'}} -->
+      {{evento.fecha | date:'EEEE':'UTC':'es'| titlecase}} {{evento.fecha | date:'longDate':'UTC':'es' }} a las {{evento.hora | date:'shortTime':'UTC'}}
     </div>
       
-    <div>
-      <b>Hora: </b>
-      <br>
-      {{evento.hora}}
-      <br>
-      <br>
-    </div>
-
-    <div>
-        <b>Detalles: </b>
-        <br>
+    <div class="datos">
+        <div id="etiqueta">Detalles: </div>
         {{evento.descripcion}}
-        <br>
-        <br>
-      </div>
-
-    <!-- <label>Name:
-        <input [(ngModel)]="hero.name" placeholder="name"/>
-    </label>
-    </div> -->
+    </div>
     
 </div>
+
+<!-- <button type="button" class="btn btn-light" (click)="mostrar()">
+    mostrar
+</button> -->

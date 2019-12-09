@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
@@ -25,6 +25,11 @@ import { CrearVoluntarioComponent } from './crear-voluntario/crear-voluntario.co
 
 import { ApiService } from './api.service'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { EventoCreateComponent } from './evento-create/evento-create.component';
+
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [
@@ -44,7 +49,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     ExtraviadoDetailComponent,
     ContactoComponent,
     AdoptadoDetailComponent,
-    CrearVoluntarioComponent
+    CrearVoluntarioComponent,
+    EventoCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +65,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     })
   ],
   exports: [HomeComponent],
+  // providers: [ApiService, AngularTokenModule, { provide: LOCALE_ID, useValue: 'es' }],
   providers: [ApiService, AngularTokenModule],
   bootstrap: [AppComponent]
 })
