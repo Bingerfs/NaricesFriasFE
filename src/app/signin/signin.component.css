@@ -1,7 +1,40 @@
-.custom-row{
-    height: 100vh;
+img {
+    max-width: 500px;
 }
 
-img{
-    max-width: 500px;
+.form-group {
+    max-width: 90%;
+}
+
+.image {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+div.log {
+    margin-top: 10%;
+    margin-left: 0px;
+    margin-right: 10%;
+    /* border: rgb(202, 202, 202) 1px solid; */
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    div.log {
+        margin-top: 0px;
+        margin-left: 10%;
+        margin-right: 10%;
+        /* border: rgb(202, 202, 202) 1px solid; */
+        padding: 20px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 }

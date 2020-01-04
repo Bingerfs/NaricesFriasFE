@@ -63,7 +63,12 @@ export class CrearVoluntarioComponent implements OnInit {
           this.errors=err.error.errors.full_messages;
           console.log(err);
         }
-    )
+    );
+    this.tokenService.signIn({
+      login:"admin@example.com",
+      password:"password",
+      userType:"ADMIN"
+    });
   //}
 }
     

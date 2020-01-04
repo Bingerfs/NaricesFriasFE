@@ -14,7 +14,7 @@
             <div class="row img-thumbnail">
                 <div id="image" class="col-lg-6 mx-auto ">
                     <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
-                    <img class="border" class="img-fluid center " src="http://localhost:3000/agradecimientos/{{agradecimiento.id}}/download" />
+                    <img class="border" class="img-fluid center rounded" src="http://localhost:3000/agradecimientos/{{agradecimiento.id}}/download" />
                     <div *ngIf="tokenService.userSignedIn()">
                         <button type="button" class="btn btn-light" (click)="edit(agradecimiento.id)">
                             <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
@@ -24,7 +24,7 @@
                         </button>
                     </div>
                 </div>
-                <div id="historia" class="col-lg-6">
+                <div id="historia" class="col-lg-6 rounded">
                     <h4 class="text-center descripcion">{{agradecimiento.name}}</h4>
                     <p class="style">{{agradecimiento.description}}</p>
                 </div>

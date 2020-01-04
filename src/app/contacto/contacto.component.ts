@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Router } from '@angular/router';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class ContactoComponent implements OnInit {
     nombre:'',
     telefono:''
   }
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService,private router: Router,private location: Location) { }
 
   ngOnInit() {
   }
@@ -25,8 +27,17 @@ export class ContactoComponent implements OnInit {
     this.apiService.enviar("contactForm", this.email).subscribe(
       (r)=>{
         console.log(r);
+       
+       
       });
-    console.log("ALgo?");
+      alert('Mensaje enviado');
+      this.goBack();
+
+      
+  }
+  goBack(): void
+  {
+   this.location.back();
   }
 
 }
