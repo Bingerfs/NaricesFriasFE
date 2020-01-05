@@ -7,6 +7,8 @@
 
 #adoptados-title {
     position: relative;
+    margin-bottom: 50px;
+    
 }
 
 #adoptados-tittle h3 {
@@ -17,12 +19,19 @@
     position: absolute;
     right: 0;
     margin-right: 1em;
+    
 }
 
 img.logo {
     position: absolute;
     max-width: 80px;
+    top: 0;
     right: 0;
+    margin: 0;
+}
+img.logo:hover{
+    cursor: initial;
+    filter: opacity(100%);
 }
 
 
@@ -32,7 +41,9 @@ img.logo {
 /* FILTERS*/
 
 #Filter {
+    margin: auto;
     margin-bottom: 30px;
+
 }
 
 #Filter p {
@@ -42,9 +53,8 @@ img.logo {
     margin: 10px;
 }
 
-#select {
-    color: green;
-}
+
+
 
 button.navbar-toggler {
     border: 1px solid rgba(102, 102, 102, 0.5);
@@ -89,3 +99,110 @@ img:hover {
     width: 250px;
     height: 180px;
 } */
+
+@media (max-width:1239px) {
+    #adoptados-title {
+        margin-bottom: 10px;
+    }
+    form label{
+        margin-left: 20px;
+    }
+
+}
+@media (max-width:959px) {
+    #adoptados-title {
+            
+        margin-bottom: 20px;
+    }
+    label{
+        font-size: 12px;
+        margin-bottom: 0px !important;
+    }
+    form label{
+        margin-left: 0px;
+    }
+    .form-control{
+        margin-top: 0px !important;
+        width: 115px;
+        font-size: 12px;
+        }
+        
+}
+@media (max-width:899px) {
+    #adoptados-title h3 {
+        font-size: 3vw;
+    }
+        
+}
+
+@media (max-width: 719px) {
+    label{
+        font-size: 12px;
+        margin-bottom: 0px !important;
+    }
+    form label{
+        margin-left: 0px;
+    }
+    .form-control{
+        margin-top: 0px !important;
+        width: 115px;
+        font-size: 12px;
+        }
+
+        #adoptados-title {
+            
+            margin-bottom: 10px;
+        }
+    
+        #adoptados-title h3 {
+            font-size: 4vw;
+            margin-right: 100px;
+        }
+        #register-button{
+            
+            font-size: 3vw;
+        }
+        img.logo{
+            max-width: 60px;
+        }
+}
+@media (max-width: 569px) {
+    #adoptados-title img {
+        max-width: 60px;
+    }
+    #adoptados-title h3 {
+        font-size: 7vw;
+    }
+}
+@media (max-width: 391px) {
+    label{
+        font-size: 10px;
+        margin-bottom: 0px !important;
+    }
+    form label{
+        margin-left: 20px;
+    }
+    .form-group{
+        margin-bottom: 0px;
+
+    }
+    .form-control{
+        margin-top: 0px !important;
+        width: 115px;
+        font-size: 12px;
+        margin-left: 20px;
+        margin-bottom: 0px;
+        }
+     #age{
+            margin-left: 90px;
+        }
+     #ageLabel{
+            margin-left: 90px;
+        }
+    #Filter{
+        margin-bottom: 10px;
+    }
+}
+
+
+

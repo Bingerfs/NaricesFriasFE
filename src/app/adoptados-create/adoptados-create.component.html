@@ -1,4 +1,5 @@
 <div class="container">
+     
     <div id="adoptados-title">
         <h3>
             Registro de Adopción
@@ -8,7 +9,8 @@
         <hr>
     </div>
     <!--End of adotados tittle-->
-    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+    
+    <form [formGroup]="form"  class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
         <div class="col-md-6 col-lg-4 border">
             <!-- <div *ngIf="adoptado.id; else photo">
@@ -17,62 +19,94 @@
             <ng-template #photo>
                 <img [src]="imgURL" class="profile" alt="">
             </ng-template> -->
+           
             <img [src]="getImgURL()" class="profile" alt="">
+           
             <div class="form-group">
                 <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
             </div>
         </div>
         <div class="col-md-6 col-lg-4">
-            <h3>Caracteristicas</h3>
+            <h3>Características</h3>
             <div class="form-group">
                 <label for="1">Tamaño</label>
-                <select class="custom-select" id="1" name="Tamanio" formControlName="tamagno">
-                          <option selected>Tamaño</option>
+                <select  class="custom-select" id="1" name="Tamanio" formControlName="tamagno" required>
+                          <option selected>Seleccionar...</option>
                           <option value="Pequeño">Pequeño</option>
                           <option value="Mediano">Mediano</option>
                           <option value="Grande">Grande</option>
-                    </select>
+                </select>
             </div>
             <div class="form-group">
                 <label for="2">Edad</label>
-                <select class="custom-select" id="2" name="Edad" formControlName="edad">
-                          <option selected>Edad</option>
+                <select [ngModel] class="custom-select" id="2" name="Edad" formControlName="edad" required>
+                          <option [ngValue]="null" selected>Seleccionar...</option>
                           <option value="Cachorro">Cachorro</option>
                           <option value="Joven">Joven</option>
                           <option value="Adulto">Adulto</option>
-                        </select>
+                </select>
             </div>
             <div class="form-group">
                 <label for="3">Género</label>
                 <select class="custom-select" id="3" name="Genero" formControlName="genero">
-                          <option selected>Género</option>
+                          <option selected>Seleccionar...</option>
                           <option value="Hembra">Hembra</option>
                           <option value="Macho">Macho</option>
-                        </select>
+                </select>
             </div>
             <div class="form-group">
                 <label for="4">Esterilización</label>
                 <select class="custom-select" id="4" name="Esterelizacion" formControlName="esterilizacion">
-                          <option selected>Esterilización</option>
+                          <option selected>Seleccionar...</option>
                           <option [value]="true">Si</option>
                           <option [value]="false">No</option>
-                        </select>
+                </select>
+            </div>
+            <div class="loading" *ngIf="loading">
+                    <img class="logo" src="./assets/images/loading2.gif" />
             </div>
         </div>
         <div class="col-md-12 col-lg-4">
             <h3>Historia</h3>
-            <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
+            <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui..." height="20px" formControlName="description"></textarea>
             <h3>Contacto</h3>
             <label for="telefono">Teléfono</label>
             <br>
-            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" formControlName="telefono">
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Teléfono de contacto" formControlName="telefono" required>
         </div>
-        <div class="d-flex justify-content-center">
-            <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+        <div class="d-flex justify-content-center col-md-12 col-lg-12">
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#confirmar" value="Confirmar">Aceptar</button>
             <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="role-select-modal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                                    <h4 class="modal-title" id="modal-basic-title">Aceptar</h4>
+                                    <button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><strong>¿Desea guardar los cambios realizados?</strong></p>
+                                    <p>
+                                        <span>(Puede editar esta información mas tarde)</span>
+                                    </p>
+                                </div>
+                        <div class="modal-footer">
+                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" class="btn btn-primary">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </form>
+
+    
 
 </div>
 <br>
 <br>
+

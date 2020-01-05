@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { FormBuilder, FormGroup, SelectMultipleControlValueAccessor } from "@angular/forms";
@@ -18,6 +18,9 @@ export class AdoptadosCreateComponent implements OnInit
   public adoptado: Adoptado = new Adoptado();
   public imgURL: string = './assets/images/DogProfile.png';
   public fileToUpload : File =null;
+  public selectedItem = "Seleccionar...";
+  public loading : Boolean;
+  @ViewChild('btnClose') btnClose : ElementRef ;
 
   constructor(
     public fb: FormBuilder,
@@ -36,6 +39,7 @@ export class AdoptadosCreateComponent implements OnInit
       telefono: [''],
       description: ['']
     })
+   
   }
 
   ngOnInit()
@@ -79,6 +83,9 @@ export class AdoptadosCreateComponent implements OnInit
   }
 
   submitForm() {
+    console.log(this.form.value);
+    this.loading = true;
+    this.btnClose.nativeElement.click();
     var formData: any = new FormData();
     if(this.form.get('picture').value !=null)
     {
@@ -91,10 +98,11 @@ export class AdoptadosCreateComponent implements OnInit
     formData.append("genero", this.form.get('genero').value);
     formData.append("telefono", this.form.get('telefono').value);
     formData.append("description", this.form.get('description').value);
-    console.log(this.form.value);
+   
     if(this.adoptado.id){
       this.apiService.update("adoptados/"+this.adoptado.id,formData).subscribe((r)=>{
         console.log(r);
+        this.loading = false;
         this.router.navigateByUrl('/adoptados');
       })
     }
@@ -107,6 +115,8 @@ export class AdoptadosCreateComponent implements OnInit
           });
     }
   }
+
+
   goBack(): void
   {
    this.location.back();
