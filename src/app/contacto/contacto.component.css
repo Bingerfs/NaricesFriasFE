@@ -1,0 +1,41 @@
+img {
+    max-width: 300px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 1px;
+}
+
+.form-control {
+    max-width: 400px;
+}
+
+#map-tile {
+    height: 250px;
+    width: 80%;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+#map-tile:hover {
+    box-shadow: 0 1px 5px 1px gray;
+}
+
+#map-tile span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 80%;
+    text-align: center;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    background-color: #000;
+    color: #fff;
+    opacity: .8;
+}

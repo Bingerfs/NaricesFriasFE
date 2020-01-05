@@ -1,57 +1,57 @@
 <div class="container-fluid">
-
-    <div class="row custom-row">
-      <div class="col-sm my-auto align-middle">
-          <div class="box h-100 d-flex justify-content-center flex-column">
-              <img src="https://i1.wp.com/bestlifeonline.com/wp-content/uploads/2018/06/sherlock-the-corgi.jpg?fit=500%2C375&ssl=1">
-            </div>
-      </div>
-      <div class="col align-self-center">
-          <div class="row justify-content-center">
-            <div class="col-8 my-auto">
-                <form (ngSubmit)="onSubmitSignIn()">
+    <div class="row">
+        <div class="col-md-6 col-lg-6 image">
+            <img class="img-fluid center d-none d-md-block d-lg-block d-xl-block" src="./assets/images/logo.jpg" />
+        </div>
+        <div class="col-md-6 col-lg-6">
+            <div class="log">
+                <h3>Login</h3>
+                <hr>
+                <form (ngSubmit)="onSubmitSignIn(content)">
                     <div class="form-group">
-                        <div class="col-xs-8">
-                            <label for="login">Email:</label>
-                            <br/>
-                  
-                            <input type="text"  class="form-control" name="login" id="login" required
-                                [(ngModel)]="signInUser.login" name="login">
-                            <br/>
-                            <label for="password">Password:</label>
-                            <br/>
-                  
-                            <input type="password"  class="form-control" name="password" id="password" required
-                                [(ngModel)]="signInUser.password" name="password">
-                            <br/>
-
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="userType1" name="userType" value="ADMIN" [(ngModel)]="signInUser.userType">
-                                <label class="custom-control-label" for="userType1">Admin</label>
-                            </div>
-                            <div class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" id="userType2" name="userType" value="" [(ngModel)]="signInUser.userType" checked>
-                                <label class="custom-control-label" for="userType2">Voluntario</label>
-                            </div>
-                        
-                            
-                                
-                            
-                  
-                
-                  
-                        </div>
-                        <div>
-                        <br>
-                          
-                        <input type="submit" class="btn btn-primary" value="Ingresar" />
-                        </div>
-                
+                        <label for="login">Email:</label>
+                        <input type="text" class="form-control" name="login" id="login" required [(ngModel)]="signInUser.login" name="login">
                     </div>
-                  </form>
+
+                    <div class="form-group">
+                        <label for="password">Contraseña:</label>
+                        <input type="password" class="form-control" name="password" id="password" required [(ngModel)]="signInUser.password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio ">
+                            <input type="radio" class="custom-control-input" id="userType1" name="userType" value="ADMIN" [(ngModel)]="signInUser.userType">
+                            <label class="custom-control-label" for="userType1">Administrador</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" id="userType2" name="userType" value="VOL" [(ngModel)]="signInUser.userType" checked>
+                            <label class="custom-control-label" for="userType2">Voluntario</label>
+                        </div>
+                    </div>
+                    <div>
+                        <input type="submit" class="btn btn-primary" value="Ingresar" />
+                    </div>
+
+                </form>
             </div>
-          </div>
+
         </div>
     </div>
-  
-  </div>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Inicio de sesion exitoso</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+        </div>
+        <div class="modal-body">
+            <p><strong>¡Bienvenido a la vista de administracion!</strong></p>
+            <p>En esta vista tienes la posibilidad de administrar la informacion de la pagina. Por favor se responsable con el manejo de la informacion.
+            </p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="modal.dismiss('cancel click')">Ok</button>
+        </div>
+    </ng-template>
+
+</div>

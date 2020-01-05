@@ -1,0 +1,32 @@
+<div class="container">
+    <div id="agradecimientos-title">
+        <h3>
+            Registro de agradecimiento
+            <img class="logo" src="./assets/images/logo.jpg" />
+        </h3>
+
+        <hr>
+    </div>
+    <!--End of adotados tittle-->
+    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+
+        <div class="col-md-6 col-lg-5 border">
+            <img [src]="imgURL" class="profile" alt="">
+            <div class="form-group">
+                <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-7">
+
+            <h3>Historia</h3>
+            <textarea type="text" class="form-control historia" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
+        </div>
+
+        <div id="buttons" class="d-flex justify-content-center col-sm-12 col-md-4 col-lg-3">
+            <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+            <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
+        </div>
+    </form>
+
+</div>
+<br>

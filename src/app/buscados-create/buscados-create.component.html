@@ -1,0 +1,74 @@
+<div class="container">
+    <div id="adoptados-title">
+        <h3>
+            Registro De Mascotas Buscadas
+            <img class="logo" src="./assets/images/logo.jpg" />
+        </h3>
+
+        <hr>
+    </div>
+    <!--End of adotados tittle-->
+    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+
+        <div class="col-md-6 col-lg-4 border">
+            <div *ngIf="buscado.id; else photo">
+
+                <img src="./assets/images/{{buscado.id}}.jpg" class="profile" alt="profile-picture">
+
+            </div>
+            <ng-template #photo>
+                <img [src]="imgURL" class="profile" alt="">
+            </ng-template>
+            <div class="form-group">
+                <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+            <h3>Caracteristicas</h3>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre de la mascota" formControlName="name">
+            </div>
+            <div class="form-group">
+                <label for="1">Tamaño</label>
+                <select class="custom-select" id="1" name="Tamanio" formControlName="size">
+                              <option selected>Tamaño</option>
+                              <option value="Pequeño">Pequeño</option>
+                              <option value="Mediano">Mediano</option>
+                              <option value="Grande">Grande</option>
+                        </select>
+            </div>
+            <div class="form-group">
+                <label for="2">Edad</label>
+                <select class="custom-select" id="2" name="Edad" formControlName="age">
+                              <option selected>Edad</option>
+                              <option value="Cachorro">Cachorro</option>
+                              <option value="Joven">Joven</option>
+                              <option value="Adulto">Adulto</option>
+                            </select>
+            </div>
+            <div class="form-group">
+                <label for="3">Género</label>
+                <select class="custom-select" id="3" name="Genero" formControlName="gender">
+                              <option selected>Género</option>
+                              <option value="Hembra">Hembra</option>
+                              <option value="Macho">Macho</option>
+                            </select>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3>Descripción</h3>
+            <textarea type="text" class="form-control" name="description" id="descripcion" placeholder="Escriba aqui" height="20px" formControlName="description"></textarea>
+            <h3>Contacto</h3>
+            <label for="telefono">Teléfono</label>
+            <br>
+            <input type="text" class="form-control" name="telefono" id="telefono" placeholder="Telefono de contacto" formControlName="contact">
+        </div>
+    </form>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+        <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
+    </div>
+</div>
+<br>
+<br>

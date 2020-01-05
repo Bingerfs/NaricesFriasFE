@@ -1,3 +1,47 @@
-.custom-row{
+/* .custom-row {
     height: 100vh;
+} */
+
+.container {
+    margin-top: 50px;
+}
+
+
+/* img {
+    max-width: 500px;
+} */
+
+.sub-title p {
+    padding: 10px;
+    /* padding-top: 0px; */
+}
+
+.text-color {
+    color: rgb(255, 208, 0);
+}
+
+.important {
+    margin-top: 100px;
+    padding: 30px;
+    background-color: rgb(255, 208, 0);
+}
+
+.title {
+    color: rgb(63, 63, 63);
+}
+
+#requerimientos {
+    padding: 70px;
+    padding-top: 10px;
+}
+
+.row {
+    margin-bottom: 50px;
+}
+
+.carousel {
+    margin-top: 50px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    overflow: hidden;
 }

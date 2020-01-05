@@ -1,14 +1,63 @@
 <div class="container">
+    <div id="adoptados-title">
+        <h3>
+            Mascotas en adopción
+            <button id="register-button" type="button" class=" btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAdoptado']">Registrar</button>
+      
+            <img class="logo" src="./assets/images/logo.jpg" />
+        </h3>
+        <hr>
+    </div>
+
+    <!--End of adoptados tittle-->
+
+    <div id="Filter" class="row">
+        <p>Filtrar por:</p>
+
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="my-1 mr-2" for="tam">Tamaño</label>
+                <select class="form-control my-1 mr-sm-2" id="tam" (change)="filter(1,$event.target.value)">
+                                <option  value="none" selected="selected">Seleccionar...</option>
+                                <option value="Pequeño">Pequeño</option>
+                                <option value="Mediano">Mediano</option>
+                                <option value="Grande">Grande</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="my-1 mr-2" for="gen">Género</label>
+                <select class="form-control my-1 mr-sm-2" id="gen" (change)="filter(2,$event.target.value)">
+                                <option value="none" selected>Seleccionar...</option>
+                                <option value="Hembra">Hembra</option>
+                                <option value="Macho">Macho</option>
+                            </select>
+            </div>
+            <div class="form-group">
+                <label class="my-1 mr-2" id="ageLabel" for="age">Edad</label>
+                <select class="form-control my-1 mr-sm-2" id="age" (change)="filter(3,$event.target.value)">
+                                <option value="none" selected>Seleccionar...</option>
+                                <option value="Cachorro">Cachorro</option>
+                                <option value="Joven">Joven</option>
+                                <option value="Adulto">Adulto</option>
+                            </select>
+            </div>
+        </form>
+    </div>
+    <!--End of filters-->
     <div class="row">
-        <h2>En Adopcion</h2>
-        <div class="col 4" *ngFor="let row of rows">
-            <div class="perro">
-                <p class="rowDog">Tamaño: <span class="dato">{{ row.tamagno }} </span> </p>
-                <p class="rowDog">Edad: <span class="dato"> {{ row.edad }} </span> </p>
-                <p class="rowDog">Genero: <span class="dato">{{ row.genero }} </span> </p>
-                <p class="rowDog">Esterilizacion: <span class="dato">{{ row.esterilizacion }} </span> </p>
-                <p class="rowDog">Telefono: <span class="dato">{{ row.telefono }} </span> </p>
+        <div class=" col-sm-6 col-md-6 col-lg-4 " *ngFor="let adoptado of adoptados" (click)="onSelect(adoptado)">
+            <div id="image" class="mx-auto img-thumbnail">
+                <a routerLink="/adoptados/{{adoptado.id}}">
+                    <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
+                    <img class="border" class="img-fluid mx-auto d-block" src="http://localhost:3000/adoptados/{{adoptado.id}}/download" />
+                </a>
+                <div>
+                    <h5 class="text-uppercase font-weight-bold ">{{adoptado.tamagno}}</h5>
+                    <h5 class="text-uppercase font-weight-bold ">{{adoptado.edad}}</h5>
+                </div>
             </div>
         </div>
     </div>
+    <!--End of images-->
+    &nbsp;
 </div>

@@ -1,24 +1,52 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark p-0">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-custom p-0 sticky-top">
+    <!-- <button class="navbar-toggler" type="button" (click)="toggleNavbar()" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link first-nav-link" [routerLink]="['/home']">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link custom-nav-link" [routerLink]="['/adoptados']">Adopcion</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link custom-nav-link" href="#">Extravio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link custom-nav-link" href="#">Contacto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link custom-nav-link" href="#">Calendario</a>
-      </li>
-    </ul>
-  </div>
+  </button> -->
+
+    <div class="navbar-brand">
+        <a [routerLink]="['/home']">
+            <h1>Narices Frias</h1>
+        </a>
+        <p>
+            <span>Entidad Civil de rescate</span>
+        </p>
+    </div>
+
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+   </button>
+    <div class="collapse navbar-collapse" id="navbarNav" [ngClass]="{'show': navbarOpen }">
+        <ul class="navbar-nav d-flex w-100">
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link first-nav-link" [routerLink]="['/home']">Home</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/adoptados']">Adoptame</a>
+            </li>
+
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/apadrinamientos']">Apadrinamiento</a>
+            </li>
+
+
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/calendario']">Eventos</a>
+            </li>
+            <li class="nav-item flex-fill text-center">
+                <a class="nav-link" [routerLink]="['/agradecimientos']">Agradecimientos</a>
+            </li>
+
+            <li class=" nav-item flex-fill text-center " *ngIf="tokenService.userSignedIn() && tokenService.currentUserType=='ADMIN' ">
+                <a class="nav-link " [routerLink]="[ '/registrar'] ">Crear Voluntario</a>
+            </li>
+            <li class="nav-item flex-fill text-center" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType=='ADMIN' ">
+                <a class="nav-link" [routerLink]="['/voluntarios']">Voluntarios</a>
+            </li>
+        </ul>
+    </div>
 </nav>

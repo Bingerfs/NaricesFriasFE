@@ -1,0 +1,59 @@
+<div class="container">
+    <div id="agradecimiento-title">
+        <h3>
+            Agradecimientos
+            <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAgradecimiento']">Registrar</button>
+        </h3>
+        <hr>
+        <p> Esta sección esta dedicada a todas aquellas personas que de corazón ayudan a la institución.</p>
+    </div>
+
+
+    <div class="row">
+        <div class=" col-sm-12 col-md-12 col-lg-12 " *ngFor="let agradecimiento of agradecimientos" (click)="onSelect(agradecimiento)">
+            <div class="row img-thumbnail">
+                <div id="image" class="col-lg-6 mx-auto ">
+                    <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
+                    <img class="border" class="img-fluid center rounded" src="http://localhost:3000/agradecimientos/{{agradecimiento.id}}/download" />
+                    <div *ngIf="tokenService.userSignedIn()">
+                        <button type="button" class="btn btn-light" (click)="edit(agradecimiento.id)">
+                            <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+                        </button>
+                        <button type="button" class="btn btn-light" (click)="open(content)">
+                            <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+                        </button>
+                    </div>
+                </div>
+                <div id="historia" class="col-lg-6 rounded">
+                    <h4 class="text-center descripcion">{{agradecimiento.name}}</h4>
+                    <p class="style">{{agradecimiento.description}}</p>
+                </div>
+            </div>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>¿Está seguro que desea eliminar este agradecimiento?</strong></p>
+                    <p>Toda la información asociada con este agradecimiento será borrada permanentemente.
+                        <span>(Esta operación no puede ser revertida)</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="modal.close(agradecimiento.id)">Eliminar</button>
+
+
+                </div>
+            </ng-template>
+        </div>
+    </div>
+    <hr>
+    <!--End of images-->
+    &nbsp;
+
+
+</div>
