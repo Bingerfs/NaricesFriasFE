@@ -5,6 +5,7 @@ import { ApiService } from '../api.service';
 import {Location} from '@angular/common';
 import { Adoptado } from '../adoptado';
 import { Apadrinamiento } from '../Models/apadrinamiento';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-apadrinamiento-create',
@@ -22,7 +23,7 @@ export class ApadrinamientoCreateComponent implements OnInit {
     public fb: FormBuilder,
     public apiService: ApiService,
     private acRoute:ActivatedRoute,
-    public router:Router,
+    public router:Router, private modalService: NgbModal,
     private location: Location)
   {
     this.form = this.fb.group({
@@ -103,4 +104,17 @@ export class ApadrinamientoCreateComponent implements OnInit {
   {
     return this.imgURL;
   }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then(() => {
+      this.salir();
+    });
+  }
+
+
+  salir(){
+   
+    this.router.navigateByUrl('/apadrinamientos');
+  }
+
 }

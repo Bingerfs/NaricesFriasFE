@@ -2,17 +2,42 @@
     background-color: #616161;
     height: 25px;
     font-size: 12px;
-}
-
-.btn.custom-btn {
-    background-color: #333333;
-    color: white;
-    border-radius: 8px;
-    width: 10rem;
+    padding: 1px;
+    position: relative;
 }
 
 h6 {
     /* padding-top: 10px; */
+    padding-top: 2px;
     margin-bottom: 5px;
     color: rgb(204, 204, 204);
+    height: 25px;
+}
+
+nav button {
+    text-decoration: none;
+    color: rgb(204, 204, 204);
+    background-color: #616161;
+    position: absolute;
+    right: 10px;
+}
+
+nav button:hover {
+    color: rgb(131, 131, 131);
+}
+
+a {
+    text-decoration: none;
+    color: rgb(202, 202, 202);
+    position: absolute;
+    right: 10px;
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+.active {
+    /* background-color: rgb(255, 217, 0); */
+    color: rgb(202, 202, 202);
 }

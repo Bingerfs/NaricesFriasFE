@@ -1,8 +1,10 @@
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-    <div class="collapse navbar-collapse d-flex w-100">
-        <h6 *ngIf="tokenService.userSignedIn()"> Administracion</h6>
-        <div class="navbar-nav ml-auto">
+<div>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <h6 *ngIf="tokenService.userSignedIn()"><span class="fas fa-user"></span> Administracion</h6>
+        <button class="btn" *ngIf="tokenService.userSignedIn()" (click)="open(content)"> cerrar sesion</button>
+        <a *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']"><span class="fas fa-user"></span> Soy voluntario</a>
+    </nav>
 
             <!-- <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" (click)="salir()">Sign out</button> -->
             <!-- <button type="button" class="btn custom-btn" *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']">Soy voluntario</button> -->
@@ -11,5 +13,20 @@
             <a class="nav-link" *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']"><span class="fas fa-user"></span> Soy voluntario</a>
         </div>
 
-    </div>
-</nav>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Cerrar Sesion</h4>
+            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+        </div>
+        <div class="modal-body">
+            <p>¿Está seguro que desea terminar la sesión?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="modal.close()">Cerrar</button>
+        </div>
+    </ng-template>
+</div>

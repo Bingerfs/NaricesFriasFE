@@ -2,7 +2,9 @@
     margin-top: 30px;
 }
 
+
 /*TITLE*/
+
 #adoptados-title {
     position: relative;
 }
@@ -16,6 +18,8 @@
     right: 0;
     margin-right: 1em;
 }
+
+
 /*END OF TITLE*/
 
 img {
@@ -55,6 +59,7 @@ li {
     margin-right: auto;
     margin-top: 5px;
     width: 100%;
+    max-width: 500px;
 }
 
 .edit {
@@ -73,20 +78,21 @@ hr {
 
 h2 {
     font-weight: bolder;
-    text-align:center;
+    text-align: center;
     padding-bottom: 8px;
 }
 
-.datos{
+.datos {
     font-size: 18px;
     padding: 5px;
 }
 
-.datos span{
+.datos span {
     padding-right: 35px;
     /* padding-bottom: 25px; */
 }
-#etiqueta{
+
+#etiqueta {
     font-weight: bolder;
     padding: 5px 0px 10px;
 }

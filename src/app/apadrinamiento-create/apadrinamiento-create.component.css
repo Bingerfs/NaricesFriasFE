@@ -35,7 +35,7 @@ img.profile {
 }
 
 textarea {
-    height: 220px;
+    height: 300px;
 }
 
 .form-group {
@@ -51,6 +51,26 @@ input {
     margin-bottom: 10px;
 }
 
+.row {
+    margin: 50px;
+}
+
+.historia {
+    width: 90%;
+}
+
+@media (max-width: 991px) {
+    .row {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .historia {
+        width: 100%;
+    }
+}
+
 @media (max-width: 569px) {
     #adoptados-title img {
         max-width: 60px;
@@ -58,8 +78,4 @@ input {
     #adoptados-title h3 {
         font-size: 7vw;
     }
-}
-
-.historia {
-    width: 80%;
 }

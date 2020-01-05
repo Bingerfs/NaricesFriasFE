@@ -1,12 +1,12 @@
 .container {
     margin-top: 10px;
+    position: relative;
 }
 
 #adoptados-title {
     position: relative;
     margin-bottom: 50px;
 }
-
 img.logo {
     position: absolute;
     max-width: 80px;
@@ -15,6 +15,7 @@ img.logo {
 
 img.perfil {
     max-width: 500px;
+    
 }
 
 .columnas {
@@ -23,6 +24,7 @@ img.perfil {
 
 button {
     margin: 1px;
+    margin-top: 30px;
 }
 
 img.profile {
@@ -51,11 +53,27 @@ input {
     margin-bottom: 10px;
 }
 
+.loading{
+    position: absolute;
+    top: 40%;
+    right: 40%;
+  }
+
+
 @media (max-width: 569px) {
     #adoptados-title img {
         max-width: 60px;
     }
     #adoptados-title h3 {
         font-size: 7vw;
+    }
+}
+
+@media (max-width:767px) {
+
+    img.profile {  
+        display: block;
+        margin: auto;
+        max-width: 60%;
     }
 }

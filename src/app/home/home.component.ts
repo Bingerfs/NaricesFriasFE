@@ -28,12 +28,22 @@ export class HomeComponent implements OnInit {
   toggle(){
     $('#exampleModalCenter').modal('toggle')
    }
+   hide(){
+    $('#exampleModalCenter').modal('hide')
+   }
 
    hide(){
     $('#exampleModalCenter').modal('hide')
    }
 
   ngOnInit() {
+    //residuos del merge
+    /*this.session=this.tokenService.currentUserData;
+    console.log(this.session);
+    if(this.session.firstSession)
+      this.toggle();
+      else
+      this.hide();*/
     this.tokenService.validateToken().subscribe(
       res =>      console.log(res),
       error =>    console.log(error)

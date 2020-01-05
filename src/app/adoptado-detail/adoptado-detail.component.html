@@ -2,7 +2,7 @@
     <div *ngIf="adoptado" class="container">
         <div id="adoptados-title">
             <h3>
-                Mascotas en adopcion
+                Mascotas en adopción
                 <button id="register-button" type="button" class="btn btn-warning" (click)="goBack()"> <img class="icon" src="../../assets/images/back.png" alt="delete icon"> Volver</button>
             </h3>
             <hr>
@@ -25,13 +25,13 @@
                 <h6>HISTORIA</h6>
                 <hr>
                 <p class="style">{{adoptado.description}}</p>
-                <h6>CARACTERISTICAS</h6>
+                <h6>CARACTERÍSTICAS</h6>
                 <hr>
                 <ul>
                     <li> <span class="feature">TAMAÑO:</span> {{adoptado.tamagno}}</li>
                     <li><span class="feature">EDAD:</span> {{adoptado.edad}}</li>
-                    <li><span class="feature">GENERO:</span> {{adoptado.genero}}</li>
-                    <li><span class="feature">ESTERILIZACION:</span> {{adoptado.esterilizacion ? 'Si' : 'No'}}</li>
+                    <li><span class="feature">GÉNERO:</span> {{adoptado.genero}}</li>
+                    <li><span class="feature">ESTERILIZACIÓN:</span> {{adoptado.esterilizacion ? 'Si' : 'No'}}</li>
                 </ul>
 
                 <h6>CONTACTO</h6>
@@ -57,7 +57,7 @@
             </p>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
+            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
             <button type="button" class="btn btn-danger" (click)="modal.close(adoptado.id)">Eliminar</button>
         </div>
     </ng-template>
