@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { EVENTOS } from '../mock-eventos'
 import { Evento, Mes } from '../evento';
 
 import { Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AngularTokenService } from 'angular-token';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
@@ -25,10 +27,10 @@ export class EventosComponent implements OnInit
   public eventos: Array<Evento>;
   public eventosOriginales: Array<Evento>;
   public eventosMostrar: Evento[] = [];
-  public mesElegido: Mes = Mes.Diciembre;
+  public mesElegido: Mes = Mes.Enero;
   public mesMostrar: string = Mes[this.mesElegido];
   
-  constructor(public apiService: ApiService , public router: Router,private tokenService: AngularTokenService) {
+  constructor(public apiService: ApiService , public router: Router,private tokenService: AngularTokenService, private modalService: NgbModal) {
     // this.calendario = {};
     // this.calendario.meses = [];
   }
@@ -82,7 +84,7 @@ export class EventosComponent implements OnInit
     this.eventos.sort((a: Evento, b: Evento) => {
         return a.fecha.getTime() - b.fecha.getTime();
     });
-}
+  }
   
   /*private evetosAcalendario()
   {
@@ -99,4 +101,25 @@ export class EventosComponent implements OnInit
       }
     }
   }*/
+  closeResult: string;
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      this.delete(result);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
+  }
+
 }

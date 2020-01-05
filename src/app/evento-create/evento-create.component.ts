@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup } from "@angular/forms";
 
 import { Evento } from '../evento';
 import { ApiService } from '../api.service';
-
-
 
 @Component({
   selector: 'app-evento-create',
@@ -18,6 +16,7 @@ export class EventoCreateComponent implements OnInit {
   public form: FormGroup;
   public imgURL: string = './assets/images/DogProfile.png';
   public fileToUpload : File =null;
+  @ViewChild('btnClose') btnClose : ElementRef ;
 
   constructor(public apiService: ApiService , public acRoute : ActivatedRoute, private location: Location, public fb: FormBuilder, public router:Router) {
     this.form = this.fb.group({
@@ -87,6 +86,7 @@ export class EventoCreateComponent implements OnInit {
 
   submitForm() {
     var formData: any = new FormData();
+    this.btnClose.nativeElement.click();
     if(this.form.get('picture').value !=null)
     {
        formData.append("picture", this.form.get('picture').value);

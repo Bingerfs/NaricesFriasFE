@@ -3,12 +3,12 @@
 <p>Dia = {{day}}</p>
 <p>Mes = {{mes}}</p> -->
 
-<div class="container-fluid">
-    <div id="adoptados-title">
+<div class="container">
+    <div id="eventos-title">
         <h3>
             Eventos
             <button id="register-button" type="button" class="btn btn-warning" value="Confirmar" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearEvento']">Registrar</button>
-            <img class="logo" src="./assets/images/logo.jpg" />
+            <!-- <img class="logo" src="./assets/images/logo.jpg" /> -->
         </h3>
 
         <hr>
@@ -42,18 +42,39 @@
                     <!-- <span class="badge">{{evento.fecha}}</span> {{evento.titulo}} -->
                     <span class="badge">{{evento.fecha | date: 'dd'}}</span>
                     <span clas="titulo"> {{evento.titulo}} </span>
-                    <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
+
+                    <button type="button" class="btn btn-light" (click)="update(evento['id'])">
+                        <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
+                    </button>
+                    <!-- <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
+                        <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+                    </button> -->
+                    <button type="button" class="btn btn-light" (click)="open(content)">
                         <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
                     </button>
-                    <button type="button" class="btn btn-light" (click)="update(evento['id'])">
-                  <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
-              </button>
+
+
+                    <ng-template #content let-modal>
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+                            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>¿Esta seguro que desea eliminar el perfil de la mascota?</strong></p>
+                            <p>Toda la informacion asociada con este perfil sera borrada permanentemente.
+                                <span>(Esta operacion no puede ser revertida)</span>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+                            <button type="button" class="btn btn-danger" (click)="modal.close(evento.id)">Eliminar</button>
+                        </div>
+                    </ng-template>
 
 
                 </li>
-
-
-
             </ul>
         </div>
 
@@ -62,8 +83,7 @@
             <app-evento-detail [evento]="selectedEvento"></app-evento-detail>
         </div>
 
-
-
     </div>
 
 </div>
+

@@ -1,11 +1,9 @@
 /* HeroesComponent's private CSS styles */
-
 .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
     padding: 3em 4em 0em 4em;
     width: 100%;
-    /*width: 20em;*/
 }
 
 .heroes li {
@@ -84,6 +82,7 @@ h2 {
     text-align: left;
     margin-left: 5px;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .icon {
@@ -92,45 +91,16 @@ h2 {
     padding: 1px;
 }
 
-h2 {
-    padding-top: 10px;
-}
-
-
-/* .heroes li.titulo {
-  cursor: pointer;
-  position: relative;
-  left: 0;
-  background-color: #EEE;
-  margin: .5em;
-  padding: .3em 0;
-  height: 3em;
-  border-radius: 4px;
-}
-.heroes.titulo:hover {
-  color: #607D8B;
-  background-color: #DDD;
-  left: .1em;
-}
-.heroes.titulo.selected {
-  background-color: #CFD8DC;
-  color: white;
-}
-.heroes.titulo.selected:hover {
-  background-color: #BBD8DC;
-  color: white;
-} */
-
 
 /* Ariel */
 
-.container-fluid {
-    margin-top: 20px;
+.container {
+    margin-top: 30px;
 }
 
-#adoptados-title {
+#eventos-title {
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
 }
 
 img.logo {
@@ -194,3 +164,31 @@ input {
     float: right;
     margin-right: 5px;
 }
+
+
+
+
+
+/* .heroes li.titulo {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 3em;
+  border-radius: 4px;
+}
+.heroes.titulo:hover {
+  color: #607D8B;
+  background-color: #DDD;
+  left: .1em;
+}
+.heroes.titulo.selected {
+  background-color: #CFD8DC;
+  color: white;
+}
+.heroes.titulo.selected:hover {
+  background-color: #BBD8DC;
+  color: white;
+} */
