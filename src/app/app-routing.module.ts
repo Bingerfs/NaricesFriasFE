@@ -29,6 +29,7 @@ import { ApadrinamientoComponent } from './apadrinamiento/apadrinamiento.compone
 import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinamiento-create.component';
 import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
 import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/home", pathMatch: "full" },
@@ -73,7 +74,11 @@ const routes: Routes = [
   {path: "crearApadrinamiento",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearApadrinamiento/:id",component: ApadrinamientoCreateComponent, canActivate: [AngularTokenService]},
   {path: "crearAgradecimiento",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]},
-  {path: "crearAgradecimiento/:id",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]}
+  {path: "crearAgradecimiento/:id",component: AgradecimientosCreateComponent, canActivate: [AngularTokenService]},
+  {path: "perfil", component: ProfileComponent, canActivate: [RoleGuardService], 
+  data: {
+    expectedRole: 'VOL'
+  }}
 
 
 ];

@@ -7,6 +7,7 @@
             <!-- <button type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" (click)="salir()">Sign out</button> -->
             <!-- <button type="button" class="btn custom-btn" *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']">Soy voluntario</button> -->
             <a class="nav-link" *ngIf="tokenService.userSignedIn()" (click)="salir()"><span class="fas fa-user"></span> Salir</a>
+            <a class="nav-link" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType=='VOL'" [routerLink]="['/perfil']"><span class="fas fa-user"></span> Perfil</a>
             <a class="nav-link" *ngIf="!tokenService.userSignedIn()" [routerLink]="['/signin']"><span class="fas fa-user"></span> Soy voluntario</a>
         </div>
 

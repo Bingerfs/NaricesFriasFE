@@ -1,70 +1,39 @@
-.container {
-    padding: 5%;
+.alert {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
 }
 
-.container .img {
-    text-align: center;
-}
-
-.container .details {
-    border-left: 3px solid #ded4da;
-}
-
-.container .details p {
-    font-size: 15px;
+.closebtn {
+    margin-left: 15px;
+    color: white;
     font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-img {
-    max-width: 300px;
+.closebtn:hover {
+    color: black;
 }
 
-
-/*Try*/
-
-.icon {
-    width: 15px;
-    vertical-align: middle;
-    padding: 1px;
+#adoptados-title {
+    position: relative;
+    margin-bottom: 50px;
 }
 
-.style {
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    text-align: justify;
-    padding: 5px;
+img.logo {
+    position: absolute;
+    max-width: 80px;
+    right: 0;
 }
 
-span.feature {
-    font-weight: bold;
-    color: gray;
+.custom-row{
+    height: 100vh;
 }
 
-li {
-    list-style-type: none;
+img{
+    max-width: 500px;
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px;
-    width: 100%;
-}
-
-.edit {
-    float: left;
-    height: 40px;
-}
-
-h6 {
-    margin-top: 10px;
-    margin-bottom: 0px;
-}
-
-hr {
-    margin-top: 1px;
-}
-
-
-/**/

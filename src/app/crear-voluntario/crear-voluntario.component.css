@@ -29,3 +29,11 @@ img.logo {
     max-width: 80px;
     right: 0;
 }
+
+.custom-row{
+    height: 100vh;
+}
+
+img{
+    max-width: 500px;
+}

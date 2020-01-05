@@ -29,15 +29,21 @@ export class HomeComponent implements OnInit {
     $('#exampleModalCenter').modal('toggle')
    }
 
+   hide(){
+    $('#exampleModalCenter').modal('hide')
+   }
+
   ngOnInit() {
-    this.session=this.tokenService.currentUserData;
-    console.log(this.session);
-    if(this.session.firstSession)
-      this.toggle();
     this.tokenService.validateToken().subscribe(
       res =>      console.log(res),
       error =>    console.log(error)
     );
+    this.session=this.tokenService.currentUserData;
+    console.log(this.session);
+    if(this.session.firstSession)
+      this.toggle();
+    else
+     this.hide();
     console.log(this.tokenService.currentUserData);
     console.log(this.tokenService.currentUserType);
   }
@@ -56,7 +62,9 @@ export class HomeComponent implements OnInit {
       res => console.log(res),
       error => console.log(error)
     );
+    this.ngOnInit();
     this.router.navigateByUrl('home');
+
   }
 
 
