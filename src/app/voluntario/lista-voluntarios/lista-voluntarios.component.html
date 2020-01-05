@@ -1,22 +1,25 @@
-<div class="container" *ngFor="let voluntario of voluntarios">
+<div class="container">
+        <div id="adoptados-title" style="margin-top: 30px">
+                <h3>
+                    Voluntarios
+                    <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn() && tokenService.currentUserType == 'ADMIN'" [routerLink]="['/registrar']">Crear voluntario</button>
+                    <img class="logo" src="./assets/images/logo.jpg" />
+                </h3>
+                
+                <hr>
+            </div>
     <div class="row">
-        <div class="col-lg-6">
-            <img class="img-fluid" src="../../assets/images/perfil.jpg" alt="">
-        </div>
-        <div class="col-lg-6 details">
-            <blockquote>
-                <h5>{{voluntario.name}}</h5>
-                <!-- <small><cite title="Source Title">79725866  <i class="icon-map-marker"></i></cite></small> -->
-            </blockquote>
-            <p>
-                {{voluntario.email}} <br> {{voluntario.telefono}} <br>
-            </p>
-        </div>
-        <button type="button" class="btn btn-light">
-          <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
-      </button>
-        <button type="button" class="btn btn-light" (click)="delete(voluntario.id)">
-          <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
-      </button>
+            <div class=" col-sm-6 col-md-6 col-lg-6 " *ngFor="let voluntario of voluntarios">
+                <div class="card">
+                        <div class="card-body">
+                        <h5 class="card-title">{{voluntario.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <p class="card-text">{{voluntario.email}}</p>
+                        <p class="card-text">{{voluntario.telefono}}</p>
+                        <a href="#" class="card-link">Editar</a>
+                        <a class="card-link" (click)="delete(voluntario.id)">eliminar</a>
+                        </div>
+                </div>
+            </div>
     </div>
 </div>

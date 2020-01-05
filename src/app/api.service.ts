@@ -11,6 +11,7 @@ export class ApiService {
 
   API_URL : string = "http://localhost:3000/"
   API_EMAIL_SENDER: string = "http://localhost:7002/"
+  API_TRANSLATE: string = "https://translate.yandex.net/api/v1.5/tr.json/translate"
 
   constructor(public http: HttpClient) { }
 
@@ -110,6 +111,11 @@ export class ApiService {
   public enviar(path:string, body:any){
     var endpoint = this.API_EMAIL_SENDER + path;
     console.log("jkjlj",endpoint);
+    return this.http.post(endpoint, body);
+  }
+
+  public translate(path:string, body:any){
+    var endpoint = this.API_TRANSLATE + path;
     return this.http.post(endpoint, body);
   }
 }

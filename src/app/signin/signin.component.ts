@@ -17,6 +17,7 @@ export class SigninComponent implements OnInit {
     password: '',
     userType: ''
   };
+  public hayError: Boolean = false;
 
 
 
@@ -43,7 +44,7 @@ export class SigninComponent implements OnInit {
       (err) => {
         this.errors=err.error.errors.full_messages;
         console.log(err);
-        this.router.navigateByUrl('/home');
+        this.hayError=true;
       }
     )
   

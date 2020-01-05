@@ -11,7 +11,7 @@ import { ApiService } from '../api.service';
 export class CrearVoluntarioComponent implements OnInit {
 
   public invalid: Boolean;
-  public errors: Array<string> = [];
+  public errors: Array<Object> = [];
 
   signUpUser = {
     login: '',
@@ -53,7 +53,6 @@ export class CrearVoluntarioComponent implements OnInit {
           if (res.status != 500){
             this.router.navigateByUrl('/home');
             console.log(res);
-            
             alert("Registrado");
           }
   
@@ -61,13 +60,29 @@ export class CrearVoluntarioComponent implements OnInit {
   
         (err) => {
           this.errors=err.error.errors.full_messages;
+          /*for(var index in this.errors){
+            this.apiService.translate('', {key: "trnsl.1.1.20200105T180800Z.3574891e7f150dea.9bde3f8678928a7caa13661f04a72b231e623c9a" , text: this.errors[index], lang: "es"}).subscribe(
+              res => {
+                this.errors[index]=res;
+              }
+            )
+          }*/
           console.log(err);
         }
+/*desde aca */
+        
+    )
+    this.tokenService.signIn({
+      login:    'admin@example.org',
+      password: 'password2',
+      userType: 'ADMIN'
+/*
     );
     this.tokenService.signIn({
       login:"admin@example.com",
       password:"password",
-      userType:"ADMIN"
+      userType:"ADMIN"*/
+/* developer*/
     });
   //}
 }

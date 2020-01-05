@@ -42,6 +42,7 @@ import { ApadrinamientoCreateComponent } from './apadrinamiento-create/apadrinam
 import {NgbdModalBasic} from './Pop-up/modal-basic';
 import { AgradecimientosComponent } from './agradecimientos/agradecimientos.component';
 import { AgradecimientosCreateComponent } from './agradecimientos-create/agradecimientos-create.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { AgradecimientosCreateComponent } from './agradecimientos-create/agradec
     NgbdModalBasic,
     ApadrinamientoCreateComponent,
     AgradecimientosComponent,
-    AgradecimientosCreateComponent
+    AgradecimientosCreateComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
