@@ -5,9 +5,9 @@
             <button id="register-button" type="button" class="btn btn-warning" *ngIf="tokenService.userSignedIn()" [routerLink]="['/crearAgradecimiento']">Registrar</button>
         </h3>
         <hr>
-        <p> Esta seccion esta dedicada a todas aquellas personas que de corazon ayudan a la institucion.</p>
+        <p> Esta sección esta dedicada a todas aquellas personas que de corazón ayudan a la institución.</p>
     </div>
-    <!--End of apadrinamiento tittle-->
+
 
     <div class="row">
         <div class=" col-sm-12 col-md-12 col-lg-12 " *ngFor="let agradecimiento of agradecimientos" (click)="onSelect(agradecimiento)">
@@ -29,29 +29,31 @@
                     <p class="style">{{agradecimiento.description}}</p>
                 </div>
             </div>
+            <ng-template #content let-modal>
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
+                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>¿Está seguro que desea eliminar este agradecimiento?</strong></p>
+                    <p>Toda la información asociada con este agradecimiento será borrada permanentemente.
+                        <span>(Esta operación no puede ser revertida)</span>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancelar</button>
+                    <button type="button" class="btn btn-danger" (click)="modal.close(agradecimiento.id)">Eliminar</button>
 
+
+                </div>
+            </ng-template>
         </div>
     </div>
     <hr>
     <!--End of images-->
     &nbsp;
 
-    <ng-template #content let-modal>
-        <div class="modal-header">
-            <h4 class="modal-title" id="modal-basic-title">Eliminar</h4>
-            <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-        </div>
-        <div class="modal-body">
-            <p><strong>¿Esta seguro que desea eliminar el perfil de la mascota?</strong></p>
-            <p>Toda la informacion asociada con este perfil sera borrada permanentemente.
-                <span>(Esta operacion no puede ser revertida)</span>
-            </p>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">Cancel</button>
-            <button type="button" class="btn btn-danger" (click)="modal.close(agradecimiento.id)">Eliminar</button>
-        </div>
-    </ng-template>
+
 </div>

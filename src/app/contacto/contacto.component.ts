@@ -23,16 +23,25 @@ export class ContactoComponent implements OnInit {
   }
 
   onSubmit(){
+    if (this.email.nombre===null|| this.email.nombre===undefined|| this.email.nombre===''){
+      alert('El nombre es requerido');
+    }
+    else if (this.email.telefono==null|| this.email.telefono==undefined|| this.email.telefono==''){
+      alert('El telefono es requerido');
+    }
+    else if (this.email.asunto===null|| this.email.asunto===undefined|| this.email.asunto===''){
+      alert('El asunto es requerido');
+    }
+  
+    else{
+      alert('Mensaje enviado');
     console.log(this.email);
     this.apiService.enviar("contactForm", this.email).subscribe(
       (r)=>{
         console.log(r);
-       
-       
+        
       });
-      alert('Mensaje enviado');
-      this.goBack();
-
+    }
       
   }
   goBack(): void

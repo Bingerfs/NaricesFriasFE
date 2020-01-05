@@ -2,7 +2,7 @@
     margin-top: 10px;
 }
 
-#adoptados-title {
+#agradecimientos-title {
     position: relative;
     margin-bottom: 50px;
 }
@@ -27,7 +27,9 @@ button {
 
 img.profile {
     padding: 10px;
-    max-width: 100%;
+    max-width: 80%;
+    display: block;
+    margin: auto;
 }
 
 .limit {
@@ -35,7 +37,7 @@ img.profile {
 }
 
 textarea {
-    height: 220px;
+    height: 350px;
 }
 
 .form-group {
@@ -51,15 +53,30 @@ input {
     margin-bottom: 10px;
 }
 
+#buttons {
+    margin-top: 15px;
+    padding: 0px;
+}
+
 @media (max-width: 569px) {
-    #adoptados-title img {
+    #agradecimientos-title img {
         max-width: 60px;
     }
-    #adoptados-title h3 {
+    #agradecimientos-title h3 {
         font-size: 7vw;
     }
 }
 
 .historia {
     width: 80%;
+}
+
+.row {
+    margin: 50px;
+}
+
+@media (max-width: 767px) {
+    .historia {
+        width: 100%;
+    }
 }

@@ -82,38 +82,52 @@ export class AdoptadosCreateComponent implements OnInit
     reader.readAsDataURL(this.fileToUpload);
   }
 
+
   submitForm() {
-    console.log(this.form.value);
-    this.loading = true;
-    this.btnClose.nativeElement.click();
-    var formData: any = new FormData();
-    if(this.form.get('picture').value !=null)
-    {
-       formData.append("picture", this.form.get('picture').value);
+    if (this.form.get('edad').value==null|| this.form.get('edad').value==undefined|| this.form.get('edad').value==''){
+      alert('La edad es requerida');
     }
-    //formData.append("picture", this.form.get('picture').value);
-    formData.append("edad", this.form.get('edad').value);
-    formData.append("tamagno", this.form.get('tamagno').value);
-    formData.append("esterilizacion", this.form.get('esterilizacion').value);
-    formData.append("genero", this.form.get('genero').value);
-    formData.append("telefono", this.form.get('telefono').value);
-    formData.append("description", this.form.get('description').value);
-   
-    if(this.adoptado.id){
-      this.apiService.update("adoptados/"+this.adoptado.id,formData).subscribe((r)=>{
-        console.log(r);
-        this.loading = false;
-        this.router.navigateByUrl('/adoptados');
-      })
+    else if (this.form.get('tamagno').value==null|| this.form.get('tamagno').value==undefined|| this.form.get('tamagno').value==''){
+      alert('El tamaño es requerido');
     }
-    else
-    {
-        this.apiService.create("adoptados", formData).subscribe(
-          (r)=>{
-            console.log(r);
-            this.router.navigateByUrl('/adoptados');
-          });
+    else if (this.form.get('telefono').value==null|| this.form.get('telefono').value==undefined|| this.form.get('telefono').value==''){
+      alert('El telefono es requerido');
     }
+    else{
+      console.log(this.form.value);
+      this.loading = true;
+      this.btnClose.nativeElement.click();
+      var formData: any = new FormData();
+      if(this.form.get('picture').value !=null)
+      {
+         formData.append("picture", this.form.get('picture').value);
+      }
+      //formData.append("picture", this.form.get('picture').value);
+      formData.append("edad", this.form.get('edad').value);
+      formData.append("tamagno", this.form.get('tamagno').value);
+      formData.append("esterilizacion", this.form.get('esterilizacion').value);
+      formData.append("genero", this.form.get('genero').value);
+      formData.append("telefono", this.form.get('telefono').value);
+      formData.append("description", this.form.get('description').value);
+     
+      if(this.adoptado.id){
+        this.apiService.update("adoptados/"+this.adoptado.id,formData).subscribe((r)=>{
+          console.log(r);
+          this.loading = false;
+          this.router.navigateByUrl('/adoptados');
+        })
+      }
+      else
+      {
+          this.apiService.create("adoptados", formData).subscribe(
+            (r)=>{
+              console.log(r);
+              this.router.navigateByUrl('/adoptados');
+            });
+      }
+
+    }
+
   }
 
 

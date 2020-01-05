@@ -1,5 +1,5 @@
 <div class="container">
-     
+
     <div id="adoptados-title">
         <h3>
             Registro de Adopción
@@ -9,8 +9,8 @@
         <hr>
     </div>
     <!--End of adotados tittle-->
-    
-    <form [formGroup]="form"  class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
+
+    <form [formGroup]="form" class="row" (ngSubmit)="submitForm()" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
 
         <div class="col-md-6 col-lg-4 border">
             <!-- <div *ngIf="adoptado.id; else photo">
@@ -19,9 +19,9 @@
             <ng-template #photo>
                 <img [src]="imgURL" class="profile" alt="">
             </ng-template> -->
-           
+
             <img [src]="getImgURL()" class="profile" alt="">
-           
+
             <div class="form-group">
                 <input #Image type="file" class="form-control-file" accept="image/*" (change)="uploadImage($event)">
             </div>
@@ -30,8 +30,8 @@
             <h3>Características</h3>
             <div class="form-group">
                 <label for="1">Tamaño</label>
-                <select  class="custom-select" id="1" name="Tamanio" formControlName="tamagno" required>
-                          <option selected>Seleccionar...</option>
+                <select class="custom-select" id="1" name="Tamanio" formControlName="tamagno" required>
+                          <option disabled selected>Seleccionar...</option>
                           <option value="Pequeño">Pequeño</option>
                           <option value="Mediano">Mediano</option>
                           <option value="Grande">Grande</option>
@@ -40,7 +40,7 @@
             <div class="form-group">
                 <label for="2">Edad</label>
                 <select [ngModel] class="custom-select" id="2" name="Edad" formControlName="edad" required>
-                          <option [ngValue]="null" selected>Seleccionar...</option>
+                          <option disabled selected>Seleccionar...</option>
                           <option value="Cachorro">Cachorro</option>
                           <option value="Joven">Joven</option>
                           <option value="Adulto">Adulto</option>
@@ -49,7 +49,7 @@
             <div class="form-group">
                 <label for="3">Género</label>
                 <select class="custom-select" id="3" name="Genero" formControlName="genero">
-                          <option selected>Seleccionar...</option>
+                          <option disabled selected>Seleccionar...</option>
                           <option value="Hembra">Hembra</option>
                           <option value="Macho">Macho</option>
                 </select>
@@ -57,13 +57,13 @@
             <div class="form-group">
                 <label for="4">Esterilización</label>
                 <select class="custom-select" id="4" name="Esterelizacion" formControlName="esterilizacion">
-                          <option selected>Seleccionar...</option>
+                          <option disabled selected>Seleccionar...</option>
                           <option [value]="true">Si</option>
                           <option [value]="false">No</option>
                 </select>
             </div>
             <div class="loading" *ngIf="loading">
-                    <img class="logo" src="./assets/images/loading2.gif" />
+                <img class="logo" src="./assets/images/loading2.gif" />
             </div>
         </div>
         <div class="col-md-12 col-lg-4">
@@ -81,32 +81,31 @@
 
         <!-- Modal -->
         <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="role-select-modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                            <div class="modal-header">
-                                    <h4 class="modal-title" id="modal-basic-title">Aceptar</h4>
-                                    <button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Aceptar</h4>
+                        <button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p><strong>¿Desea guardar los cambios realizados?</strong></p>
-                                    <p>
-                                        <span>(Puede editar esta información mas tarde)</span>
-                                    </p>
-                                </div>
-                        <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="submit" class="btn btn-primary">Confirmar</button>
-                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>¿Desea guardar los cambios realizados?</strong></p>
+                        <p>
+                            <span>(Puede editar esta información mas tarde)</span>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
                     </div>
                 </div>
             </div>
+        </div>
     </form>
 
-    
+
 
 </div>
 <br>
 <br>
-
