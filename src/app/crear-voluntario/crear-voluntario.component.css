@@ -21,7 +21,7 @@
 
 #adoptados-title {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 5px;
 }
 
 img.logo {
@@ -30,10 +30,10 @@ img.logo {
     right: 0;
 }
 
-.custom-row{
+.custom-row {
     height: 100vh;
 }
 
-img{
+img {
     max-width: 500px;
 }

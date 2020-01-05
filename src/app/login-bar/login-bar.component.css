@@ -20,6 +20,11 @@ nav button {
     background-color: #616161;
     position: absolute;
     right: 10px;
+    font-size: 12px;
+}
+
+.nav-link {
+    right: 80px;
 }
 
 nav button:hover {

@@ -32,10 +32,6 @@ export class HomeComponent implements OnInit {
     $('#exampleModalCenter').modal('hide')
    }
 
-   hide(){
-    $('#exampleModalCenter').modal('hide')
-   }
-
   ngOnInit() {
     //residuos del merge
     /*this.session=this.tokenService.currentUserData;

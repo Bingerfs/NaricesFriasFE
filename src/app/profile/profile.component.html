@@ -1,43 +1,41 @@
 <body>
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Cambio de password</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Editar</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
-            </div>
-            <div class="modal-body">
+                </div>
+                <div class="modal-body">
                     <form (ngSubmit)="changeInfo()">
-                            <div class="form-group">
-                                <div class="col-xs-8">
-                                    
-                                    <label for="name">Nombre:</label>
-                                    <br/>
-                          
-                                    <input type="text"  class="form-control" name="name" id="name"
-                                        [(ngModel)]="updateInfo.name">
-                                    <br/>
-        
-                                    <label for="telefono">Telefono:</label>
-                                    <br/>
-                          
-                                    <input type="text"  class="form-control" name="telefono" id="telefono"
-                                        [(ngModel)]="updateInfo.telefono" name="telefono">
-                                    <br/>
-                                </div>
-                        
-                            
+                        <div class="form-group">
+                            <div class="col-xs-8">
+
+                                <label for="name">Nombre:</label>
+                                <br/>
+
+                                <input type="text" class="form-control" name="name" id="name" [(ngModel)]="updateInfo.name">
+                                <br/>
+
+                                <label for="telefono">Telefono:</label>
+                                <br/>
+
+                                <input type="text" class="form-control" name="telefono" id="telefono" [(ngModel)]="updateInfo.telefono" name="telefono">
+                                <br/>
+                            </div>
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <input type="submit" class="btn btn-primary" value="Ingresar" />
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <input type="submit" class="btn btn-primary" value="Ingresar" />
-            </div>
-        </form>
-          </div>
         </div>
-      </div>
     </div>
     <div class="container">
         <div id="adoptados-title">
@@ -53,7 +51,7 @@
                 <img class="img-fluid center" src="https://i.gifer.com/4tyo.gif" />
 
             </div>
-            <div class="col-md-6">
+            <div id="info" class="col-md-6">
                 <h4>Nombre</h4>
                 <hr>
                 <p class="style">{{tokenService.currentUserData.name}}</p>
