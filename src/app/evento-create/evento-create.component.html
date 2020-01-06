@@ -29,9 +29,7 @@
 
                     <div class="form-group">
                         <label for="fecha" class="etiqueta">Fecha:</label>
-                        <!-- <input class="form-control" id="fecha" name="fecha" [(ngModel)]="evento.fecha"> -->
-                        <!-- <input class="form-control" id="fecha" name="fecha" value="{{evento.fecha | date:shortDate}}">  -->
-                        <!-- <input type="date" class="form-control" id="fecha" name="fecha" [(ngModel)]="evento.fecha"> -->
+                        <!-- <input type="date" class="form-control" id="fecha" name="fecha" formControlName="fecha" value="{{fechaCargada}}"> -->
                         <input type="date" class="form-control" id="fecha" name="fecha" formControlName="fecha">
                     </div>
 
@@ -40,8 +38,7 @@
 
                     <div class="form-group">
                         <label for="hora"  class="etiqueta">Hora:</label>
-                        <!-- <input type="time" class="form-control" id="hora" name="hora" value="{{evento.hora | date:'HH:mm':'UTC'}}"> -->
-                        <!-- <input class="form-control" id="hora" name="hora" [(ngModel)]="{{evento.hora | date:'hh:mm'}}"> -->
+                        <!-- <input type="time" class="form-control" id="hora" name="hora" formControlName="hora" value="{{horaCargada}}"> -->
                         <input type="time" class="form-control" id="hora" name="hora" formControlName="hora">
                     </div>
 
