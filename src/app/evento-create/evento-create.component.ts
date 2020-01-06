@@ -42,7 +42,7 @@ export class EventoCreateComponent implements OnInit {
             this.form.get("fecha").setValue(data.fecha);
             this.form.get("descripcion").setValue(data.descripcion);
             this.evento = data;
-            this.imgURL = `http://localhost:3000/calendarios/${data.id}/download`;
+            this.imgURL = `https://idrkman.herokuapp.com/calendarios/${data.id}/download`;
             // console.log(data);
             // this.evento = data;
           });

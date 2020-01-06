@@ -57,7 +57,7 @@ export class AdoptadosCreateComponent implements OnInit
                 this.form.get("description").setValue(data.description);
                 this.form.get("id").setValue(data.id);
                 this.adoptado = data;
-                this.imgURL = `http://localhost:3000/adoptados/${data.id}/download`;
+                this.imgURL = `https://idrkman.herokuapp.com/adoptados/${data.id}/download`;
             });
             
         }

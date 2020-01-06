@@ -43,7 +43,7 @@ export class AgradecimientosCreateComponent implements OnInit {
                 this.form.get("description").setValue(data.description);
                 this.form.get("id").setValue(data.id);
                 this.agradecimiento = data;
-                this.imgURL = `http://localhost:3000/agradecimientos/${data.id}/download`;
+                this.imgURL = `https://idrkman.herokuapp.com/agradecimientos/${data.id}/download`;
             });
             
         }

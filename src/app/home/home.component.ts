@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularTokenService } from 'angular-token';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { Voluntario } from '../voluntario';
 declare var $: any;
 
 
@@ -14,6 +15,8 @@ declare var $: any;
 export class HomeComponent implements OnInit {
   
   constructor(public tokenService: AngularTokenService, public apiService: ApiService, public router:Router) { }
+
+  public vol: Voluntario = new Voluntario();
 
   edit={
     firstSession: false

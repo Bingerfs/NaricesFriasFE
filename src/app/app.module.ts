@@ -83,7 +83,7 @@ import { ProfileComponent } from './profile/profile.component';
     NgbModule,
     ReactiveFormsModule,
     AngularTokenModule.forRoot({
-      apiBase: 'http://localhost:3000',
+      apiBase: 'https://idrkman.herokuapp.com/',
       userTypes: [
         {name: 'ADMIN', path: 'admin'},
         {name: 'VOL', path: ''}

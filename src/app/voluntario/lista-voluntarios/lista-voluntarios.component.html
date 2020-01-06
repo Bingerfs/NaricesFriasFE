@@ -16,8 +16,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                         <p class="card-text">{{voluntario.email}}</p>
                         <p class="card-text">{{voluntario.telefono}}</p>
-                        <a href="#" class="card-link">Editar</a>
-                        <a class="card-link" (click)="delete(voluntario.id)">eliminar</a>
+                        <button class="btn btn-danger" (click)="delete(voluntario.id)">Eliminar</button>
                         </div>
                 </div>
             </div>

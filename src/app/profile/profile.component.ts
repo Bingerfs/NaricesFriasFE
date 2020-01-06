@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularTokenService } from 'angular-token';
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
+import { Voluntario } from '../voluntario';
 declare var $: any;
 
 @Component({
@@ -13,6 +14,14 @@ export class ProfileComponent implements OnInit {
 
   constructor(public tokenService: AngularTokenService, public apiService:ApiService, public router:Router) { }
 
+  public vol : Voluntario = new Voluntario();
+
+  voluntario:any={
+    name:'',
+    telefono:'',
+    email:''
+  }
+
   updateInfo={
     name:'',
     telefono:''
@@ -23,6 +32,7 @@ export class ProfileComponent implements OnInit {
       res =>      console.log(res),
       error =>    console.log(error)
     );
+    this.voluntario=this.tokenService.currentUserData;
   }
   toggle(){
     $('#exampleModalCenter').modal('toggle')
