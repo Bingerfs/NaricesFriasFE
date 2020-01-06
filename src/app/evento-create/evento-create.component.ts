@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 
 import { Evento } from '../evento';
 import { ApiService } from '../api.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-evento-create',
@@ -21,8 +22,10 @@ export class EventoCreateComponent implements OnInit {
   @ViewChild('btnClose') btnClose : ElementRef ;
   public loading : Boolean;
 
+  // public fechaCargada: string;
+  // public horaCargada: string;
 
-  constructor(public apiService: ApiService , public acRoute : ActivatedRoute, private location: Location, public fb: FormBuilder, public router:Router) {
+  constructor(public apiService: ApiService , public acRoute : ActivatedRoute, private location: Location, public fb: FormBuilder, public router:Router, public datepipe: DatePipe) {
     this.form = this.fb.group({
       id:[""],
       picture: [null],
@@ -42,13 +45,17 @@ export class EventoCreateComponent implements OnInit {
             this.form.get("titulo").setValue(data.titulo);
             this.form.get("id").setValue(data.id);
             this.form.get("lugar").setValue(data.lugar);
-            this.form.get("hora").setValue(data.hora);
-            this.form.get("fecha").setValue(data.fecha);
+            // this.form.get("hora").setValue(data.hora);
+            this.form.get("hora").setValue(this.datepipe.transform(data.hora, 'HH:mm', 'UTC', 'es'));
+            // this.form.get("fecha").setValue(data.fecha);
+            this.form.get("fecha").setValue(this.datepipe.transform(data.fecha, 'yyyy-MM-dd', 'UTC', 'es'));
             this.form.get("descripcion").setValue(data.descripcion);
+            
             this.evento = data;
             this.imgURL = `http://localhost:3000/calendarios/${data.id}/download`;
-            // console.log(data);
-            // this.evento = data;
+
+            // this.fechaCargada = this.datepipe.transform(this.evento.fecha, 'yyyy-MM-dd', 'UTC', 'es');
+            // this.horaCargada = this.datepipe.transform(this.evento.hora, 'HH:mm', 'UTC', 'es');
           });
       }
       else
@@ -116,7 +123,9 @@ export class EventoCreateComponent implements OnInit {
       formData.append("titulo", this.form.get('titulo').value);
       formData.append("lugar", this.form.get('lugar').value);
       formData.append("hora", this.form.get('hora').value);
+      console.log(this.form.get('hora').value);
       formData.append("fecha", this.form.get('fecha').value);
+      console.log(this.form.get('fecha').value);
       formData.append("descripcion", this.form.get('descripcion').value);
       console.log(this.form.value);
       if (this.evento.id) {
