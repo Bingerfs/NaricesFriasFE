@@ -14,8 +14,6 @@ export class ProfileComponent implements OnInit {
 
   constructor(public tokenService: AngularTokenService, public apiService:ApiService, public router:Router) { }
 
-  public vol : Voluntario = new Voluntario();
-
   voluntario:any={
     name:'',
     telefono:'',
@@ -29,10 +27,11 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.tokenService.validateToken().subscribe(
-      res =>      console.log(res),
+      res =>      {
+        console.log(res);
+        this.voluntario=this.tokenService.currentUserData;},
       error =>    console.log(error)
     );
-    this.voluntario=this.tokenService.currentUserData;
   }
   toggle(){
     $('#exampleModalCenter').modal('toggle')
@@ -45,10 +44,10 @@ export class ProfileComponent implements OnInit {
    changeInfo(){
     this.apiService.updateVoluntario("voluntarios/"+this.tokenService.currentUserData.id, this.updateInfo).subscribe(
       res => {
-        console.log(res);
         this.ngOnInit();
-        this.router.navigateByUrl('perfil');
+        this.router.navigateByUrl('/perfil');
         this.hide();
+        console.log(res);
       },
       error => console.log(error)
     );
