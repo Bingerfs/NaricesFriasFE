@@ -70,3 +70,9 @@ input {
     font-weight: bold;
     font-size: 20px;
 }
+
+.loading{
+    position: absolute;
+    top: 48%;
+    right: 48%;
+}
