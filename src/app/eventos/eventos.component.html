@@ -43,10 +43,10 @@
                     <span class="badge">{{evento.fecha | date: 'dd':'UTC':'es'}}</span>
                     <span clas="titulo"> {{evento.titulo}} </span>
 
-                    <button type="button" class="btn btn-light" (click)="update(evento['id'])">
+                    <button type="button" class="btn btn-light" (click)="update(evento['id'])" *ngIf="tokenService.userSignedIn()">
                         <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
                     </button>
-                    <button type="button" class="btn btn-light" (click)="open(content)">
+                    <button type="button" class="btn btn-light" (click)="open(content)" *ngIf="tokenService.userSignedIn()">
                         <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
                     </button>
                     <!-- <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
