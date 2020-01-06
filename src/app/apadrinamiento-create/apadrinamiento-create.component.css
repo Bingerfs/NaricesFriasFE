@@ -55,6 +55,16 @@ input {
     margin: 50px;
 }
 
+.modal-content {
+    position: relative;
+}
+
+.loading {
+    position: absolute;
+    top: 48%;
+    right: 48%;
+}
+
 .historia {
     width: 90%;
 }

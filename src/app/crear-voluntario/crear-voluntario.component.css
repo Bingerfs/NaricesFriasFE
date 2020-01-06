@@ -30,10 +30,10 @@ img.logo {
     right: 0;
 }
 
-.custom-row {
-    height: 100vh;
-}
-
 img {
     max-width: 500px;
+}
+
+form {
+    padding: 30px;
 }

@@ -71,6 +71,11 @@ export class AgradecimientosCreateComponent implements OnInit {
   }
 
   submitForm() {
+    if (this.form.get('description').value==null|| this.form.get('description').value==undefined|| this.form.get('description').value==''){
+      alert('La historia es requerida');
+      this.btnClose.nativeElement.click();
+    }
+    else{
     this.loading = true;
     var formData: any = new FormData();
     if(this.form.get('picture').value !=null)
@@ -98,6 +103,7 @@ export class AgradecimientosCreateComponent implements OnInit {
             this.router.navigateByUrl('/agradecimientos');
             this.btnClose.nativeElement.click();
           });
+    }
     }
   }
   goBack(): void
