@@ -62,9 +62,7 @@
                           <option [value]="false">No</option>
                 </select>
             </div>
-            <div class="loading" *ngIf="loading">
-                <img class="logo" src="./assets/images/loading2.gif" />
-            </div>
+
         </div>
         <div class="col-md-12 col-lg-4">
             <h3>Historia</h3>
@@ -79,8 +77,9 @@
             <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
         </div>
 
-        <!-- Modal -->
+        <!-- MODAL -->
         <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="role-select-modal" aria-hidden="true">
+
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -100,6 +99,10 @@
                         <button type="submit" class="btn btn-primary">Confirmar</button>
                     </div>
                 </div>
+            </div>
+
+            <div class="loading" *ngIf="loading">
+                <img class="logo" src="./assets/images/loading2.gif">
             </div>
         </div>
     </form>

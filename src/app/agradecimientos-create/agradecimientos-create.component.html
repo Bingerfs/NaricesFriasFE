@@ -23,8 +23,37 @@
         </div>
 
         <div id="buttons" class="d-flex justify-content-center col-sm-12 col-md-4 col-lg-3">
-            <button type="submit" class="btn btn-warning" value="Confirmar">Confirmar</button>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#confirmar" value="Confirmar">Aceptar</button>
             <button type="button" class="btn btn-secondary " (click)="goBack()">Cancelar</button>
+        </div>
+
+        <!-- MODAL -->
+        <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="role-select-modal" aria-hidden="true">
+
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="modal-basic-title">Aceptar</h4>
+                        <button #btnClose type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>¿Desea guardar los cambios realizados?</strong></p>
+                        <p>
+                            <span>(Puede editar esta información mas tarde)</span>
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading" *ngIf="loading">
+                <img class="logo" src="./assets/images/loading2.gif">
+            </div>
         </div>
     </form>
 
