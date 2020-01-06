@@ -86,17 +86,20 @@ export class AdoptadosCreateComponent implements OnInit
   submitForm() {
     if (this.form.get('edad').value==null|| this.form.get('edad').value==undefined|| this.form.get('edad').value==''){
       alert('La edad es requerida');
+      this.btnClose.nativeElement.click();
     }
     else if (this.form.get('tamagno').value==null|| this.form.get('tamagno').value==undefined|| this.form.get('tamagno').value==''){
       alert('El tamaño es requerido');
+      this.btnClose.nativeElement.click();
     }
     else if (this.form.get('telefono').value==null|| this.form.get('telefono').value==undefined|| this.form.get('telefono').value==''){
       alert('El telefono es requerido');
+      this.btnClose.nativeElement.click();
     }
     else{
       console.log(this.form.value);
       this.loading = true;
-      this.btnClose.nativeElement.click();
+     
       var formData: any = new FormData();
       if(this.form.get('picture').value !=null)
       {
@@ -115,6 +118,7 @@ export class AdoptadosCreateComponent implements OnInit
           console.log(r);
           this.loading = false;
           this.router.navigateByUrl('/adoptados');
+          this.btnClose.nativeElement.click();
         })
       }
       else
@@ -123,6 +127,7 @@ export class AdoptadosCreateComponent implements OnInit
             (r)=>{
               console.log(r);
               this.router.navigateByUrl('/adoptados');
+              this.btnClose.nativeElement.click();
             });
       }
 
