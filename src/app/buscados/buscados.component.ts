@@ -14,7 +14,7 @@ export class BuscadosComponent implements OnInit {
   selectedBuscado: Buscado;
   Edad: string;
 
-  constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
+  constructor(public apiService:ApiService, public tokenService: AngularTokenService) { }
 
   ngOnInit() {
     this.Edad = "Cachorro";

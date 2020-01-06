@@ -14,7 +14,7 @@
             <div class="row img-thumbnail">
                 <div id="image" class="col-lg-6 mx-auto ">
                     <!-- <img class="border" class="img-fluid mx-auto d-block" src="{{imgURL}}" alt="profile-picture"> -->
-                    <img class="border" class="img-fluid center rounded" src="http://localhost:3000/apadrinados/{{apadrinamiento.id}}/download" />
+                    <img class="border" class="img-fluid center rounded" src="https://idrkman.herokuapp.com/apadrinados/{{apadrinamiento.id}}/download" />
                     <div *ngIf="tokenService.userSignedIn()">
                         <button type="button" class="btn btn-light" (click)="edit(apadrinamiento.id)">
                             <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar

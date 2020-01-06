@@ -33,7 +33,7 @@ export class EventosComponent implements OnInit
   public mesElegido: Mes = Mes.Enero;
   public mesMostrar: string = Mes[this.mesElegido];
   
-  constructor(public apiService: ApiService , public router: Router,private tokenService: AngularTokenService, private modalService: NgbModal) {
+  constructor(public apiService: ApiService , public router: Router,public tokenService: AngularTokenService, private modalService: NgbModal) {
     // this.calendario = {};
     // this.calendario.meses = [];
   }

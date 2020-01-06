@@ -23,7 +23,7 @@ export class AdoptadoDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private tokenService:AngularTokenService, 
+    public tokenService:AngularTokenService, 
     private apiService:ApiService, 
     private router:Router, 
     private location: Location,

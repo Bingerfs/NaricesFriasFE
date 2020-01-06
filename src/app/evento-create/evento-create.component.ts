@@ -52,10 +52,10 @@ export class EventoCreateComponent implements OnInit {
             this.form.get("descripcion").setValue(data.descripcion);
             
             this.evento = data;
-            this.imgURL = `http://localhost:3000/calendarios/${data.id}/download`;
 
-            // this.fechaCargada = this.datepipe.transform(this.evento.fecha, 'yyyy-MM-dd', 'UTC', 'es');
-            // this.horaCargada = this.datepipe.transform(this.evento.hora, 'HH:mm', 'UTC', 'es');
+            this.imgURL = `https://idrkman.herokuapp.com/calendarios/${data.id}/download`;
+            // console.log(data);
+            // this.evento = data;
           });
       }
       else

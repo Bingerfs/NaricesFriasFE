@@ -19,9 +19,9 @@ export class AdoptadosComponent implements OnInit
   public adoptadosBackup: Array<Adoptado>;
   public selectedAdoptado: Adoptado;
   public imgURL: string = './assets/images/DogProfile.png';
-  constructor(public apiService:ApiService, private tokenService: AngularTokenService) {
-    
-   }
+
+  constructor(public apiService:ApiService, public tokenService: AngularTokenService) { }
+
 
   ngOnInit() {
   

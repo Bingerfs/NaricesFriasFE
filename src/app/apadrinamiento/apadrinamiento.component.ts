@@ -20,7 +20,7 @@ export class ApadrinamientoComponent implements OnInit
   closeResult: string;
   public imgURL: string = './assets/images/DogProfile.png';
   constructor(public apiService:ApiService, 
-    private tokenService: AngularTokenService, 
+    public tokenService: AngularTokenService, 
     private router:Router,
     private modalService: NgbModal) { }
 

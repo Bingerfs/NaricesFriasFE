@@ -48,7 +48,7 @@ export class ApadrinamientoCreateComponent implements OnInit {
                 this.form.get("description").setValue(data.description);
                 this.form.get("id").setValue(data.id);
                 this.apadrinado = data;
-                this.imgURL = `http://localhost:3000/apadrinados/${data.id}/download`;
+                this.imgURL = `https://idrkman.herokuapp.com/apadrinados/${data.id}/download`;
             });
             
         }
