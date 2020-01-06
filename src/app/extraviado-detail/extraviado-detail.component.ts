@@ -18,7 +18,7 @@ export class ExtraviadoDetailComponent implements OnInit {
   public extraviado: Extraviado;
   constructor(
     private route: ActivatedRoute,
-    private tokenService:AngularTokenService, 
+    public tokenService:AngularTokenService, 
     private apiService:ApiService, 
     private router:Router, 
     private location: Location

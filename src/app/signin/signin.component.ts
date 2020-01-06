@@ -21,7 +21,7 @@ export class SigninComponent implements OnInit {
 
 
 
-  constructor(private router: Router, private tokenService: AngularTokenService, private modalService: NgbModal) { }
+  constructor(private router: Router, public tokenService: AngularTokenService, private modalService: NgbModal) { }
 
   ngOnInit() {
     

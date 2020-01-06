@@ -17,7 +17,7 @@ export class BuscadoDetailComponent implements OnInit {
   public buscado: Buscado;
   constructor(
     private route: ActivatedRoute,
-    private tokenService:AngularTokenService, 
+    public tokenService:AngularTokenService, 
     private apiService:ApiService, 
     private router:Router, 
     private location: Location

@@ -9,8 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  API_URL : string = "http://localhost:3000/"
-  API_EMAIL_SENDER: string = "http://localhost:7002/"
+  API_URL : string = "https://idrkman.herokuapp.com/"
+  API_EMAIL_SENDER: string = "https://narices-email.herokuapp.com/"
   API_TRANSLATE: string = "https://translate.yandex.net/api/v1.5/tr.json/translate"
 
   constructor(public http: HttpClient) { }

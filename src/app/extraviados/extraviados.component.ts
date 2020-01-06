@@ -15,7 +15,7 @@ export class ExtraviadosComponent implements OnInit {
   selectedExtraviado: Extraviado;
   Edad: string;
 
-  constructor(public apiService:ApiService, private tokenService: AngularTokenService) { }
+  constructor(public apiService:ApiService, public tokenService: AngularTokenService) { }
 
   ngOnInit() {
     this.Edad = "Cachorro";
