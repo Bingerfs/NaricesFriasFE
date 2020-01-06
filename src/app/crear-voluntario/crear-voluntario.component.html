@@ -7,64 +7,66 @@
         <hr>
     </div>
 
-    <div class="row custom-row">
-        <div class="col-sm my-auto align-middle">
+    <div class="row">
+        <div class="col-sm my-auto align-middle  justify-content-center ">
             <div class="box h-100 d-flex justify-content-center ">
-                <img class="img-fluid w-100 h-auto" src="./assets/images/logo.jpg" />
+
+                <img class="img-fluid" src="./assets/images/logo.jpg" />
             </div>
         </div>
-        <div class="col-sm h-100 align-middle">
-            <div class="row justify-content-center ">
-                <div class="col-8 my-auto">
-                    <form (ngSubmit)="onSubmitSign()">
-                        <div class="form-group">
-                            <label for="login">Email:</label>
-                            <br/>
-                            <input type="text" class="form-control nes-input" name="login" id="login" required [(ngModel)]="signUpUser.login" name="login">
-                            <br/>
+        <div class="col-lg-6 align-self-center">
+            <form (ngSubmit)="onSubmitSign()" class=" justify-content-center ">
+                <div class="form-group">
+                    <label for="login">Email:</label>
+                    <br/>
+                    <input type="text" class="form-control nes-input" name="login" id="login" required [(ngModel)]="signUpUser.login" name="login">
+                    <br/>
+<!----->
 
-                            <label for="name">Nombre:</label>
-                            <br/>
+                    <label for="name">Nombre:</label>
+                    <br/>
 
-                            <input type="text" class="form-control nes-input" name="name" id="name" required [(ngModel)]="signUpUser.name" name="name">
-                            <br/>
+                    <input type="text" class="form-control nes-input" name="name" id="name" required [(ngModel)]="signUpUser.name" name="name">
+                    <br/>
 
-                            <label for="telefono">Telefono:</label>
-                            <br/>
+                    <label for="telefono">Telefono:</label>
+                    <br/>
 
-                            <input type="text" class="form-control nes-input" name="telefono" id="telefono" required [(ngModel)]="signUpUser.telefono" name="telefono">
-                            <br/>
+                    <input type="text" class="form-control nes-input" name="telefono" id="telefono" required [(ngModel)]="signUpUser.telefono" name="telefono">
+                    <br/>
 
-                            <label for="password">Contraseña:</label>
-                            <br/>
+                    <label for="password">Contraseña:</label>
+                    <br/>
 
-                            <input type="password" class="form-control nes-input" name="password" id="password" required [(ngModel)]="signUpUser.password" name="password">
-                            <br/>
+                    <input type="password" class="form-control nes-input" name="password" id="password" required [(ngModel)]="signUpUser.password" name="password">
+                    <br/>
 
-                            <label for="password_confirmation">Confirmar Contraseña:</label>
-                            <br/>
+                    <label for="password_confirmation">Confirmar Contraseña:</label>
+                    <br/>
 
-                            <input type="password" class="form-control nes-input" name="password_confirmation" id="password_confirmation" required [(ngModel)]="signUpUser.passwordConfirmation" name="password_confirmation">
-                            <br/>
+                    <input type="password" class="form-control nes-input" name="password_confirmation" id="password_confirmation" required [(ngModel)]="signUpUser.passwordConfirmation" name="password_confirmation">
+                    <br/>
 
-                            <ng-container>
-                                <div class="alert" *ngFor="let error of errors">
-                                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                                    <strong> {{error}}</strong>
-                                </div>
-
-                            </ng-container>
-
-
-
-                            <div>
-                                
-                                <input type="submit" class="btn btn-primary" value="Registrar" />
-                            </div>
+                    <ng-container>
+                        <div class="alert" *ngFor="let error of errors">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <strong> {{error}}</strong>
                         </div>
-                    </form>
+
+                    </ng-container>
+
+
+
+
+                    <div>
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Registrar" />
+                    </div>
+
                 </div>
-            </div>
+            </form>
+
+
         </div>
     </div>
 

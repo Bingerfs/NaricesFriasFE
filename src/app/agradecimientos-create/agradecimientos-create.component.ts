@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
@@ -17,6 +17,8 @@ export class AgradecimientosCreateComponent implements OnInit {
   public agradecimiento: Agradecimiento = new Agradecimiento();
   public imgURL: string;
   public fileToUpload : File =null;
+  public loading : Boolean;
+  @ViewChild('btnClose') btnClose : ElementRef ;
 
   constructor(
     public fb: FormBuilder,
@@ -69,6 +71,12 @@ export class AgradecimientosCreateComponent implements OnInit {
   }
 
   submitForm() {
+    if (this.form.get('description').value==null|| this.form.get('description').value==undefined|| this.form.get('description').value==''){
+      alert('La historia es requerida');
+      this.btnClose.nativeElement.click();
+    }
+    else{
+    this.loading = true;
     var formData: any = new FormData();
     if(this.form.get('picture').value !=null)
     {
@@ -81,7 +89,9 @@ export class AgradecimientosCreateComponent implements OnInit {
     if(this.agradecimiento.id){
       this.apiService.update("agradecimientos/"+this.agradecimiento.id,formData).subscribe((r)=>{
         console.log(r);
+        this.loading = false;
         this.router.navigateByUrl('/agradecimientos');
+        this.btnClose.nativeElement.click();
       })
     }
     else
@@ -89,8 +99,11 @@ export class AgradecimientosCreateComponent implements OnInit {
         this.apiService.create("agradecimientos", formData).subscribe(
           (r)=>{
             console.log(r);
+            this.loading = false;
             this.router.navigateByUrl('/agradecimientos');
+            this.btnClose.nativeElement.click();
           });
+    }
     }
   }
   goBack(): void

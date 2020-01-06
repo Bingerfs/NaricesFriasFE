@@ -32,6 +32,7 @@ import { EventoCreateComponent } from './evento-create/evento-create.component';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 registerLocaleData(localeEs, 'es');
+import { DatePipe } from '@angular/common';
 
 import { ListaVoluntariosComponent } from './voluntario/lista-voluntarios/lista-voluntarios.component';
 import { BuscadosCreateComponent } from './buscados-create/buscados-create.component';
@@ -92,7 +93,7 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   exports: [HomeComponent],
   // providers: [ApiService, AngularTokenModule, { provide: LOCALE_ID, useValue: 'es' }],
-  providers: [ApiService, AngularTokenModule],
+  providers: [ApiService, AngularTokenModule, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

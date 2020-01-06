@@ -44,6 +44,7 @@ export class AgradecimientosComponent implements OnInit {
     this.apiService.delete(path).subscribe(
       (r)=>{
             console.log(r);
+            window.location.reload();
             this.router.navigateByUrl('/agradecimientos');
       }
     );

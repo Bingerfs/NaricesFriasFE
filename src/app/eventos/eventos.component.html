@@ -15,40 +15,42 @@
     </div>
     <div class="row">
         <!-- <div class="col-sm align-center"> -->
-        <div class="col-md-12 col-lg-6">
-            <label for="sel">Seleccione el mes</label><br>
+        <div id="lista" class="col-md-12 col-lg-6">
+            <div>Seleccionar mes del evento</div>
+            <hr>
+            <!-- <label for="sel">Seleccione el mes</label><br> -->
             <!-- <button type="button" class="btn btn-warning" value="Confirmar" routerLink="/crearEvento/">Registrar</button> -->
             <select class="custom-select" id="sel" name="mesSelect" [(ngModel)]="mesElegido" (change)="filtrarEventos($event.target.value)">
             <!-- <option selected> -------------Seleccione el mes------------- </option> -->
-            <option [value]="0">Enero</option>
-            <option [value]="1">Febrero</option>
-            <option [value]="2">Marzo</option>
-            <option [value]="3">Abril</option>
-            <option [value]="4">Mayo</option>
-            <option [value]="5">Junio</option>
-            <option [value]="6">Julio</option>
-            <option [value]="7">Agosto</option>
-            <option [value]="8">Septiembre</option>
-            <option [value]="9">Octubre</option>
-            <option [value]="10">Noviembre</option>
-            <option [value]="11">Diciembre</option>
-        </select>
-
-
+                    <option [value]="0">Enero</option>
+                    <option [value]="1">Febrero</option>
+                    <option [value]="2">Marzo</option>
+                    <option [value]="3">Abril</option>
+                    <option [value]="4">Mayo</option>
+                    <option [value]="5">Junio</option>
+                    <option [value]="6">Julio</option>
+                    <option [value]="7">Agosto</option>
+                    <option [value]="8">Septiembre</option>
+                    <option [value]="9">Octubre</option>
+                    <option [value]="10">Noviembre</option>
+                    <option [value]="11">Diciembre</option>
+             </select>
             <ul class="heroes">
-                <h2>{{mesMostrar}}</h2>
+                <h3>{{mesMostrar}}</h3>
+                <hr>
                 <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" (click)="onSelect(evento)">
                     <!-- <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" > -->
                     <!-- <span class="badge">{{evento.fecha}}</span> {{evento.titulo}} -->
-                    <span class="badge">{{evento.fecha | date: 'dd':'UTC':'es'}}</span>
-                    <span clas="titulo"> {{evento.titulo}} </span>
-
-                    <button type="button" class="btn btn-light" (click)="update(evento['id'])">
-                        <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
-                    </button>
-                    <button type="button" class="btn btn-light" (click)="open(content)">
-                        <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
-                    </button>
+                    <div class="badge">{{evento.fecha | date: 'dd':'UTC':'es'}}</div>
+                    <div class="titulo"> {{evento.titulo}} <span class="but">
+                        <button type="button" class="btn btn-light" (click)="update(evento['id'])" *ngIf="tokenService.userSignedIn()">
+                            <img class="icon" src="../../assets/images/edit.png" alt="edit icon">
+                        </button>
+                        <button type="button" class="btn btn-light" (click)="open(content)" *ngIf="tokenService.userSignedIn()">
+                            <img class="icon" src="../../assets/images/delete.png" alt="delete icon">
+                        </button>
+                         
+                    </span> </div>
                     <!-- <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
                         <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
                     </button> -->
@@ -74,6 +76,7 @@
 
 
                 </li>
+
             </ul>
         </div>
 
@@ -85,4 +88,3 @@
     </div>
 
 </div>
-

@@ -24,8 +24,11 @@ export class EventosComponent implements OnInit
   // calendario: any;
 
   selectedEvento: Evento;
-  public eventos: Array<Evento>;
-  public eventosOriginales: Array<Evento>;
+  eventoVacio: Evento;
+  // eventoVacio = {} as Evento;
+  public eventos: Evento[];
+  // public eventos: Array<Evento>;
+  public eventosOriginales: Evento[];
   public eventosMostrar: Evento[] = [];
   public mesElegido: Mes = Mes.Enero;
   public mesMostrar: string = Mes[this.mesElegido];
@@ -40,14 +43,18 @@ export class EventosComponent implements OnInit
   }
 
   ngOnInit() {
+    this.initEvents();
+  }
+
+  initEvents(){
     this.apiService.getEventos("calendarios").subscribe((data: Evento[]) => {
-      console.log(data);
-      this.eventos = data;
-      this.sortByDueDate();
-      this.eventosOriginales= this.eventos;
-      console.log(this.mesElegido);
-      console.log(Mes[0]);
-      this.filtrarEventos(this.mesElegido);
+    console.log(data);
+    this.eventos = data;
+    this.sortByDueDate();
+    this.eventosOriginales= this.eventos;
+    console.log(this.mesElegido);
+    console.log(Mes[0]);
+    this.filtrarEventos(this.mesElegido);
     });
   }
 
@@ -62,12 +69,16 @@ export class EventosComponent implements OnInit
         }
         return true;} ,this.eventos )
     } );
+    // this.selectedEvento = this.eventoVacio;
+    this.selectedEvento = this.eventoVacio;
   }
 
   public update(id:string){
       console.log("update : " + id );
       // this.router.navigateByUrl('/eventos/add/' + id);
       this.router.navigateByUrl('/crearEvento/' + id);
+      // this.initEvents();
+      console.log("Evento Actualizado");
   }
 
   filtrarEventos(value: number) : void{
@@ -101,6 +112,7 @@ export class EventosComponent implements OnInit
       }
     }
   }*/
+
   closeResult: string;
 
   open(content) {
@@ -111,7 +123,7 @@ export class EventosComponent implements OnInit
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';

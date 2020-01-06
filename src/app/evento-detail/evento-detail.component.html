@@ -15,14 +15,15 @@
         <!-- <b>Lugar: </b> -->
         <span> {{evento.lugar}} </span>
     </div>
+
     <img class="img-fluid center" src="https://idrkman.herokuapp.com/calendarios/{{evento.id}}/download" />
+
     <div class="datos">
         <div id="etiqueta">Detalles: </div>
         {{evento.descripcion}}
     </div>
 
     <div>
-
         <!-- <div *ngIf="tokenService.userSignedIn()">
             <button type="button" class="btn btn-light" (click)="edit(adoptado.id)">
                 <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
@@ -34,8 +35,11 @@
     </div>
 
 </div>
+
 <ng-template #photo>
-    <img src="../../assets/images/logo.jpg" class="profile" alt="">
+    <!-- <img src="../../assets/images/logo.jpg" class="profile" alt=""> -->
+    <img class="img-fluid center d-none d-md-block d-lg-block d-xl-block" src="./assets/images/logo.jpg" />
+
 </ng-template>
 
 <!-- <button type="button" class="btn btn-light" (click)="mostrar()">

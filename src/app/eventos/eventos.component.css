@@ -1,8 +1,9 @@
 /* HeroesComponent's private CSS styles */
+
 .heroes {
     margin: 0 0 2em 0;
     list-style-type: none;
-    padding: 3em 4em 0em 4em;
+    padding: 1em 0em 0em 0em;
     width: 100%;
 }
 
@@ -13,8 +14,23 @@
     background-color: #EEE;
     margin: .5em;
     padding: .3em 0;
-    height: 3em;
+    /* height: 3em; */
     border-radius: 4px;
+}
+
+.heroes .badge {
+    display: inline-block;
+    font-size: large;
+    color: white;
+    /* padding: 0.8em 0.7em 0 0.7em; */
+    background-color: #405061;
+    line-height: 1em;
+    position: relative;
+    left: -1px;
+    top: -4px;
+    /* height: 2.7em; */
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
 }
 
 .heroes li:hover {
@@ -33,21 +49,6 @@
     color: white;
 }
 
-.heroes .badge {
-    display: inline-block;
-    font-size: large;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #405061;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 2.7em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-}
-
 button {
     /* background-color: #eee; */
     border: none;
@@ -63,32 +64,75 @@ button:hover {
 }
 
 button.delete {
-    /* position: relative; */
+    /* position: relative;
     left: 194px;
-    top: -32px;
+    top: -32px; */
     background-color: gray !important;
     color: white;
 }
 
 button.edit {
-    position: relative;
+    /* position: relative;
     left: 194px;
-    top: -32px;
+    top: 0px; */
     background-color: gray !important;
     color: white;
 }
 
-h2 {
-    text-align: left;
+ul h3 {
+    text-align: center;
     margin-left: 5px;
-    padding-bottom: 10px;
     padding-top: 10px;
+    margin-bottom: 0px;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+ul hr {
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .icon {
     width: 15px;
     vertical-align: middle;
     padding: 1px;
+}
+
+.row {
+    margin-top: 0;
+}
+
+#lista {
+    margin-top: 0;
+    background-color: rgba(235, 235, 235, 0.2);
+    border-radius: 5px;
+}
+
+select {
+    display: inline;
+    margin-top: 20px;
+    margin-left: auto;
+}
+
+.badge {
+    float: left;
+}
+
+.titulo {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+.but {
+    float: right;
+    /* display: inline-block; */
 }
 
 
@@ -100,7 +144,7 @@ h2 {
 
 #eventos-title {
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 img.logo {
@@ -161,12 +205,9 @@ input {
 }
 
 .heroes button {
-    float: right;
+    /* float: right; */
     margin-right: 5px;
 }
-
-
-
 
 
 /* .heroes li.titulo {

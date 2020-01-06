@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
@@ -18,6 +18,8 @@ export class ApadrinamientoCreateComponent implements OnInit {
   public apadrinado: Apadrinamiento = new Apadrinamiento();
   public imgURL: string;
   public fileToUpload : File =null;
+  public loading: Boolean;
+  @ViewChild('btnClose') btnClose : ElementRef ;
 
   constructor(
     public fb: FormBuilder,
@@ -72,6 +74,16 @@ export class ApadrinamientoCreateComponent implements OnInit {
   }
 
   submitForm() {
+if (this.form.get('name').value==null|| this.form.get('name').value==undefined|| this.form.get('name').value==''){
+      alert('El nombre es requerido');
+      this.btnClose.nativeElement.click();
+    }
+    else if (this.form.get('description').value==null|| this.form.get('description').value==undefined|| this.form.get('description').value==''){
+      alert('La historia es requerida');
+      this.btnClose.nativeElement.click();
+    }
+    else{
+    this.loading = true;
     var formData: any = new FormData();
     if(this.form.get('picture').value !=null)
     {
@@ -84,7 +96,9 @@ export class ApadrinamientoCreateComponent implements OnInit {
     if(this.apadrinado.id){
       this.apiService.update("apadrinados/"+this.apadrinado.id,formData).subscribe((r)=>{
         console.log(r);
+        this.loading = false;
         this.router.navigateByUrl('/apadrinamientos');
+        this.btnClose.nativeElement.click();
       })
     }
     else
@@ -92,8 +106,11 @@ export class ApadrinamientoCreateComponent implements OnInit {
         this.apiService.create("apadrinados", formData).subscribe(
           (r)=>{
             console.log(r);
+            this.loading = false;
             this.router.navigateByUrl('/apadrinamientos');
+            this.btnClose.nativeElement.click();
           });
+    }
     }
   }
   goBack(): void

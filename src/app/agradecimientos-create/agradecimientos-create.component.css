@@ -1,5 +1,6 @@
 .container {
     margin-top: 10px;
+    position: relative;
 }
 
 #agradecimientos-title {
@@ -11,6 +12,10 @@ img.logo {
     position: absolute;
     max-width: 80px;
     right: 0;
+}
+
+.modal-content {
+    position: relative;
 }
 
 img.perfil {
@@ -38,6 +43,12 @@ img.profile {
 
 textarea {
     height: 350px;
+}
+
+.loading {
+    position: absolute;
+    top: 48%;
+    right: 48%;
 }
 
 .form-group {

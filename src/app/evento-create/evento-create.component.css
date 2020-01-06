@@ -28,12 +28,13 @@ img.perfil {
 }
 
 button {
-    margin: 1px;
+    margin: 2px;
+    margin-top: 10px;
 }
 
 img.profile {
     padding: 10px;
-    max-width: 100%;
+    max-width: 90%;
 }
 
 .limit {
@@ -66,12 +67,12 @@ input {
     }
 }
 
-.etiqueta{
+.etiqueta {
     font-weight: bold;
     font-size: 20px;
 }
 
-.loading{
+.loading {
     position: absolute;
     top: 48%;
     right: 48%;

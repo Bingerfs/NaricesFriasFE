@@ -38,6 +38,9 @@ export class ApadrinamientoComponent implements OnInit
   onSelect(apadrinamiento: Apadrinamiento): void{
     this.selectedApadrinamiento = apadrinamiento;
   }
+  
+   
+
 
 
   delete(id:any){
@@ -45,7 +48,9 @@ export class ApadrinamientoComponent implements OnInit
     this.apiService.delete(path).subscribe(
       (r)=>{
             console.log(r);
+            window.location.reload();
             this.router.navigateByUrl('/apadrinamientos');
+           
       }
     );
     
@@ -70,7 +75,8 @@ export class ApadrinamientoComponent implements OnInit
   edit(id:any){
     this.router.navigate(['/crearApadrinamiento', id]);
   }
-
+ 
+  
   
 
   
