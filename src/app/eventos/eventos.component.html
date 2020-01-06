@@ -40,19 +40,18 @@
                 <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" (click)="onSelect(evento)">
                     <!-- <li *ngFor="let evento of eventos" [class.selected]="evento === selectedEvento" > -->
                     <!-- <span class="badge">{{evento.fecha}}</span> {{evento.titulo}} -->
-                    <span class="badge">{{evento.fecha | date: 'dd'}}</span>
+                    <span class="badge">{{evento.fecha | date: 'dd':'UTC':'es'}}</span>
                     <span clas="titulo"> {{evento.titulo}} </span>
 
                     <button type="button" class="btn btn-light" (click)="update(evento['id'])">
                         <img class="icon" src="../../assets/images/edit.png" alt="edit icon"> Editar
                     </button>
-                    <!-- <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
-                        <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
-                    </button> -->
                     <button type="button" class="btn btn-light" (click)="open(content)">
                         <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
                     </button>
-
+                    <!-- <button type="button" class="btn btn-light" (click)="delete(evento['id'])">
+                        <img class="icon" src="../../assets/images/delete.png" alt="delete icon"> Eliminar
+                    </button> -->
 
                     <ng-template #content let-modal>
                         <div class="modal-header">

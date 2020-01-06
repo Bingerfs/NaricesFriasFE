@@ -6,14 +6,14 @@
     </div>
 
     <div class="datos">
-        <img class="icon" src="../../assets/images/place.png" alt="edit icon">
-        <!-- <b>Lugar: </b> -->
-        <span> {{evento.lugar}} </span>
-
         <img class="icon" src="../../assets/images/time.png" alt="edit icon">
         <!-- {{evento.fecha | date:'fullDate':'UTC':'es' }} a las {{evento.hora | date:'shortTime':'UTC'}} -->
         <!-- {{evento.fecha | date:'EEEE, MMMM d, y':'UTC':'es' | titlecase}} a las {{evento.hora | date:'shortTime':'UTC'}} -->
         {{evento.fecha | date:'EEEE':'UTC':'es'| titlecase}} {{evento.fecha | date:'longDate':'UTC':'es' }} a las {{evento.hora | date:'shortTime':'UTC'}}
+        <br>
+        <img class="icon" src="../../assets/images/place.png" alt="edit icon">
+        <!-- <b>Lugar: </b> -->
+        <span> {{evento.lugar}} </span>
     </div>
     <img class="img-fluid center" src="https://idrkman.herokuapp.com/calendarios/{{evento.id}}/download" />
     <div class="datos">
